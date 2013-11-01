@@ -1,22 +1,23 @@
 Things I reference:
 
 ####Language/Literature/Linguistics
+* [Lost in the Meritocracy](http://www.theatlantic.com/magazine/archive/2005/01/lost-in-the-meritocracy/303672/) | Walter Kirn
+* [How Does Our Language Shape the Way We Think?](http://edge.org/conversation/how-does-our-language-shape-the-way-we-think) | Edge
+* [Steven Pinker on Writing](http://thewritingcode.com/pdfs/PinkerTranscript.pdf) | Steven Pinker
+* [Is the Web Selecting for Copiers Over Creators?](http://dotearth.blogs.nytimes.com/2011/12/15/is-the-web-selecting-for-copiers-over-creators/) | NYTimes Blog
+* [The Future of Ephemeral Conversation](https://www.schneier.com/blog/archives/2008/11/the_future_of_e.html) | Bruce Schneier
+* [The Internet Is a Surveillance State](https://www.schneier.com/essay-418.html) | Bruce Schneier
 * [Ain’t No Reason](http://the-magazine.org/12/aint-no-reason) | The Magazine
-* [American English Dialects]()
+* [The Spark File](https://medium.com/the-writers-room/8d6e7df7ae58) | Steven Johnson
 * [The pun conundrum](http://www.bbc.co.uk/news/magazine-21011778) | BBC
 * [Can Computers Be Funny?](http://www.nytimes.com/2013/01/06/opinion/sunday/can-computers-be-funny.html) | NYTimes
-* [Crunching Literary Numbers](http://www.nytimes.com/2013/07/14/opinion/sunday/crunching-literary-numbers.html) | NYTimes
-* [How Does Our Language Shape the Way We Think?](http://edge.org/conversation/how-does-our-language-shape-the-way-we-think) | Edge
-* [Humanities Scholars Embrace Digital Technology](http://www.nytimes.com/2010/11/17/arts/17digital.html?pagewanted=all) | NYTimes
-* [Is the Web Selecting for Copiers Over Creators?](http://dotearth.blogs.nytimes.com/2011/12/15/is-the-web-selecting-for-copiers-over-creators/) | NYTimes Blogs
-* [Steven Pinker on Writing](http://thewritingcode.com/pdfs/PinkerTranscript.pdf) | Steven Pinker
 * ['Bridezilla' Is Not a Pun and You Are Not Clever](http://www.slate.com/articles/life/the_good_word/2013/03/chillax_wikipedia_and_bridezilla_are_not_puns_against_adjoinages.html) | Slate
-* [The Future of Ephemeral Conversation](https://www.schneier.com/blog/archives/2008/11/the_future_of_e.html) | Bruce Schneier's Blog
-* [The Internet Is a Surveillance State](https://www.schneier.com/essay-418.html) | Bruce Schneier's Blog
-* [Next Big Thing in English: Knowing They Know That You Know ](http://www.nytimes.com/2010/04/01/books/01lit.html?pagewanted=all)  | NYTimes
-* [Lost in the Meritocracy](http://www.theatlantic.com/magazine/archive/2005/01/lost-in-the-meritocracy/303672/) | Walter Kirn
 * [Why Twitter Parody Accounts Should Stay Anonymous](http://www.newyorker.com/online/blogs/elements/2013/07/why-twitter-parody-accounts-should-stay-anonymous.html) | The New Yorker
-* [The Spark File](https://medium.com/the-writers-room/8d6e7df7ae58) | Steven Johnson
+* [Crunching Literary Numbers](http://www.nytimes.com/2013/07/14/opinion/sunday/crunching-literary-numbers.html) | NYTimes
+* [Humanities Scholars Embrace Digital Technology](http://www.nytimes.com/2010/11/17/arts/17digital.html?pagewanted=all) | NYTimes
+* [Next Big Thing in English: Knowing They Know That You Know ](http://www.nytimes.com/2010/04/01/books/01lit.html?pagewanted=all)  | NYTimes
+* [American English Dialects](http://aschmann.net/AmEng/)
+
 
 ####Bikes
 * [The Invention of Jaywalking](http://www.theatlanticcities.com/commute/2012/04/invention-jaywalking/1837/) | The Atlantic Cities
@@ -46,8 +47,8 @@ Things I reference:
 * [Your Brain on Computers: Attached to Technology and Paying a Price](http://nytimes.com/2010/06/07/technology/07brain.html?pagewanted%3Dall) | NYTimes
 * [The Pest Who Shames Companies Into Fixing Security Flaws](http://www.wired.com/magazine/2011/11/mf_soghoian/) | Wired
 * [Why is programming fun](http://www.codecutter.net/fun/programmingfun.html) | Codecutter Blog
-* [Inspire Talk](https://www.evernote.com/shard/s10/sh/0580fed9-10ec-4ef6-8349-4b260ef8d257/a5264623e4234d6958727c0b67fa9512) | jzellis
-* [Talk about the problem not the solution](http://katgleason.tumblr.com/post/47257463324/talk-about-the-problem-not-the-solution) | Katelyn Gleason Blog
+* [Inspire Talk](https://www.evernote.com/shard/s10/sh/0580fed9-10ec-4ef6-8349-4b260ef8d257/a5264623e4234d6958727c0b67fa9512)
+* [Talk about the problem not the solution](http://katgleason.tumblr.com/post/47257463324/talk-about-the-problem-not-the-solution) | Katelyn Gleason
 * [Taking the Internet to the People](http://spectrum.ieee.org/computing/hardware/taking-the-internet-to-the-people) | IEEE Spectrum
 * [From Selling Scoops Of Ice Cream To Founding ZeroCater](http://techcrunch.com/2013/04/06/how-i-started-zerocater/) | TechCrunch
 
@@ -56,12 +57,12 @@ Things I reference:
 * [Breeding the Nutrition Out of Our Food](http://www.nytimes.com/2013/05/26/opinion/sunday/breeding-the-nutrition-out-of-our-food.html?pagewanted=all) | NYTimes
 * [Why American Eggs Would Be Illegal In A British Supermarket, And Vice Versa](http://www.forbes.com/sites/nadiaarumugam/2012/10/25/why-american-eggs-would-be-illegal-in-a-british-supermarket-and-vice-versa/) | Forbes
 * [Why Exercise Won't Make You Thin](http://content.time.com/time/magazine/article/0,9171,1914974,00.html) | TIME
-* [Good sleep, good learning, good life](http://www.supermemo.com/articles/sleep2000.htm) |
+* [Sleep: Reserarch, Charts, Myths](http://www.supermemo.com/articles/sleep2000.htm) | Supermemo
 * [Melatonin](http://www.gwern.net/Melatonin) | gwern.net
 * [The Nacho Dorito](http://www.nytimes.com/interactive/2013/10/01/dining/nacho-graphic.html) | NYTimes
 * [It’s a part of my paleo fantasy, it’s a part of my paleo dream](http://www.sciencebasedmedicine.org/its-a-part-of-my-paleo-fantasy-its-a-part-of-my-paleo-dream/) | Science-Based Medicine
 * [Spaced Repetition](http://www.gwern.net/Spaced%20repetition) | gwern.net
-* [Most Lives Are Lived by Default](http://www.raptitude.com/2012/07/most-lives-are-lived-by-default/) | Raptitude Blog
+* [Most Lives Are Lived by Default](http://www.raptitude.com/2012/07/most-lives-are-lived-by-default/) | Raptitude
 * [How To Be Happy Anywhere](http://www.martinlindstrom.com/fast-company-how-to-be-happy-anywhere/) | Fast Company
 
 ####Psychology
