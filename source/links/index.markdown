@@ -1,12 +1,11 @@
 ---
 layout: page
 title: "Things I reference"
-date: 2013-10-31 22:59:19
 comments: false
 categories:
 --- 
 
-####Language/Literature/Linguistics
+###Language/Literature/Linguistics
 * [Lost in the Meritocracy](http://www.theatlantic.com/magazine/archive/2005/01/lost-in-the-meritocracy/303672/) | Walter Kirn
 * [How Does Our Language Shape the Way We Think?](http://edge.org/conversation/how-does-our-language-shape-the-way-we-think) | Edge
 * [Steven Pinker on Writing](http://thewritingcode.com/pdfs/PinkerTranscript.pdf) | Steven Pinker
@@ -24,19 +23,16 @@ categories:
 * [Next Big Thing in English: Knowing They Know That You Know ](http://www.nytimes.com/2010/04/01/books/01lit.html?pagewanted=all)  | NYTimes
 * [American English Dialects](http://aschmann.net/AmEng/)
 
+###Longform/Nonfiction
+* [This is Water](http://youtu.be/M5THXa_H_N8) | David Foster Wallace
+* [Bill Watterson, Commencement Speech, Kenyon College, 1990](http://www.serverunderground.com/archive/bill_watterson.html)
+* [The Spectacular Thefts of Apollo Robbins, Pickpocket](http://www.newyorker.com/reporting/2013/01/07/130107fa_fact_green) | The New Yorker
+* [American Summer: Before Air-Conditioning](http://www.newyorker.com/archive/1998/06/22/1998_06_22_144_TNY_LIBRY_000015831) | The New Yorker
+* [The New French Hacker-Artist Underground](http://www.wired.com/magazine/2012/01/ff_ux/) | Wired
+* [The Professor, the Bikini Model and the Suitcase Full of Trouble](http://nytimes.com/2013/03/10/magazine/the-professor-the-bikini-model-and-the-suitcase-full-of-trouble.html?pagewanted%3Dall) | NYTimes
+* [The Atheist Who Strangled Me](http://www.theatlantic.com/magazine/archive/2013/05/the-atheist-who-strangled-me/309292/) | The Atlantic
 
-####Bikes
-* [The Invention of Jaywalking](http://www.theatlanticcities.com/commute/2012/04/invention-jaywalking/1837/) | The Atlantic Cities
-* [The Crisis in American Walking: How we got off the pedestrian path.](http://www.slate.com/articles/life/walking/2012/04/why_don_t_americans_walk_more_the_crisis_of_pedestrianism_.html) | Slate
-* [Cycling in the US from a Dutch perspective ](http://youtu.be/m2THe_10dYs) | Youtube
-* [The Dutch Way: Bicycles and Fresh Bread](http://nytimes.com/2011/07/31/opinion/sunday/the-dutch-way-bicycles-and-fresh-bread.html) | NYTimes
-* [Traffic Safety Improved by Eliminating Signs](http://www.radicaltrust.ca/2007/07/08/traffic-safety-improved-by-eliminating-signs/) | Radical Trust Blog
-* [Why the Streets of Copenhagen and Amsterdam Look So Different From Ours](http://www.theatlanticcities.com/commute/2012/04/why-streets-copenhagen-and-amsterdam-look-so-different-ours/1849/) | The Atlantic Cities
-* [Why Don't Young Americans Buy Cars?](http://www.theatlanticcities.com/technology/2012/08/young-people-arent-buying-cars-because-theyre-buying-smart-phones-instead/2873/) | The Atlantic Cities
-* [In 1897, a Bicycle Superhighway Was the Future of California Transit](http://motherboard.vice.com/blog/in-1897-a-bicycle-superhighway-was-the-future-of-california-transit) | Motherboard
-* [Bicycling Across the Country](http://www.travel.nytimes.com/2011/10/23/travel/bicycling-across-the-country-bruce-weber-reflects.html) | NYTimes
-
-####Science/Math
+###Science/Math
 * [Cargo Cult Science](http://neurotheory.columbia.edu/~ken/cargo_cult.html) | Richard Feynman
 * [Diederik Stapel’s Audacious Academic Fraud](http://nytimes.com/2013/04/28/magazine/diederik-stapels-audacious-academic-fraud.html?pagewanted%3Dall) | NYTimes
 * [Survival of the Wrongest](http://www.cjr.org/cover_story/survival_of_the_wrongest.php?page=all) | Columbia Journalism Review
@@ -45,7 +41,7 @@ categories:
 * [A tool that does suck dust](https://gist.github.com/stoutbeard/4158578 ) | Yasha Berchenko-Kogan
 * [Swarm Theory](http://ngm.nationalgeographic.com/2007/07/swarms/miller-text) | National Geographic
 
-####Code/Computers/Tech/Startups
+###Code/Computers/Tech
 * [Innovation and the Bell Labs Miracle](http://nytimes.com/2012/02/26/opinion/sunday/innovation-and-the-bell-labs-miracle.html?pagewanted=all) | NYTimes
 * [Wikileaks, Karl Marx and You](http://www.resilience.org/stories/2011-01-11/wikileaks-karl-marx-and-you) | Alistair Davidson
 * [Don't Call Yourself A Programmer, And Other Career Advice](http://www.kalzumeus.com/2011/10/28/dont-call-yourself-a-programmer/) | Patrick McKenzie
@@ -58,7 +54,7 @@ categories:
 * [Taking the Internet to the People](http://spectrum.ieee.org/computing/hardware/taking-the-internet-to-the-people) | IEEE Spectrum
 * [From Selling Scoops Of Ice Cream To Founding ZeroCater](http://techcrunch.com/2013/04/06/how-i-started-zerocater/) | TechCrunch
 
-####Food/Sleep/Life
+###Food/Sleep/Life
 * [Alt Text: The Science-y Search for Healthy Sugar Water](http://www.wired.com/underwire/2012/11/alt-text-healthy-sugar-water/) | Wired
 * [Breeding the Nutrition Out of Our Food](http://www.nytimes.com/2013/05/26/opinion/sunday/breeding-the-nutrition-out-of-our-food.html?pagewanted=all) | NYTimes
 * [Why American Eggs Would Be Illegal In A British Supermarket, And Vice Versa](http://www.forbes.com/sites/nadiaarumugam/2012/10/25/why-american-eggs-would-be-illegal-in-a-british-supermarket-and-vice-versa/) | Forbes
@@ -71,7 +67,7 @@ categories:
 * [Most Lives Are Lived by Default](http://www.raptitude.com/2012/07/most-lives-are-lived-by-default/) | Raptitude
 * [How To Be Happy Anywhere](http://www.martinlindstrom.com/fast-company-how-to-be-happy-anywhere/) | Fast Company
 
-####Psychology
+###Psychology
 * [Academic turns city into a social experiment](http://www.news.harvard.edu/gazette/2004/03.11/01-mockus.html) | Harvard Gazette
 * [McDonald’s Theory](https://medium.com/what-i-learned-building/9216e1c9da7d) | Medium
 * [Pareidolia: A Bizarre Bug of the Human Mind Emerges in Computers](http://www.theatlantic.com/technology/archive/2012/08/pareidolia-a-bizarre-bug-of-the-human-mind-emerges-in-computers/260760/) | The Atlantic
@@ -79,16 +75,18 @@ categories:
 * [Essentialism: A Conversation with Bruce Hood](http://www.edge.org/conversation/essentialism-) | Behavioral Psychology
 * [The Biology of Bubble and Crash](http://nytimes.com/2012/06/10/opinion/sunday/the-biology-of-bubble-and-crash.html?pagewanted=all) | NYTimes Op-Ed
 
-####Longform/Nonfiction
-* [This is Water](http://youtu.be/M5THXa_H_N8) | David Foster Wallace
-* [Bill Watterson, Commencement Speech, Kenyon College, 1990](http://www.serverunderground.com/archive/bill_watterson.html)
-* [The Spectacular Thefts of Apollo Robbins, Pickpocket](http://www.newyorker.com/reporting/2013/01/07/130107fa_fact_green) | The New Yorker
-* [American Summer: Before Air-Conditioning](http://www.newyorker.com/archive/1998/06/22/1998_06_22_144_TNY_LIBRY_000015831) | The New Yorker
-* [The New French Hacker-Artist Underground](http://www.wired.com/magazine/2012/01/ff_ux/) | Wired
-* [The Professor, the Bikini Model and the Suitcase Full of Trouble](http://nytimes.com/2013/03/10/magazine/the-professor-the-bikini-model-and-the-suitcase-full-of-trouble.html?pagewanted%3Dall) | NYTimes
-* [The Atheist Who Strangled Me](http://www.theatlantic.com/magazine/archive/2013/05/the-atheist-who-strangled-me/309292/) | The Atlantic
+###Bikes
+* [The Invention of Jaywalking](http://www.theatlanticcities.com/commute/2012/04/invention-jaywalking/1837/) | The Atlantic Cities
+* [The Crisis in American Walking: How we got off the pedestrian path.](http://www.slate.com/articles/life/walking/2012/04/why_don_t_americans_walk_more_the_crisis_of_pedestrianism_.html) | Slate
+* [Cycling in the US from a Dutch perspective ](http://youtu.be/m2THe_10dYs) | Youtube
+* [The Dutch Way: Bicycles and Fresh Bread](http://nytimes.com/2011/07/31/opinion/sunday/the-dutch-way-bicycles-and-fresh-bread.html) | NYTimes
+* [Traffic Safety Improved by Eliminating Signs](http://www.radicaltrust.ca/2007/07/08/traffic-safety-improved-by-eliminating-signs/) | Radical Trust Blog
+* [Why the Streets of Copenhagen and Amsterdam Look So Different From Ours](http://www.theatlanticcities.com/commute/2012/04/why-streets-copenhagen-and-amsterdam-look-so-different-ours/1849/) | The Atlantic Cities
+* [Why Don't Young Americans Buy Cars?](http://www.theatlanticcities.com/technology/2012/08/young-people-arent-buying-cars-because-theyre-buying-smart-phones-instead/2873/) | The Atlantic Cities
+* [In 1897, a Bicycle Superhighway Was the Future of California Transit](http://motherboard.vice.com/blog/in-1897-a-bicycle-superhighway-was-the-future-of-california-transit) | Motherboard
+* [Bicycling Across the Country](http://www.travel.nytimes.com/2011/10/23/travel/bicycling-across-the-country-bruce-weber-reflects.html) | NYTimes
 
-####etc
+###etc
 * [Transition](http://www.nytimes.com/video/opinion/100000001579773/transition.html) | NYTimes Op-Doc
 * [Leviathan](http://www.nytimes.com/movies/movie/470273/Leviathan/trailers) | Documentary Trailer
 * [Meet Mr. Money Mustache, the man who retired at 30](http://www.washingtonpost.com/business/meet-mr-money-mustache-the-man-who-retired-at-30/2013/04/26/71e3e6a8-acf3-11e2-a8b9-2a63d75b5459_print.html) | The Washington Post

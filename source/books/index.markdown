@@ -1,46 +1,45 @@
 ---
 layout: page
 title: "Books I've Read"
-date: 2013-10-31 22:59:19
 comments: false
 categories:
 --- 
 
-### 2013
+###2013
 * The Passionate Programmer [Chad Fowler]
 * The Defining Decade [Meg Jay]
 * Waiting for the Barbarians [J.M. Coetzee]
 * Middlemarch [George Eliot]
 * Norton Anthology: Middle Ages
 * Norton Anthology: Twentieth Century and After
- * The Prophet's Hair [Salman Rushdie]
- * Arcadia [Tom Stoppard]
- * One Out of Many [V. S. Naipaul]
- * Walker Brothers Cowboy [Alice Munro]
- * Things Fall Apart [Chinua Achebe]
- * The Dumb Waiter [Harold Pinter]
- * To Room Nineteen [Doris Lessing]
- * Decolonising the Mind [Ngugi Wa Thiongo'o]
- * Translations [Brian Friel]
- * Endgame [Samuel Beckett]
- * Shooting an Elephant [George Orwell]
- * Politics and the English Language [George Orwell]
- * The Day They Burned the Books [Jean Rhys]
- * Let Them Call It Jazz [Jean Rhys]
- * Odour of Chrysanthemums [D. H. Lawrence]
- * The Horse Dealer's Daughter [D. H. Lawrence]
- * Araby [James Joyce]
- * The Dead [James Joyce]
- * The Mark on the Wall [Virgina Woolf]
- * A Room of One's Own [Virgina Woolf]
- * The Other Boat [E. M. Forster]
- * Heart of Darkness [Joseph Conrad]
- * On the Western Circuit [Thomas Hardy]
+  * The Prophet's Hair [Salman Rushdie]
+  * Arcadia [Tom Stoppard]
+  * One Out of Many [V. S. Naipaul]
+  * Walker Brothers Cowboy [Alice Munro]
+  * Things Fall Apart [Chinua Achebe]
+  * The Dumb Waiter [Harold Pinter]
+  * To Room Nineteen [Doris Lessing]
+  * Decolonising the Mind [Ngugi Wa Thiongo'o]
+  * Translations [Brian Friel]
+  * Endgame [Samuel Beckett]
+  * Shooting an Elephant [George Orwell]
+  * Politics and the English Language [George Orwell]
+  * The Day They Burned the Books [Jean Rhys]
+  * Let Them Call It Jazz [Jean Rhys]
+  * Odour of Chrysanthemums [D. H. Lawrence]
+  * The Horse Dealer's Daughter [D. H. Lawrence]
+  * Araby [James Joyce]
+  * The Dead [James Joyce]
+  * The Mark on the Wall [Virgina Woolf]
+  * A Room of One's Own [Virgina Woolf]
+  * The Other Boat [E. M. Forster]
+  * Heart of Darkness [Joseph Conrad]
+  * On the Western Circuit [Thomas Hardy]
 * Norton Anthology: Victorian Age
 * Les Miserables [Victor Hugo]
 * Getting to Yes [Roger Fisher]
 
-### 2012
+###2012
 * The Agony and the Ecstacy [Irving Stone]
 * The Elemental Particles [Michael Houellebecq]
 * The Map and the Territory [Michael Houellebecq]
@@ -65,7 +64,7 @@ categories:
 * The Shallows: What the Internet is doing to our brains [Nicholas Carr]
 * Freakonomics [Steven D. Levitt, et al.]
 
-### 2011
+###2011
 * The Handmaid's Tale [Margaret Attwood]
 * If on a Winter's night a Traveler [Italo Calvino]
 * Life and Times of Michael K [J. M. Coetzee]

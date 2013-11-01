@@ -1,11 +1,11 @@
 ---
 layout: page
 title: "More Books"
-date: 2013-10-31 22:59:19
 comments: false
-external-url:
 categories:
 ---
+
+As best as I can remember...
 
 ###2010
 * The Complete Poems of Emily Dickinson [Emily Dickinson]
@@ -34,12 +34,13 @@ categories:
 * Discoveries and Opinions of Galileo [Galileo]
 * Ecology: Concepts and Applications [Molles]
 * The Making of a Poem: A Norton Anthology of Poetic Forms [ ]
+* Zen and the Art of Motorcycle Maintenance [Robert M. Pirsig]
 
 ###2008
 * To the Lighthouse [Woolf]
 * Portrait of the Artrist as a Young Man [James Joyce]
-* Cratylus [ ]
-* How to do things with words [Austin [ ]
+* Cratylus [Plato]
+* How to do things with words [Austin]
 * Paradise Lost [Milton]
 * Utopia [Thomas More]
 * The Selected Poetry of Rainer Maria Rilke [Rainer Maria Rilke]
@@ -99,7 +100,7 @@ categories:
 ###2004
 * A Tale of Two Cities [Charles Dickens]
 * A Mid Summer Night's Dream [Shakespeare]
-* Arsenic and Old Lace: Officer Klein [ ]
+* Arsenic and Old Lace [ ]
 * The Wiz [ ]
 * The Taming of the Shrew [ ]
 * The Tempest [ ]
@@ -114,11 +115,10 @@ categories:
 * Siddhartha [Herman Hesse]
 * Inherit the Wind [Robert E. Lee]
 * Anthem [Ayn Rand]
-* To Kill a Mocking Bird [Harper Lee [ ]
-* Harry Potter and the Goblet of Fire [J. K. Rowling [ ]
+* To Kill a Mocking Bird [Harper Lee]
+* Harry Potter and the Goblet of Fire [J. K. Rowling]
 * Crime and Punishment [ ]
 * Lirael [Garth Nix]
 * I Gave Dating a Chance [ ]
 * Macbeth [ ]
-* Sabriel [Garth Nix [ ]
-...
+* Sabriel [Garth Nix]
