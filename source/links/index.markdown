@@ -1,4 +1,10 @@
-Things I reference:
+---
+layout: page
+title: "Things I reference"
+date: 2013-10-31 22:59:19
+comments: false
+categories:
+--- 
 
 ####Language/Literature/Linguistics
 * [Lost in the Meritocracy](http://www.theatlantic.com/magazine/archive/2005/01/lost-in-the-meritocracy/303672/) | Walter Kirn
@@ -91,3 +97,5 @@ Things I reference:
 * [Music Tech: Prophecy of Machines](http://www.opinionator.blogs.nytimes.com/2011/10/18/prophecy-of-machines/)  | NYTimes Op-Ed
 * [We Are Now One Year Away From Global Riots, Complex Systems Theorists Say](http://motherboard.vice.com/blog/we-are-now-one-year-and-counting-from-global-riots-complex-systems-theorists-say--2) | Motherboard
 * [The Best Little Boy in the World — That’s Me](http://nytimes.com/2013/05/07/opinion/the-best-little-boy-in-the-world-thats-me.html)  | NYTimes Op-Ed
+
+Also see [Books I've Read](/books/)

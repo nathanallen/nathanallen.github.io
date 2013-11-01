@@ -1,3 +1,12 @@
+---
+layout: page
+title: "More Books"
+date: 2013-10-31 22:59:19
+comments: false
+external-url:
+categories:
+---
+
 ###2010
 * The Complete Poems of Emily Dickinson [Emily Dickinson]
 * The Interesting Narrative of the Life of Olaudah Equiano, Or Gustavus Vassa, The African [Olaudah  Equiano]
@@ -112,3 +121,4 @@
 * I Gave Dating a Chance [ ]
 * Macbeth [ ]
 * Sabriel [Garth Nix [ ]
+...

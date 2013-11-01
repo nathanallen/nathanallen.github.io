@@ -1,3 +1,11 @@
+---
+layout: page
+title: "Books I've Read"
+date: 2013-10-31 22:59:19
+comments: false
+categories:
+--- 
+
 ### 2013
 * The Passionate Programmer [Chad Fowler]
 * The Defining Decade [Meg Jay]
@@ -83,3 +91,5 @@
 * The Bell Jar [Sylvia Plath]
 * The Picture of Dorian Gray [Oscar Wilde]
 * Linchpin: Are You Indispensable? [Seth Godin]
+
+Also see [More Books](/books/more-books.html) and [Things I Reference](/links/)
