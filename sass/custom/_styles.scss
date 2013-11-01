@@ -1,2 +1,33 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
+
+
+html{
+	background:#297D9E;
+
+}
+
+body{
+	max-width:640px;
+}
+
+header{
+	background:#333;
+}
+
+#content{
+	margin-right:0px; /*240px*/
+}
+
+
+ul {
+    list-style:none;
+    margin-left:0;
+}
+
+ul li:before {
+    display:inline-block;
+    content:"-";
+    width:1em;
+    margin-left:-1em;
+}
