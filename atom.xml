@@ -1,16 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
+  <title><![CDATA[Code is like]]></title>
   <link href="http://nathanallen.github.io/atom.xml" rel="self"/>
   <link href="http://nathanallen.github.io/"/>
-  <updated>2013-10-31T21:48:57-07:00</updated>
+  <updated>2013-11-02T01:01:34-07:00</updated>
   <id>http://nathanallen.github.io/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Nathan Allen]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[You had me at hello world]]></title>
+    <link href="http://nathanallen.github.io/blog/2013/11/01/hello-world/"/>
+    <updated>2013-11-01T00:00:00-07:00</updated>
+    <id>http://nathanallen.github.io/blog/2013/11/01/hello-world</id>
+    <content type="html"><![CDATA[<p>Ruby:</p>
+
+<pre><code>def say_hello(name)
+    p "hello #{name}!"
+end
+
+say_hello("world")
+</code></pre>
+
+<p>JavaScript:</p>
+
+<pre><code>function sayHello(name){
+    console.log("hello " + name)
+}
+
+sayHello("world")
+</code></pre>
+
+<p>Unix:</p>
+
+<pre><code>sayhi(){echo "hello $1"}
+
+sayhi world
+</code></pre>
+]]></content>
+  </entry>
   
 </feed>
