@@ -8,15 +8,31 @@ html{
 }
 
 body{
-	max-width:640px;
+	max-width:660px;
+}
+header{
+    background:#333;
+    margin-right:4px;
+    margin-left:4px;
+}
+#main{
+    margin-right:4px;
+    margin-left:4px;
+    background:#333;
 }
 
-header{
-	background:#333;
-}
 
 #content{
-	margin-right:0px; /*240px*/
+    margin-right:4px;
+    margin-left:4px;
+    margin-bottom:4px;
+}
+
+body > footer{
+    margin-right:4px;
+    margin-left:4px;
+    padding-top:8px;
+    padding-bottom:8px;
 }
 
 
