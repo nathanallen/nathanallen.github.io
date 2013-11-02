@@ -30,7 +30,17 @@ function addCodeLineNumbers() {
   });
 }
 
+function daysSinceStarting() {
+  if ($('#startdate').length){
+    var $date = $('#startdate')
+    var startdate = Date.parse($date) || 1383202800000 // Oct 31, 2013
+    var days = Math.round((Date.now() - startdate)/100000/60/24, 1)
+    $date.text(days + " days ago")
+  }
+}
+
 $('document').ready(function() {
+  daysSinceStarting()
   testFeatures();
   addCodeLineNumbers();
 });
