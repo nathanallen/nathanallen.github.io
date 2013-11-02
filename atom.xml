@@ -4,7 +4,7 @@
   <title><![CDATA[Code is like]]></title>
   <link href="http://nathanallen.github.io/atom.xml" rel="self"/>
   <link href="http://nathanallen.github.io/"/>
-  <updated>2013-11-02T01:01:34-07:00</updated>
+  <updated>2013-11-02T16:51:23-07:00</updated>
   <id>http://nathanallen.github.io/</id>
   <author>
     <name><![CDATA[Nathan Allen]]></name>
@@ -12,6 +12,62 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[The blinking cursor effect]]></title>
+    <link href="http://nathanallen.github.io/blog/2013/11/02/the-blinking-cursor-effect/"/>
+    <updated>2013-11-02T15:55:00-07:00</updated>
+    <id>http://nathanallen.github.io/blog/2013/11/02/the-blinking-cursor-effect</id>
+    <content type="html"><![CDATA[<p>Today I had a bit of an adventure trying to create a realistic blinking cursor on my webpage. My first thought was to use jQuery&rsquo;s .toggle() method, and after playing around with the timing of the effect I settled on a 600ms interval. The code looked like this:</p>
+
+<pre><code>function recursiveBlinkingCursor(){
+  $elem = $('#blinking-cursor')
+  $elem.toggle(600, function(){
+    recursiveBlinkingCursor($elem)
+  })
+}
+</code></pre>
+
+<p>But using .toggle() had two unwanted side-effects. One was that .toggle() by default uses the &lsquo;swing&rsquo; animation which causes the cursor to expland and contract vertically as it fades in and out. The other was that the effect was effectively adding and removing the element from the page thereby bumping the position of the elements around it. In my case the explansion and contraction was causing the line height to increase and decrease, thereby making the entire line bounce up and down. Not the effect I was aiming for.</p>
+
+<p>The reason for this side-effect is that .toggle() uses the css property &lsquo;display:none&rsquo;. What I needed was the css property &lsquo;visibility:hidden&rsquo;, which could be compared to asking someone to hold your place in line. You&rsquo;re not physically there, but someone is holding your space</p>
+
+<p>So I went back to the drawing board, pitched out the .toggle() method, and decided to do it oldschool.</p>
+
+<pre><code>function recursiveBlinkingCursor(){
+  $elem = $('#blinking-cursor')
+  $elem.attr('style', 'visibility:hidden').delay(600)
+  $elem.attr('style', 'visibility:true').delay(600)
+  recursiveBlinkingCursor()
+}
+</code></pre>
+
+<p>This was a total failure. Javascript is an asynchronous langauge, so both the hide, reveal, and the recursive call were effetively all happening at once. Never mind that I tacked on &lsquo;.delay()&rsquo;, it wasn&rsquo;t going to change the sequence at runtime. I also gote this lovely stack overflow message:</p>
+
+<pre><code>RangeError: Maximum call stack size exceeded
+</code></pre>
+
+<p>In the end I scraped the jQuery .delay() and went with javascript&rsquo;s setTimeout(). This nested monstrosity is what I settled on:</p>
+
+<pre><code>function recursiveBlinkingCursor(elem){
+  $elem = elem || $('#blinking-cursor')
+  setTimeout(function(){
+    $elem.attr("style", "visibility:hidden"); 
+    setTimeout(function(){
+      $elem.attr("style", "visibility:true"); 
+      recursiveBlinkingCursor($elem)
+    }, 600)
+  }, 600)
+}
+</code></pre>
+
+<p>Using setTimeout() in this way allows me to tell the function to wait, hide, reveal, hide, and then make the recursive call to start it all over again. Works like a charm.</p>
+
+<p>As an addendum, when I showed the effect to a friend he remarked, &ldquo;I wonder if you could have used the html &lsquo;&lt;blink>&rsquo; tag?&rdquo; Almost certain that I had over-engineered the problem I did a little googling and found these gems: &ldquo;&lt;blink> was once reviled as the most obnoxious tag in HTML. Now it&rsquo;s mostly forgotten.&rdquo; &ldquo;HTML5 classifies it as a non-conforming feature.&rdquo; &ldquo;No, really, don&rsquo;t use it. It&rsquo;s simply evil.&rdquo;</p>
+
+<p>Blink and you&rsquo;ll miss it.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[You had me at hello world]]></title>
