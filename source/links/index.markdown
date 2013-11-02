@@ -19,7 +19,7 @@ categories:
 * ['Bridezilla' Is Not a Pun and You Are Not Clever](http://www.slate.com/articles/life/the_good_word/2013/03/chillax_wikipedia_and_bridezilla_are_not_puns_against_adjoinages.html) | Slate
 * [Why Twitter Parody Accounts Should Stay Anonymous](http://www.newyorker.com/online/blogs/elements/2013/07/why-twitter-parody-accounts-should-stay-anonymous.html) | The New Yorker
 * [Crunching Literary Numbers](http://www.nytimes.com/2013/07/14/opinion/sunday/crunching-literary-numbers.html) | NYTimes
-* [Humanities Scholars Embrace Digital Technology](http://www.nytimes.com/2010/11/17/arts/17digital.html?pagewanted=all) | NYTimes
+* [Digital Keys for Unlocking the Humanities’ Riches](http://www.nytimes.com/2010/11/17/arts/17digital.html?pagewanted=all) | NYTimes
 * [Next Big Thing in English: Knowing They Know That You Know ](http://www.nytimes.com/2010/04/01/books/01lit.html?pagewanted=all)  | NYTimes
 * [American English Dialects](http://aschmann.net/AmEng/)
 
@@ -34,6 +34,7 @@ categories:
 
 ###Science/Math
 * [Cargo Cult Science](http://neurotheory.columbia.edu/~ken/cargo_cult.html) | Richard Feynman
+* [To Understand is to Perceive Patterns](http://www.youtube.com/watch?v=iWhO4cwriL0) | Youtube
 * [Diederik Stapel’s Audacious Academic Fraud](http://nytimes.com/2013/04/28/magazine/diederik-stapels-audacious-academic-fraud.html?pagewanted%3Dall) | NYTimes
 * [Survival of the Wrongest](http://www.cjr.org/cover_story/survival_of_the_wrongest.php?page=all) | Columbia Journalism Review
 * [Cognitive Biases: A Visual Study Guide](http://www.scribd.com/doc/30548590/Cognitive-Biases-A-Visual-Study-Guide) | Scribd
@@ -58,6 +59,7 @@ categories:
 * [Alt Text: The Science-y Search for Healthy Sugar Water](http://www.wired.com/underwire/2012/11/alt-text-healthy-sugar-water/) | Wired
 * [Breeding the Nutrition Out of Our Food](http://www.nytimes.com/2013/05/26/opinion/sunday/breeding-the-nutrition-out-of-our-food.html?pagewanted=all) | NYTimes
 * [Why American Eggs Would Be Illegal In A British Supermarket, And Vice Versa](http://www.forbes.com/sites/nadiaarumugam/2012/10/25/why-american-eggs-would-be-illegal-in-a-british-supermarket-and-vice-versa/) | Forbes
+* [Your Yard is Evil](http://www.youtube.com/watch?v=-enGOMQgdvg) | VlogBrothers
 * [Why Exercise Won't Make You Thin](http://content.time.com/time/magazine/article/0,9171,1914974,00.html) | TIME
 * [Sleep: Reserarch, Charts, Myths](http://www.supermemo.com/articles/sleep2000.htm) | Supermemo
 * [Melatonin](http://www.gwern.net/Melatonin) | gwern.net
@@ -86,14 +88,25 @@ categories:
 * [In 1897, a Bicycle Superhighway Was the Future of California Transit](http://motherboard.vice.com/blog/in-1897-a-bicycle-superhighway-was-the-future-of-california-transit) | Motherboard
 * [Bicycling Across the Country](http://www.travel.nytimes.com/2011/10/23/travel/bicycling-across-the-country-bruce-weber-reflects.html) | NYTimes
 
+###Circus Arts/Object Manipulation/Juggling
+* [Moving Beyond the Big Tent](http://www.nytimes.com/2013/03/17/opinion/sunday/moving-beyond-the-big-tent.html?pagewanted=all) | NYTimes Op-Ed
+* [Compagnie Ieto](http://youtu.be/vAEEjmI6cHY) | Youtube
+* [Stunt Double Circus](http://www.youtube.com/watch?v=fWMXbZkWsRM) | Youtube
+* [Larry Griswold on Fred Astaire](http://www.youtube.com/watch?v=T89HO_qIMyo) | Youtube
+* [Paul Hunt, Uneven Bars Routine](http://www.youtube.com/watch?v=tu-YAMiS5wA) | Youtube
+* [Respire cie Circoncentrique](http://youtu.be/_hHWm81ZIjU) | Youtube
+* [Pas de Deux](http://www.youtube.com/watch?v=jP3fYcCtPRQ&feature=share&list=TLJ4t3FQWR_O0KbGjqB_D0VgXAqGL8y861) | Youtube
+* [Pendulum Waves](http://www.youtube.com/watch?v=yVkdfJ9PkRQ) | Youtube
+* [Double Pendulum](http://youtu.be/U39RMUzCjiU) | Youtube
+
 ###etc
 * [Transition](http://www.nytimes.com/video/opinion/100000001579773/transition.html) | NYTimes Op-Doc
 * [Leviathan](http://www.nytimes.com/movies/movie/470273/Leviathan/trailers) | Documentary Trailer
+* [The Starlings at Otmoor](http://www.youtube.com/watch?v=XH-groCeKbE) | Youtube
 * [Meet Mr. Money Mustache, the man who retired at 30](http://www.washingtonpost.com/business/meet-mr-money-mustache-the-man-who-retired-at-30/2013/04/26/71e3e6a8-acf3-11e2-a8b9-2a63d75b5459_print.html) | The Washington Post
-* [Moving Beyond the Big Tent](http://www.nytimes.com/2013/03/17/opinion/sunday/moving-beyond-the-big-tent.html?pagewanted=all) | NYTimes Op-Ed
 * [Salary Negotiations: Whats possible when there is no more money](http://www.articulateventures.com/articulate-blog/thoughts-on-being-an-employer/salary-negotatiations-whats-possible-when-there-is-no-more-mone) | Vance Crowe
+* [The Best Little Boy in the World — That’s Me](http://nytimes.com/2013/05/07/opinion/the-best-little-boy-in-the-world-thats-me.html)  | NYTimes Op-Ed
 * [Music Tech: Prophecy of Machines](http://www.opinionator.blogs.nytimes.com/2011/10/18/prophecy-of-machines/)  | NYTimes Op-Ed
 * [We Are Now One Year Away From Global Riots, Complex Systems Theorists Say](http://motherboard.vice.com/blog/we-are-now-one-year-and-counting-from-global-riots-complex-systems-theorists-say--2) | Motherboard
-* [The Best Little Boy in the World — That’s Me](http://nytimes.com/2013/05/07/opinion/the-best-little-boy-in-the-world-thats-me.html)  | NYTimes Op-Ed
 
 Also see [Books I've Read](/books/)
