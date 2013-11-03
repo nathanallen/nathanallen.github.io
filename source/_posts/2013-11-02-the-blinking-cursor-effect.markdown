@@ -15,9 +15,9 @@ Today I had a bit of an adventure trying to create a realistic blinking cursor o
 	  })
 	}
 
-But using .toggle() had two unwanted side-effects. One was that .toggle() by default uses the 'swing' animation which causes the cursor to expland and contract vertically as it fades in and out. The other was that the effect was effectively adding and removing the element from the page thereby bumping the position of the elements around it. In my case the explansion and contraction was causing the line height to increase and decrease, thereby making the entire line bounce up and down. Not the effect I was aiming for.
+But using .toggle() had two unwanted side-effects. One was that .toggle() by default uses the 'swing' animation which causes the cursor to expand and contract vertically as it fades in and out. The other was that the effect was effectively adding and removing the element from the page and therefore was bumping into the things around it. In my case the expansion/contraction was causing the line height to increase and decrease, thereby making the entire line bounce up and down. Not the effect I was aiming for.
 
-The reason for this side-effect is that .toggle() uses the css property 'display:none'. What I needed was the css property 'visibility:hidden', which could be compared to asking someone to hold your place in line. You're not physically there, but someone is holding your space
+The reason for this side-effect is that .toggle() uses the css property 'display:none'. What I needed was the css property 'visibility:hidden'. You can think of it like asking someone to hold your place in line. You're not physically there, but someone is holding your spot.
 
 So I went back to the drawing board, pitched out the .toggle() method, and decided to do it oldschool.
 
@@ -28,7 +28,7 @@ So I went back to the drawing board, pitched out the .toggle() method, and decid
 	  recursiveBlinkingCursor()
 	}
 
-This was a total failure. Javascript is an asynchronous langauge, so both the hide, reveal, and the recursive call were effetively all happening at once. Never mind that I tacked on '.delay()', it wasn't going to change the sequence at runtime. I also gote this lovely stack overflow message:
+This was a total failure. Javascript is an asynchronous langauge, so both the hide, reveal, and the recursive call were effetively all happening at once. Never mind that I tacked on '.delay()', it wasn't going to change the sequence at runtime. I also got this lovely stack overflow message:
 
 	RangeError: Maximum call stack size exceeded
 
@@ -47,6 +47,6 @@ In the end I scraped the jQuery .delay() and went with javascript's setTimeout()
 
 Using setTimeout() in this way allows me to tell the function to wait, hide, reveal, hide, and then make the recursive call to start it all over again. Works like a charm.
 
-As an addendum, when I showed the effect to a friend he remarked, "I wonder if you could have used the html '\<blink\>' tag?" Almost certain that I had over-engineered the problem I did a little googling and found these gems: "\<blink\> was once reviled as the most obnoxious tag in HTML. Now it's mostly forgotten." "HTML5 classifies it as a non-conforming feature." "No, really, don't use it. It's simply evil."
+As an addendum, when I showed the effect to a friend he wondered if I could have used the html '\<blink\>' tag. Almost certain that I had over-engineered the problem I did a little googling and found these gems: "\<blink\> was once reviled as the most obnoxious tag in HTML. Now it's mostly forgotten." "HTML5 classifies it as a non-conforming feature." "No, really, don't use it. It's simply evil."
 
-Blink and you'll miss it.
+Blink and you missed it.
