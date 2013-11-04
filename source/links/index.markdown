@@ -88,7 +88,7 @@ categories:
 * [In 1897, a Bicycle Superhighway Was the Future of California Transit](http://motherboard.vice.com/blog/in-1897-a-bicycle-superhighway-was-the-future-of-california-transit) | Motherboard
 * [Bicycling Across the Country](http://www.travel.nytimes.com/2011/10/23/travel/bicycling-across-the-country-bruce-weber-reflects.html) | NYTimes
 
-###Circus Arts/Object Manipulation/Juggling
+###Circus Arts
 * [Moving Beyond the Big Tent](http://www.nytimes.com/2013/03/17/opinion/sunday/moving-beyond-the-big-tent.html?pagewanted=all) | NYTimes Op-Ed
 * [Compagnie Ieto](http://youtu.be/vAEEjmI6cHY) | Youtube
 * [Stunt Double Circus](http://www.youtube.com/watch?v=fWMXbZkWsRM) | Youtube
