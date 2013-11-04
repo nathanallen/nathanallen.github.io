@@ -15,7 +15,7 @@ function initializeGame(){
 
 function tagAllTheChildren(){
 	$('*').each(function(i,selector){
-		game.topScore += 1
+		game.goal += 1
 		listenForElementRemoval( $(selector)[0].tagName )
 	})
 }
@@ -36,7 +36,7 @@ function kaput(){
 
 // View Controller
 function initializePromptArea(){
-	$('#blinking-cursor').wrap('<div>><span id="prompt-area"/></div>')
+	$('#blinking-cursor').wrap('<div>> <span id="prompt-area"/></div>')
 }
 
 function prependUserInput(keyCode){
