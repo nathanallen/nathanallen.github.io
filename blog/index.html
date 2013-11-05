@@ -9,7 +9,7 @@
   <meta name="author" content="Nathan Allen">
 
   
-  <meta name="description" content="I invite you to vandalize my site. Hit enter to play. Ever since learning about jQuery Selectors I&rsquo;ve thought it would be pretty cool to make a &hellip;">
+  <meta name="description" content="I invite you to vandalize my site. Hit enter to play. Ever since learning about jquery selectors I thought it would be pretty cool to make a game out &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,66 +79,119 @@
 
   <div class="entry-content"><p>I invite you to vandalize my site. <strong>Hit enter to play</strong>.</p>
 
-<p>Ever since learning about <em>jQuery Selectors</em> I&rsquo;ve thought it would be pretty cool to make a game out of it. So yesterday I gave it a shot and came up with a functional MVP. No, really: scroll up, and hit enter to play. Instructions will appear in the address bar. (HINT: &lsquo;strong&rsquo;, &lsquo;em&rsquo;, &lsquo;p&rsquo;, &lsquo;*&rsquo;.)</p>
+<p>Ever since learning about jquery selectors I thought it would be pretty cool to make a game out of it. Yesterday I gave it a shot and came up with a functional minimum viable product. No, really: scroll up, and hit enter to play. Instructions will appear in the address bar. (HINT: &lsquo;strong&rsquo;, &lsquo;code&rsquo;, &lsquo;p&rsquo;, &lsquo;*&rsquo;.)</p>
 
-<p>The first challenge I faced in coding this was determining if I could detect the removal of an element from the page. Sure enough, after a little bit of playing around in the console I had a working event listener.</p>
+<p>Now for the code. The first challenge I faced was determining if I could detect the removal of an element from the page. Sure enough, after a little bit of playing around in the console I had a working event listener.</p>
 
-<pre><code>function listenIExist(elem){
-    var $elem = $(elem)
-    if ($elem.length){
-        setTimeout(function(){listenIExist(elem)},600)
-    }
-    else {
-        console.log('Vamooosh!')
-    }
-}
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">listenIExist</span><span class="p">(</span><span class="nx">elem</span><span class="p">){</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">$elem</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">elem</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">$elem</span><span class="p">.</span><span class="nx">length</span><span class="p">){</span>
+</span><span class='line'>      <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span><span class="nx">listenIExist</span><span class="p">(</span><span class="nx">elem</span><span class="p">)},</span><span class="mi">600</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Vamooosh!&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Each time the element&rsquo;s selector is passed into the function it uses its length to determine if it still exists on the page.</p>
 
 <p>The next question was how I was going to collect all the tags in the first place. My initial thought was I&rsquo;d select the document as a whole and then iterate through all the children, and the children&rsquo;s children, and the children&rsquo;s children&rsquo;s children. Easy with a recursive loop. But not very pretty. It looked something like this, and worked terribly:</p>
 
-<pre><code>function howMuchFortheChildren(tag){
-    var child = tag
-    tagsArray.push($(child)[0].tagName)
-    var $children = $(child).children()
-    if ($children.length){
-        $children.each(function(){
-            howMuchFortheChildren(this)
-        })
-    }
-}
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">howMuchFortheChildren</span><span class="p">(</span><span class="nx">tag</span><span class="p">){</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">child</span> <span class="o">=</span> <span class="nx">tag</span>
+</span><span class='line'>  <span class="nx">tagsArray</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nx">child</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">tagName</span><span class="p">)</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">$children</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">child</span><span class="p">).</span><span class="nx">children</span><span class="p">()</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">$children</span><span class="p">.</span><span class="nx">length</span><span class="p">){</span>
+</span><span class='line'>      <span class="nx">$children</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>          <span class="nx">howMuchFortheChildren</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">})</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>But then I discovered a novel solution that simplified things considerably. jQuery supports a wildcard selector. Why not use that?</p>
 
-<pre><code>function tagAllTheChildren(){
-    $('*').each(function(i,selector){
-        listenIExist( $(selector)[0].tagName )
-    })
-}
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">tagAllTheChildren</span><span class="p">(){</span>
+</span><span class='line'>  <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="nx">selector</span><span class="p">){</span>
+</span><span class='line'>      <span class="nx">listenIExist</span><span class="p">(</span> <span class="nx">$</span><span class="p">(</span><span class="nx">selector</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">tagName</span> <span class="p">)</span>
+</span><span class='line'>  <span class="p">})</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Now we were talking. The core pieces were in place. Except, how was I going to get user input?</p>
 
 <p>I&rsquo;d made the blinking-cursor in the header only a few days prior. It seemed almost too perfect. Forget about text fields. <em>Here</em> was an interesting challenge.</p>
 
+<p>First I set up a listener for keystrokes, specifically the enter key:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">if</span> <span class="p">(</span><span class="nx">keyCode</span> <span class="o">===</span> <span class="mi">13</span><span class="p">){</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">the_game_has_started</span><span class="p">){</span>
+</span><span class='line'>      <span class="nx">evaluateSelector</span><span class="p">()</span>
+</span><span class='line'>  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">startTheGame</span><span class="p">()</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
 <p>Using jquery&rsquo;s .wrap() and .append() methods I was able to manipulate the html around the cursor. But I also needed the cursor to move down to a new line. Since it was already wrapped in the &lt;h2> tag what I needed to do was break it into its own heading.</p>
 
-<pre><code>&lt;h2&gt;&gt; begin braindump&lt;span id="blinking-cursor"&gt;|&lt;/span&gt;&lt;/h2&gt;
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;h2&gt;</span>&gt; begin braindump<span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">&quot;blinking-cursor&quot;</span><span class="nt">&gt;</span>|<span class="nt">&lt;/span&gt;&lt;/h2&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>So I used a trusty injection attack. I prepended a closing and opening &lt;h2> tag to the cursor. Now, instead of having one line I had two:</p>
 
-<pre><code>&lt;h2&gt;&gt; begin braindump&lt;/h2&gt;
-&lt;h2&gt;&gt; &lt;span id="blinking-cursor"&gt;|&lt;/span&gt;&lt;/h2&gt;
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;h2&gt;</span>&gt; begin braindump<span class="nt">&lt;/h2&gt;</span>
+</span><span class='line'><span class="nt">&lt;h2&gt;</span>&gt; <span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">&quot;blinking-cursor&quot;</span><span class="nt">&gt;</span>|<span class="nt">&lt;/span&gt;&lt;/h2&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>From there, the cursor&rsquo;s movement is just a side-effect of it being bumped over by the text to the left of it. After the user hits enter the &lsquo;field&rsquo; is cleared and the process starts over again. However this is where I hit a major bug: the backspace.</p>
 
 <p>Hitting backspace triggers the browser to go back to the previous page in its  history. Everyone has at some infuriating moment done it. At the moment I&rsquo;ve only accidentely managed to sidestep the problem.</p>
 
 <p>The address bar, as understated as it is, is the only safe place I could think of to display game stats. As a side-effect of updating the hash, the browser thinks you&rsquo;ve  gone to a new page. So if you bump into the backspace, you may just go back to an earlier score without the page reloading.</p>
+
+<p>So that&rsquo;s jquery selector, the game. Or as I like to call it: jquery destructor. Now I&rsquo;m in the process of refactoring my javascript, seperating out my controllers, and using more of an object oriented approach.</p>
 </div>
   
   
@@ -176,13 +229,22 @@
 
   <div class="entry-content"><p>Today I had a bit of an adventure trying to create a realistic blinking cursor on my webpage. My first thought was to use jQuery&rsquo;s .toggle() method, and after playing around with the timing of the effect I settled on a 600ms interval. The code looked like this:</p>
 
-<pre><code>function recursiveBlinkingCursor(){
-  $elem = $('#blinking-cursor')
-  $elem.toggle(600, function(){
-    recursiveBlinkingCursor($elem)
-  })
-}
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">recursiveBlinkingCursor</span><span class="p">(){</span>
+</span><span class='line'>  <span class="nx">$elem</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#blinking-cursor&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="nx">$elem</span><span class="p">.</span><span class="nx">toggle</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="nx">recursiveBlinkingCursor</span><span class="p">(</span><span class="nx">$elem</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">})</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
 
 <p>But using .toggle() had two unwanted side-effects. One was that .toggle() by default uses the &lsquo;swing&rsquo; animation which causes the cursor to expand and contract vertically as it fades in and out. The other was that the effect was effectively adding and removing the element from the page and therefore was bumping into the things around it. In my case the expansion/contraction was causing the line height to increase and decrease, thereby making the entire line bounce up and down. Not the effect I was aiming for.</p>
 
@@ -190,32 +252,51 @@
 
 <p>So I went back to the drawing board, pitched out the .toggle() method, and decided to do it oldschool.</p>
 
-<pre><code>function recursiveBlinkingCursor(){
-  $elem = $('#blinking-cursor')
-  $elem.attr('style', 'visibility:hidden').delay(600)
-  $elem.attr('style', 'visibility:true').delay(600)
-  recursiveBlinkingCursor()
-}
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">recursiveBlinkingCursor</span><span class="p">(){</span>
+</span><span class='line'>  <span class="nx">$elem</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#blinking-cursor&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="nx">$elem</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;style&#39;</span><span class="p">,</span> <span class="s1">&#39;visibility:hidden&#39;</span><span class="p">).</span><span class="nx">delay</span><span class="p">(</span><span class="mi">600</span><span class="p">)</span>
+</span><span class='line'>  <span class="nx">$elem</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;style&#39;</span><span class="p">,</span> <span class="s1">&#39;visibility:true&#39;</span><span class="p">).</span><span class="nx">delay</span><span class="p">(</span><span class="mi">600</span><span class="p">)</span>
+</span><span class='line'>  <span class="nx">recursiveBlinkingCursor</span><span class="p">()</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>This was a total failure. Javascript is an asynchronous langauge, so both the hide, reveal, and the recursive call were effetively all happening at once. Never mind that I tacked on &lsquo;.delay()&rsquo;, it wasn&rsquo;t going to change the sequence at runtime. I also got this lovely stack overflow message:</p>
 
-<pre><code>RangeError: Maximum call stack size exceeded
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>RangeError: Maximum call stack size exceeded</span></code></pre></td></tr></table></div></figure>
+
 
 <p>In the end I scraped the jQuery .delay() and went with javascript&rsquo;s setTimeout(). This nested monstrosity is what I settled on:</p>
 
-<pre><code>function recursiveBlinkingCursor(elem){
-  $elem = elem || $('#blinking-cursor')
-  setTimeout(function(){
-    $elem.attr("style", "visibility:hidden"); 
-    setTimeout(function(){
-      $elem.attr("style", "visibility:true"); 
-      recursiveBlinkingCursor($elem)
-    }, 600)
-  }, 600)
-}
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">recursiveBlinkingCursor</span><span class="p">(</span><span class="nx">elem</span><span class="p">){</span>
+</span><span class='line'>  <span class="nx">$elem</span> <span class="o">=</span> <span class="nx">elem</span> <span class="o">||</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#blinking-cursor&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="nx">$elem</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;style&quot;</span><span class="p">,</span> <span class="s2">&quot;visibility:hidden&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>      <span class="nx">$elem</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;style&quot;</span><span class="p">,</span> <span class="s2">&quot;visibility:true&quot;</span><span class="p">);</span>
+</span><span class='line'>      <span class="nx">recursiveBlinkingCursor</span><span class="p">(</span><span class="nx">$elem</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">},</span> <span class="mi">600</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">},</span> <span class="mi">600</span><span class="p">)</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Using setTimeout() in this way allows me to tell the function to wait, hide, reveal, hide, and then make the recursive call to start it all over again. Works like a charm.</p>
 
@@ -259,28 +340,44 @@
 
   <div class="entry-content"><p>Ruby:</p>
 
-<pre><code>def say_hello(name)
-    p "hello #{name}!"
-end
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">say_hello</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+</span><span class='line'>  <span class="nb">p</span> <span class="s2">&quot;hello </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">!&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">say_hello</span><span class="p">(</span><span class="s2">&quot;world&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
 
-say_hello("world")
-</code></pre>
 
 <p>JavaScript:</p>
 
-<pre><code>function sayHello(name){
-    console.log("hello " + name)
-}
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">sayHello</span><span class="p">(</span><span class="nx">name</span><span class="p">){</span>
+</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;hello &quot;</span> <span class="o">+</span> <span class="nx">name</span><span class="p">)</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">sayHello</span><span class="p">(</span><span class="s2">&quot;world&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
 
-sayHello("world")
-</code></pre>
 
 <p>Unix:</p>
 
-<pre><code>sayhi(){echo "hello $1"}
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sayhi<span class="o">(){</span><span class="nb">echo</span> <span class="s2">&quot;hello $1&quot;</span><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>sayhi world
+</span></code></pre></td></tr></table></div></figure>
 
-sayhi world
-</code></pre>
 </div>
   
   

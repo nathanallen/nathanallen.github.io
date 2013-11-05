@@ -76,13 +76,22 @@
 
 <div class="entry-content"><p>Today I had a bit of an adventure trying to create a realistic blinking cursor on my webpage. My first thought was to use jQuery&rsquo;s .toggle() method, and after playing around with the timing of the effect I settled on a 600ms interval. The code looked like this:</p>
 
-<pre><code>function recursiveBlinkingCursor(){
-  $elem = $('#blinking-cursor')
-  $elem.toggle(600, function(){
-    recursiveBlinkingCursor($elem)
-  })
-}
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">recursiveBlinkingCursor</span><span class="p">(){</span>
+</span><span class='line'>  <span class="nx">$elem</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#blinking-cursor&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="nx">$elem</span><span class="p">.</span><span class="nx">toggle</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="nx">recursiveBlinkingCursor</span><span class="p">(</span><span class="nx">$elem</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">})</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
 
 <p>But using .toggle() had two unwanted side-effects. One was that .toggle() by default uses the &lsquo;swing&rsquo; animation which causes the cursor to expand and contract vertically as it fades in and out. The other was that the effect was effectively adding and removing the element from the page and therefore was bumping into the things around it. In my case the expansion/contraction was causing the line height to increase and decrease, thereby making the entire line bounce up and down. Not the effect I was aiming for.</p>
 
@@ -90,32 +99,51 @@
 
 <p>So I went back to the drawing board, pitched out the .toggle() method, and decided to do it oldschool.</p>
 
-<pre><code>function recursiveBlinkingCursor(){
-  $elem = $('#blinking-cursor')
-  $elem.attr('style', 'visibility:hidden').delay(600)
-  $elem.attr('style', 'visibility:true').delay(600)
-  recursiveBlinkingCursor()
-}
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">recursiveBlinkingCursor</span><span class="p">(){</span>
+</span><span class='line'>  <span class="nx">$elem</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#blinking-cursor&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="nx">$elem</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;style&#39;</span><span class="p">,</span> <span class="s1">&#39;visibility:hidden&#39;</span><span class="p">).</span><span class="nx">delay</span><span class="p">(</span><span class="mi">600</span><span class="p">)</span>
+</span><span class='line'>  <span class="nx">$elem</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;style&#39;</span><span class="p">,</span> <span class="s1">&#39;visibility:true&#39;</span><span class="p">).</span><span class="nx">delay</span><span class="p">(</span><span class="mi">600</span><span class="p">)</span>
+</span><span class='line'>  <span class="nx">recursiveBlinkingCursor</span><span class="p">()</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>This was a total failure. Javascript is an asynchronous langauge, so both the hide, reveal, and the recursive call were effetively all happening at once. Never mind that I tacked on &lsquo;.delay()&rsquo;, it wasn&rsquo;t going to change the sequence at runtime. I also got this lovely stack overflow message:</p>
 
-<pre><code>RangeError: Maximum call stack size exceeded
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>RangeError: Maximum call stack size exceeded</span></code></pre></td></tr></table></div></figure>
+
 
 <p>In the end I scraped the jQuery .delay() and went with javascript&rsquo;s setTimeout(). This nested monstrosity is what I settled on:</p>
 
-<pre><code>function recursiveBlinkingCursor(elem){
-  $elem = elem || $('#blinking-cursor')
-  setTimeout(function(){
-    $elem.attr("style", "visibility:hidden"); 
-    setTimeout(function(){
-      $elem.attr("style", "visibility:true"); 
-      recursiveBlinkingCursor($elem)
-    }, 600)
-  }, 600)
-}
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">recursiveBlinkingCursor</span><span class="p">(</span><span class="nx">elem</span><span class="p">){</span>
+</span><span class='line'>  <span class="nx">$elem</span> <span class="o">=</span> <span class="nx">elem</span> <span class="o">||</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#blinking-cursor&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="nx">$elem</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;style&quot;</span><span class="p">,</span> <span class="s2">&quot;visibility:hidden&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>      <span class="nx">$elem</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;style&quot;</span><span class="p">,</span> <span class="s2">&quot;visibility:true&quot;</span><span class="p">);</span>
+</span><span class='line'>      <span class="nx">recursiveBlinkingCursor</span><span class="p">(</span><span class="nx">$elem</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">},</span> <span class="mi">600</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">},</span> <span class="mi">600</span><span class="p">)</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Using setTimeout() in this way allows me to tell the function to wait, hide, reveal, hide, and then make the recursive call to start it all over again. Works like a charm.</p>
 

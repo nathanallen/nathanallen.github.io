@@ -9,8 +9,13 @@
   <meta name="author" content="Nathan Allen">
 
   
-  <meta name="description" content="You Had Me at Hello World Nov 1st, 2013 Ruby: def say_hello(name) p "hello #{name}!"
-end say_hello("world") JavaScript: function sayHello(name){ &hellip;">
+  <meta name="description" content="You Had Me at Hello World Nov 1st, 2013 Ruby: 1
+2
+3
+4
+5
+def say_hello(name) p &quot;hello #{name}!&quot;
+end say_hello(&quot;world&quot;) JavaScript &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,28 +82,44 @@ end say_hello("world") JavaScript: function sayHello(name){ &hellip;">
 
 <div class="entry-content"><p>Ruby:</p>
 
-<pre><code>def say_hello(name)
-    p "hello #{name}!"
-end
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">say_hello</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+</span><span class='line'>  <span class="nb">p</span> <span class="s2">&quot;hello </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">!&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">say_hello</span><span class="p">(</span><span class="s2">&quot;world&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
 
-say_hello("world")
-</code></pre>
 
 <p>JavaScript:</p>
 
-<pre><code>function sayHello(name){
-    console.log("hello " + name)
-}
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">sayHello</span><span class="p">(</span><span class="nx">name</span><span class="p">){</span>
+</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;hello &quot;</span> <span class="o">+</span> <span class="nx">name</span><span class="p">)</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">sayHello</span><span class="p">(</span><span class="s2">&quot;world&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
 
-sayHello("world")
-</code></pre>
 
 <p>Unix:</p>
 
-<pre><code>sayhi(){echo "hello $1"}
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sayhi<span class="o">(){</span><span class="nb">echo</span> <span class="s2">&quot;hello $1&quot;</span><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>sayhi world
+</span></code></pre></td></tr></table></div></figure>
 
-sayhi world
-</code></pre>
 </div>
 
 
