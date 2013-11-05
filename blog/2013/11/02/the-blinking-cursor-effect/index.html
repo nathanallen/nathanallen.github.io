@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>The blinking cursor effect - Code is like</title>
+  <meta name="author" content="Nathan Allen">
+
+  
+  <meta name="description" content="The Blinking Cursor Effect Nov 2nd, 2013 Today I had a bit of an adventure trying to create a realistic blinking cursor on my webpage. My first &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://codeislike.com/blog/2013/11/02/the-blinking-cursor-effect">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Code is like" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <script src="/javascripts/selector.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Code is like</a></h1>
+  
+    <h2>> begin braindump<span id="blinking-cursor">|</span></h2>
+  
+</hgroup>
+
+</header>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">The Blinking Cursor Effect</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-02T15:55:00-07:00" pubdate data-updated="true">Nov 2<span>nd</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Today I had a bit of an adventure trying to create a realistic blinking cursor on my webpage. My first thought was to use jQuery&rsquo;s .toggle() method, and after playing around with the timing of the effect I settled on a 600ms interval. The code looked like this:</p>
+
+<pre><code>function recursiveBlinkingCursor(){
+  $elem = $('#blinking-cursor')
+  $elem.toggle(600, function(){
+    recursiveBlinkingCursor($elem)
+  })
+}
+</code></pre>
+
+<p>But using .toggle() had two unwanted side-effects. One was that .toggle() by default uses the &lsquo;swing&rsquo; animation which causes the cursor to expand and contract vertically as it fades in and out. The other was that the effect was effectively adding and removing the element from the page and therefore was bumping into the things around it. In my case the expansion/contraction was causing the line height to increase and decrease, thereby making the entire line bounce up and down. Not the effect I was aiming for.</p>
+
+<p>The reason for this side-effect is that .toggle() uses the css property &lsquo;display:none&rsquo;. What I needed was the css property &lsquo;visibility:hidden&rsquo;. You can think of it like asking someone to hold your place in line. You&rsquo;re not physically there, but someone is holding your spot.</p>
+
+<p>So I went back to the drawing board, pitched out the .toggle() method, and decided to do it oldschool.</p>
+
+<pre><code>function recursiveBlinkingCursor(){
+  $elem = $('#blinking-cursor')
+  $elem.attr('style', 'visibility:hidden').delay(600)
+  $elem.attr('style', 'visibility:true').delay(600)
+  recursiveBlinkingCursor()
+}
+</code></pre>
+
+<p>This was a total failure. Javascript is an asynchronous langauge, so both the hide, reveal, and the recursive call were effetively all happening at once. Never mind that I tacked on &lsquo;.delay()&rsquo;, it wasn&rsquo;t going to change the sequence at runtime. I also got this lovely stack overflow message:</p>
+
+<pre><code>RangeError: Maximum call stack size exceeded
+</code></pre>
+
+<p>In the end I scraped the jQuery .delay() and went with javascript&rsquo;s setTimeout(). This nested monstrosity is what I settled on:</p>
+
+<pre><code>function recursiveBlinkingCursor(elem){
+  $elem = elem || $('#blinking-cursor')
+  setTimeout(function(){
+    $elem.attr("style", "visibility:hidden"); 
+    setTimeout(function(){
+      $elem.attr("style", "visibility:true"); 
+      recursiveBlinkingCursor($elem)
+    }, 600)
+  }, 600)
+}
+</code></pre>
+
+<p>Using setTimeout() in this way allows me to tell the function to wait, hide, reveal, hide, and then make the recursive call to start it all over again. Works like a charm.</p>
+
+<p>As an addendum, when I showed the effect to a friend he wondered if I could have used the html &lsquo;&lt;blink>&rsquo; tag. Almost certain that I had over-engineered the problem I did a little googling and found these gems: &ldquo;&lt;blink> was once reviled as the most obnoxious tag in HTML. Now it&rsquo;s mostly forgotten.&rdquo; &ldquo;HTML5 classifies it as a non-conforming feature.&rdquo; &ldquo;No, really, don&rsquo;t use it. It&rsquo;s simply evil.&rdquo;</p>
+
+<p>Blink and you missed it.</p>
+</div>
+
+
+  > end braindump
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Nathan Allen</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-02T15:55:00-07:00" pubdate data-updated="true">Nov 2<span>nd</span>, 2013</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/11/01/hello-world/" title="Previous Post: You had me at hello world">&laquo; You had me at hello world</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/11/04/jquery-selector-game/" title="Next Post: jQuery Selector: The Game">jQuery Selector: The Game &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+    </div>
+  </div>
+  <footer> </footer>
+  
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,310 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Code is like</title>
+  <meta name="author" content="Nathan Allen">
+
+  
+  <meta name="description" content="I invite you to vandalize my site. Hit enter to play. Ever since learning about jQuery Selectors I&rsquo;ve thought it would be pretty cool to make a &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://codeislike.com/blog">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Code is like" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <script src="/javascripts/selector.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Code is like</a></h1>
+  
+    <h2>> begin braindump<span id="blinking-cursor">|</span></h2>
+  
+</hgroup>
+
+</header>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/11/04/jquery-selector-game/">jQuery Selector: The Game</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-04T22:15:00-08:00" pubdate data-updated="true">Nov 4<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I invite you to vandalize my site. <strong>Hit enter to play</strong>.</p>
+
+<p>Ever since learning about <em>jQuery Selectors</em> I&rsquo;ve thought it would be pretty cool to make a game out of it. So yesterday I gave it a shot and came up with a functional MVP. No, really: scroll up, and hit enter to play. Instructions will appear in the address bar. (HINT: &lsquo;strong&rsquo;, &lsquo;em&rsquo;, &lsquo;p&rsquo;, &lsquo;*&rsquo;.)</p>
+
+<p>The first challenge I faced in coding this was determining if I could detect the removal of an element from the page. Sure enough, after a little bit of playing around in the console I had a working event listener.</p>
+
+<pre><code>function listenIExist(elem){
+    var $elem = $(elem)
+    if ($elem.length){
+        setTimeout(function(){listenIExist(elem)},600)
+    }
+    else {
+        console.log('Vamooosh!')
+    }
+}
+</code></pre>
+
+<p>Each time the element&rsquo;s selector is passed into the function it uses its length to determine if it still exists on the page.</p>
+
+<p>The next question was how I was going to collect all the tags in the first place. My initial thought was I&rsquo;d select the document as a whole and then iterate through all the children, and the children&rsquo;s children, and the children&rsquo;s children&rsquo;s children. Easy with a recursive loop. But not very pretty. It looked something like this, and worked terribly:</p>
+
+<pre><code>function howMuchFortheChildren(tag){
+    var child = tag
+    tagsArray.push($(child)[0].tagName)
+    var $children = $(child).children()
+    if ($children.length){
+        $children.each(function(){
+            howMuchFortheChildren(this)
+        })
+    }
+}
+</code></pre>
+
+<p>But then I discovered a novel solution that simplified things considerably. jQuery supports a wildcard selector. Why not use that?</p>
+
+<pre><code>function tagAllTheChildren(){
+    $('*').each(function(i,selector){
+        listenIExist( $(selector)[0].tagName )
+    })
+}
+</code></pre>
+
+<p>Now we were talking. The core pieces were in place. Except, how was I going to get user input?</p>
+
+<p>I&rsquo;d made the blinking-cursor in the header only a few days prior. It seemed almost too perfect. Forget about text fields. <em>Here</em> was an interesting challenge.</p>
+
+<p>Using jquery&rsquo;s .wrap() and .append() methods I was able to manipulate the html around the cursor. But I also needed the cursor to move down to a new line. Since it was already wrapped in the &lt;h2> tag what I needed to do was break it into its own heading.</p>
+
+<pre><code>&lt;h2&gt;&gt; begin braindump&lt;span id="blinking-cursor"&gt;|&lt;/span&gt;&lt;/h2&gt;
+</code></pre>
+
+<p>So I used a trusty injection attack. I prepended a closing and opening &lt;h2> tag to the cursor. Now, instead of having one line I had two:</p>
+
+<pre><code>&lt;h2&gt;&gt; begin braindump&lt;/h2&gt;
+&lt;h2&gt;&gt; &lt;span id="blinking-cursor"&gt;|&lt;/span&gt;&lt;/h2&gt;
+</code></pre>
+
+<p>From there, the cursor&rsquo;s movement is just a side-effect of it being bumped over by the text to the left of it. After the user hits enter the &lsquo;field&rsquo; is cleared and the process starts over again. However this is where I hit a major bug: the backspace.</p>
+
+<p>Hitting backspace triggers the browser to go back to the previous page in its  history. Everyone has at some infuriating moment done it. At the moment I&rsquo;ve only accidentely managed to sidestep the problem.</p>
+
+<p>The address bar, as understated as it is, is the only safe place I could think of to display game stats. As a side-effect of updating the hash, the browser thinks you&rsquo;ve  gone to a new page. So if you bump into the backspace, you may just go back to an earlier score without the page reloading.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/11/02/the-blinking-cursor-effect/">The Blinking Cursor Effect</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-02T15:55:00-07:00" pubdate data-updated="true">Nov 2<span>nd</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Today I had a bit of an adventure trying to create a realistic blinking cursor on my webpage. My first thought was to use jQuery&rsquo;s .toggle() method, and after playing around with the timing of the effect I settled on a 600ms interval. The code looked like this:</p>
+
+<pre><code>function recursiveBlinkingCursor(){
+  $elem = $('#blinking-cursor')
+  $elem.toggle(600, function(){
+    recursiveBlinkingCursor($elem)
+  })
+}
+</code></pre>
+
+<p>But using .toggle() had two unwanted side-effects. One was that .toggle() by default uses the &lsquo;swing&rsquo; animation which causes the cursor to expand and contract vertically as it fades in and out. The other was that the effect was effectively adding and removing the element from the page and therefore was bumping into the things around it. In my case the expansion/contraction was causing the line height to increase and decrease, thereby making the entire line bounce up and down. Not the effect I was aiming for.</p>
+
+<p>The reason for this side-effect is that .toggle() uses the css property &lsquo;display:none&rsquo;. What I needed was the css property &lsquo;visibility:hidden&rsquo;. You can think of it like asking someone to hold your place in line. You&rsquo;re not physically there, but someone is holding your spot.</p>
+
+<p>So I went back to the drawing board, pitched out the .toggle() method, and decided to do it oldschool.</p>
+
+<pre><code>function recursiveBlinkingCursor(){
+  $elem = $('#blinking-cursor')
+  $elem.attr('style', 'visibility:hidden').delay(600)
+  $elem.attr('style', 'visibility:true').delay(600)
+  recursiveBlinkingCursor()
+}
+</code></pre>
+
+<p>This was a total failure. Javascript is an asynchronous langauge, so both the hide, reveal, and the recursive call were effetively all happening at once. Never mind that I tacked on &lsquo;.delay()&rsquo;, it wasn&rsquo;t going to change the sequence at runtime. I also got this lovely stack overflow message:</p>
+
+<pre><code>RangeError: Maximum call stack size exceeded
+</code></pre>
+
+<p>In the end I scraped the jQuery .delay() and went with javascript&rsquo;s setTimeout(). This nested monstrosity is what I settled on:</p>
+
+<pre><code>function recursiveBlinkingCursor(elem){
+  $elem = elem || $('#blinking-cursor')
+  setTimeout(function(){
+    $elem.attr("style", "visibility:hidden"); 
+    setTimeout(function(){
+      $elem.attr("style", "visibility:true"); 
+      recursiveBlinkingCursor($elem)
+    }, 600)
+  }, 600)
+}
+</code></pre>
+
+<p>Using setTimeout() in this way allows me to tell the function to wait, hide, reveal, hide, and then make the recursive call to start it all over again. Works like a charm.</p>
+
+<p>As an addendum, when I showed the effect to a friend he wondered if I could have used the html &lsquo;&lt;blink>&rsquo; tag. Almost certain that I had over-engineered the problem I did a little googling and found these gems: &ldquo;&lt;blink> was once reviled as the most obnoxious tag in HTML. Now it&rsquo;s mostly forgotten.&rdquo; &ldquo;HTML5 classifies it as a non-conforming feature.&rdquo; &ldquo;No, really, don&rsquo;t use it. It&rsquo;s simply evil.&rdquo;</p>
+
+<p>Blink and you missed it.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/11/01/hello-world/">You Had Me at Hello World</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-01T00:00:00-07:00" pubdate data-updated="true">Nov 1<span>st</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Ruby:</p>
+
+<pre><code>def say_hello(name)
+    p "hello #{name}!"
+end
+
+say_hello("world")
+</code></pre>
+
+<p>JavaScript:</p>
+
+<pre><code>function sayHello(name){
+    console.log("hello " + name)
+}
+
+sayHello("world")
+</code></pre>
+
+<p>Unix:</p>
+
+<pre><code>sayhi(){echo "hello $1"}
+
+sayhi world
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+  </div>
+</div>
+
+    </div>
+  </div>
+  <footer> </footer>
+  
+
+
+
+
+
+
+
+</body>
+</html>
