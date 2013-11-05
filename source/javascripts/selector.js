@@ -99,7 +99,7 @@ InputController.prototype.evaluateKeystroke = function(e){
 			startTheGame()
 		}
 	}
-	this.prependUserInput(keyCode)
+	this.appendUserInput(keyCode)
 }
 
 InputController.prototype.evaluateSelector = function(){
@@ -108,7 +108,7 @@ InputController.prototype.evaluateSelector = function(){
 	$(selector).remove()
 }
 
-InputController.prototype.prependUserInput = function(keyCode){
+InputController.prototype.appendUserInput = function(keyCode){
 	var char = String.fromCharCode(keyCode)
 	this.$prompt.append(char)
 }
