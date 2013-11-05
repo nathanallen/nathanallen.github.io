@@ -1,93 +1,118 @@
-$(window).on('keypress', function(e){evaluateKeystroke(e)})
+$(window).on('keypress', function(e){
+	var inputController = new InputController();
+	inputController.evaluateKeystroke(e)
+})
+
+the_game_has_started = false
+
+function startTheGame(){
+	the_game_has_started = true
+	var game = new Game()
+	game.initialize()	
+}
+
 
 // Game Controller
-game = {
-	started: false,
-	score: 0,
-	goal: 0
+var Game = function(){
+	this.score = 0
+	this.goal = 0
+	this.viewController = new ViewController()
 }
 
-function initializeGame(){
-	game.started = true
-	tagAllTheChildren()
-	rememberTheURL()
-	initializePromptArea()
-	updateGamePointsURL("Type Any jQuery Selector or HTML tag to play!")
+Game.prototype.initialize = function(){
+	this.tagAllTheChildren()
+	this.viewController.initialize()
 }
 
-function tagAllTheChildren(){
+Game.prototype.tagAllTheChildren = function(){
+	var that = this
 	$('*').each(function(i,selector){
-		game.goal += 1
-		listenForElementRemoval( $(selector)[0].tagName )
+		that.goal += 1
+		that.listenForElementRemoval( $(selector)[0].tagName )
 	})
 }
 
-function listenForElementRemoval(tag){
+Game.prototype.listenForElementRemoval = function(tag){
+	var that = this
 	var $elem = $(tag)
 	if ($elem.length){
-		setTimeout(function(){listenForElementRemoval(tag)},500)
+		setTimeout(function(){that.listenForElementRemoval(tag)},500)
 	} else {
-		kaput()
+		this.kaput()
 	}
 }
 
-function kaput(){
-	game.score += 1
-	if (game.score === game.goal){
-		youWin()
+Game.prototype.kaput = function(){
+	this.score += 1
+	if (this.score === this.goal){
+		this.viewController.youWin()
 	} else {
-		updateGamePointsURL()
+		this.viewController.updateGameStatsInURL(this.score,this.goal)
 	}
-
 }
-
 
 // View Controller
-function initializePromptArea(){
-	$('#blinking-cursor').wrap('</h2><h2>> <span id="prompt-area"/>')
+var ViewController = function(){
+	this.origin = window.location.pathname
+	this.$promptArea = $('#blinking-cursor')
 }
 
-function rememberTheURL(){
-	game.URLstartingPoint = window.location.pathname
+ViewController.prototype.initialize = function(){
+	this.initializePromptArea()
+	this.updateMessageInURL("Type Any jQuery Selector or HTML tag to play!")
 }
 
-function updateGamePointsURL(msg){
-	window.location.hash = msg || "GAME_POINTS: " + game.score + "/" + game.goal
+ViewController.prototype.initializePromptArea = function(){
+	this.$promptArea.wrap('</h2><h2>> <span id="prompt-area"/>')
 }
 
-function youWin(){
-	window.location.hash = "You_Killed_It!"
-	setTimeout(function(){window.location.replace(game.URLstartingPoint)},3500)
+ViewController.prototype.updateGameStatsInURL = function(score,goal){
+	this.updateMessageInURL("GAME_POINTS: " + score + "/" + goal)
 }
 
-function prependUserInput(keyCode){
-	var char = String.fromCharCode(keyCode)
-	$('#prompt-area').append(char)
+ViewController.prototype.updateMessageInURL = function(msg){
+	window.location.hash = msg
 }
 
-function clearUserInput(){
-	$('#prompt-area').text('')
+ViewController.prototype.youWin = function(){
+	var that = this
+	this.updateMessageInURL("You_Killed_It!")
+	setTimeout(function(){that.returnToOrigin()},3500)
+}
+
+ViewController.prototype.returnToOrigin = function(){
+	window.location.replace(this.origin)
 }
 
 
 // User Input Controller
-function evaluateSelector(){
-	var selector = $('#prompt-area').text()
-	clearUserInput()
+var InputController = function(){
+	this.$prompt = $('#prompt-area')
+}
+
+InputController.prototype.evaluateKeystroke = function(e){
+	var keyCode = e.keyCode || e.charCode
+	if (keyCode === 13){
+		if (the_game_has_started){
+			this.evaluateSelector()
+		} else {
+			startTheGame()
+		}
+	}
+	this.prependUserInput(keyCode)
+}
+
+InputController.prototype.evaluateSelector = function(){
+	var selector = this.$prompt.text()
+	this.clearUserInput()
 	$(selector).remove()
 }
 
-function evaluateKeystroke(e){
-	var keyCode = e.keyCode || e.charCode
-	if (keyCode === 13){
-		if (game.started){
-			evaluateSelector()
-		} else {
-			initializeGame()
-		}
-	}
-	// if (keyCode === 8 || keyCode === 46){
-	// 	console.log("Don't hit backspace!")
-	// }
-	prependUserInput(keyCode)
+InputController.prototype.prependUserInput = function(keyCode){
+	var char = String.fromCharCode(keyCode)
+	this.$prompt.append(char)
+}
+
+InputController.prototype.clearUserInput = function(){
+	this.$prompt.text('')
 }
