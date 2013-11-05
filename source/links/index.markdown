@@ -25,7 +25,7 @@ categories:
 
 ###Longform/Nonfiction
 * [This is Water](http://youtu.be/M5THXa_H_N8) | David Foster Wallace
-* [Bill Watterson, Commencement Speech, Kenyon College, 1990](http://www.serverunderground.com/archive/bill_watterson.html)
+* [Bill Watterson, 1990 Commencement Speech](http://www.serverunderground.com/archive/bill_watterson.html)
 * [The Spectacular Thefts of Apollo Robbins, Pickpocket](http://www.newyorker.com/reporting/2013/01/07/130107fa_fact_green) | The New Yorker
 * [American Summer: Before Air-Conditioning](http://www.newyorker.com/archive/1998/06/22/1998_06_22_144_TNY_LIBRY_000015831) | The New Yorker
 * [The New French Hacker-Artist Underground](http://www.wired.com/magazine/2012/01/ff_ux/) | Wired

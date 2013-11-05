@@ -22,7 +22,7 @@ A platform for connecting people looking for parking with people hoping to monet
 <strong>codeislike.com</strong><span id="portfolio-links">[site](/) | [code](https://github.com/nathanallen/nathanallen.github.io)</span>  
 This site. No kidding. Built on Octopress, hosted on github, and tweaked extensively. It's baked not fried, so dynamic elements are done using javascript. I'm learning as I go along.
 
-<strong>brettallenmusic.com</strong><span id="portfolio-links">[site](brettallenmusic.com)</span>  
+<strong>brettallenmusic.com</strong><span id="portfolio-links">[site](http://brettallenmusic.com)</span>  
 Simple ecommerce site for a self-publish sheet music business. Built on Sinatra using Bootstrap and WePay's embeddable shopping buttons. I cut my developer teeth on this site in 2011, and it gave me my first taste of CSS, HTML, and search analytics.
 
 <h2>Additional Experience</h2>
