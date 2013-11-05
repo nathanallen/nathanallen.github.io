@@ -7,20 +7,29 @@ categories:
 ---
 
 Ruby:
-	def say_hello(name)
-		p "hello #{name}!"
-	end
 
-	say_hello("world")
+``` ruby
+def say_hello(name)
+	p "hello #{name}!"
+end
+
+say_hello("world")
+```
 
 JavaScript:
-	function sayHello(name){
-		console.log("hello " + name)
-	}
 
-	sayHello("world")
+``` javascript
+function sayHello(name){
+	console.log("hello " + name)
+}
+
+sayHello("world")
+```
 
 Unix:
-	sayhi(){echo "hello $1"}
 
-	sayhi world
+``` bash
+sayhi(){echo "hello $1"}
+
+sayhi world
+```
