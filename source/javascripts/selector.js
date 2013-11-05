@@ -10,7 +10,9 @@ game = {
 function initializeGame(){
 	game.started = true
 	tagAllTheChildren()
+	rememberTheURL()
 	initializePromptArea()
+	updateGamePointsURL("Type Any jQuery Selector or HTML tag to play!")
 }
 
 function tagAllTheChildren(){
@@ -31,12 +33,31 @@ function listenForElementRemoval(tag){
 
 function kaput(){
 	game.score += 1
+	if (game.score === game.goal){
+		youWin()
+	} else {
+		updateGamePointsURL()
+	}
+
 }
 
 
 // View Controller
 function initializePromptArea(){
-	$('#blinking-cursor').wrap('<div>> <span id="prompt-area"/></div>')
+	$('#blinking-cursor').wrap('</h2><h2>> <span id="prompt-area"/>')
+}
+
+function rememberTheURL(){
+	game.URLstartingPoint = window.location.pathname
+}
+
+function updateGamePointsURL(msg){
+	window.location.hash = msg || "GAME_POINTS: " + game.score + "/" + game.goal
+}
+
+function youWin(){
+	window.location.hash = "You_Killed_It!"
+	setTimeout(function(){window.location.replace(game.URLstartingPoint)},3500)
 }
 
 function prependUserInput(keyCode){
