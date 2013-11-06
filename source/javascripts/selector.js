@@ -4,14 +4,13 @@ var Game = function() {
   this.score = 0
   this.goal = 0
   this.viewController = new ViewController()
-  this.inputController = new InputController()
+  this.viewController = new ViewController()
 }
 
 Game.prototype.initialize = function(){
   this.active = true
   this.tagAllTheChildren()
   this.viewController.initialize()
-  this.inputController.initialize()
 }
 
 Game.prototype.tagAllTheChildren = function(){
@@ -45,20 +44,19 @@ Game.prototype.onKeypress = function(e) {
   var keyCode = e.keyCode || e.charCode
   if (keyCode === 13) {
     if (this.active) {
-      this.inputController.evaluateSelector()
+      this.viewController.evaluateSelector()
     } else {
       this.initialize()
     }
   }
-  this.inputController.appendUserInput(keyCode)  
+  this.viewController.appendUserInput(keyCode)  
 }
 
 // View Controller
 var ViewController = function(){
   this.origin = window.location.pathname
-  this.$prompt = $('#blinking-cursor')
+  this.$prompt = $('#prompt')
   this.$inputArea = $('#input-area')
-
 }
 
 ViewController.prototype.initialize = function(){
@@ -88,27 +86,18 @@ ViewController.prototype.returnToOrigin = function(){
   window.location.replace(this.origin)
 }
 
-
-// User Input Controller
-var InputController = function(){
-}
-
-InputController.prototype.initialize = function(){
-  this.$inputArea = $('#input-area')
-}
-
-InputController.prototype.evaluateSelector = function(){
+ViewController.prototype.evaluateSelector = function(){
   var selector = this.$inputArea.text()
   this.clearUserInput()
   $(selector).remove()
 }
 
-InputController.prototype.appendUserInput = function(keyCode){
+ViewController.prototype.appendUserInput = function(keyCode){
   var char = String.fromCharCode(keyCode)
   this.$inputArea.append(char)
 }
 
-InputController.prototype.clearUserInput = function(){
+ViewController.prototype.clearUserInput = function(){
   this.$inputArea.text('')
 }
 
