@@ -56,7 +56,7 @@ Game.prototype.onKeypress = function(e) {
 // View Controller
 var ViewController = function(){
   this.origin = window.location.pathname
-  this.$promptArea = $('#blinking-cursor')
+  this.$prompt = $('#blinking-cursor')
 }
 
 ViewController.prototype.initialize = function(){
@@ -65,7 +65,7 @@ ViewController.prototype.initialize = function(){
 }
 
 ViewController.prototype.initializePromptArea = function(){
-  this.$promptArea.wrap('</h2><h2>> <span id="prompt-area"/>')
+  this.$prompt.wrap('</h2><h2>> <span id="input-area"/>')
 }
 
 ViewController.prototype.updateGameStatsInURL = function(score,goal){
@@ -92,22 +92,22 @@ var InputController = function(){
 }
 
 InputController.prototype.initialize = function(){
-  this.$prompt = $('#prompt-area')
+  this.$inputArea = $('#input-area')
 }
 
 InputController.prototype.evaluateSelector = function(){
-  var selector = this.$prompt.text()
+  var selector = this.$inputArea.text()
   this.clearUserInput()
   $(selector).remove()
 }
 
 InputController.prototype.appendUserInput = function(keyCode){
   var char = String.fromCharCode(keyCode)
-  this.$prompt.append(char)
+  this.$inputArea.append(char)
 }
 
 InputController.prototype.clearUserInput = function(){
-  this.$prompt.text('')
+  this.$inputArea.text('')
 }
 
 
