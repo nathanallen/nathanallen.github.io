@@ -24,8 +24,8 @@ Game.prototype.tagAllTheChildren = function(){
 Game.prototype.listenForElementRemoval = function(tag){
   var that = this
   var $elem = $(tag)
-  if ($elem.length){
-    setTimeout(function(){that.listenForElementRemoval(tag)},500)
+  if (!($elem.style.cssText === "display: none;")){
+    setTimeout(function(){that.listenForElementRemoval($elem)},500)
   } else {
     this.kaput()
   }
@@ -49,7 +49,9 @@ Game.prototype.onKeypress = function(e) {
       this.initialize()
     }
   }
-  this.viewController.appendUserInput(keyCode)  
+  if (this.active) {
+    this.viewController.appendUserInput(keyCode)
+  {
 }
 
 // View Controller
@@ -89,7 +91,7 @@ ViewController.prototype.returnToOrigin = function(){
 ViewController.prototype.evaluateSelector = function(){
   var selector = this.$inputArea.text()
   this.clearUserInput()
-  $(selector).remove()
+  $(selector).hide()
 }
 
 ViewController.prototype.appendUserInput = function(keyCode){
