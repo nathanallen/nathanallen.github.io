@@ -49,7 +49,9 @@ Game.prototype.onKeypress = function(e) {
       this.initialize()
     }
   }
-  this.viewController.appendUserInput(keyCode)  
+  if (this.active) {
+    this.viewController.appendUserInput(keyCode)
+  }
 }
 
 // View Controller
