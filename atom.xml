@@ -4,7 +4,7 @@
   <title><![CDATA[Code is like]]></title>
   <link href="http://codeislike.com/atom.xml" rel="self"/>
   <link href="http://codeislike.com/"/>
-  <updated>2013-11-10T10:23:56-08:00</updated>
+  <updated>2013-11-10T11:38:46-08:00</updated>
   <id>http://codeislike.com/</id>
   <author>
     <name><![CDATA[Nathan Allen]]></name>
@@ -18,9 +18,7 @@
     <link href="http://codeislike.com/blog/2013/11/04/jquery-selector-game/"/>
     <updated>2013-11-04T22:15:00-08:00</updated>
     <id>http://codeislike.com/blog/2013/11/04/jquery-selector-game</id>
-    <content type="html"><![CDATA[<p>I invite you to vandalize my site. <strong>Hit enter to play</strong>.</p>
-
-<p>Next, type any jquery selector or html tag that you is on the page. (HINT: try &lsquo;strong&rsquo;, &lsquo;code&rsquo;, &lsquo;p&rsquo;, &lsquo;*&rsquo;)</p>
+    <content type="html"><![CDATA[<p>I invite you to vandalize my site. <strong>Hit enter to play</strong>. Next, type any jquery selector or html tag that you think is on the page. (HINT: try &lsquo;strong&rsquo;, &lsquo;code&rsquo;, &lsquo;p&rsquo;, &lsquo;*&rsquo;)</p>
 
 <p>Ever since learning about jquery selectors I thought it would be pretty cool to make a game out of it. Yesterday I gave it a shot and came up with a fairly viable product.</p>
 
