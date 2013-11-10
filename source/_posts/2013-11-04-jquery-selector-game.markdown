@@ -5,9 +5,7 @@ date: 2013-11-04 22:15
 comments: true
 categories: 
 ---
-I invite you to vandalize my site. **Hit enter to play**.
-
-Next, type any jquery selector or html tag that you is on the page. (HINT: try 'strong', 'code', 'p', '*')
+I invite you to vandalize my site. **Hit enter to play**. Next, type any jquery selector or html tag that you think is on the page. (HINT: try 'strong', 'code', 'p', '*')
 
 Ever since learning about jquery selectors I thought it would be pretty cool to make a game out of it. Yesterday I gave it a shot and came up with a fairly viable product.
 
