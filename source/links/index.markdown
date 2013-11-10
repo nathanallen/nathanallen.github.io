@@ -44,6 +44,7 @@ categories:
 
 ###Code/Computers/Tech
 * [Innovation and the Bell Labs Miracle](http://nytimes.com/2012/02/26/opinion/sunday/innovation-and-the-bell-labs-miracle.html?pagewanted=all) | NYTimes
+* [Inventing on Principle](http://vimeo.com/36579366) | Bret Victor
 * [Wikileaks, Karl Marx and You](http://www.resilience.org/stories/2011-01-11/wikileaks-karl-marx-and-you) | Alistair Davidson
 * [Don't Call Yourself A Programmer, And Other Career Advice](http://www.kalzumeus.com/2011/10/28/dont-call-yourself-a-programmer/) | Patrick McKenzie
 * [We Can’t Let the Impending Apocalypse Delay the Release of Our Photo-Sharing App](http://www.mcsweeneys.net/articles/we-cant-let-the-impending-apocalypse-delay-the-release-of-our-photo-sharing-app) | McSweeney’s
@@ -54,6 +55,7 @@ categories:
 * [Talk about the problem not the solution](http://katgleason.tumblr.com/post/47257463324/talk-about-the-problem-not-the-solution) | Katelyn Gleason
 * [Taking the Internet to the People](http://spectrum.ieee.org/computing/hardware/taking-the-internet-to-the-people) | IEEE Spectrum
 * [From Selling Scoops Of Ice Cream To Founding ZeroCater](http://techcrunch.com/2013/04/06/how-i-started-zerocater/) | TechCrunch
+* [Link Rot](http://www.gwern.net/Archiving%20URLs) | gwern.net
 
 ###Food/Sleep/Life
 * [Alt Text: The Science-y Search for Healthy Sugar Water](http://www.wired.com/underwire/2012/11/alt-text-healthy-sugar-water/) | Wired
@@ -76,6 +78,7 @@ categories:
 * [Aiming for the Perfect Gift](http://nytimes.com/2011/12/13/science/aiming-for-the-perfect-gift-its-much-closer-than-you-think.html) | NYTimes
 * [Essentialism: A Conversation with Bruce Hood](http://www.edge.org/conversation/essentialism-) | Behavioral Psychology
 * [The Biology of Bubble and Crash](http://nytimes.com/2012/06/10/opinion/sunday/the-biology-of-bubble-and-crash.html?pagewanted=all) | NYTimes Op-Ed
+* [How Companies Learn Your Secrets](http://www.nytimes.com/2012/02/19/magazine/shopping-habits.html?pagewanted=1&_r=2&hp&&pagewanted=all) | NYTimes
 
 ###Bikes
 * [The Invention of Jaywalking](http://www.theatlanticcities.com/commute/2012/04/invention-jaywalking/1837/) | The Atlantic Cities
