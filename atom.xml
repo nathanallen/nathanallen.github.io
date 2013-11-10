@@ -4,7 +4,7 @@
   <title><![CDATA[Code is like]]></title>
   <link href="http://codeislike.com/atom.xml" rel="self"/>
   <link href="http://codeislike.com/"/>
-  <updated>2013-11-06T23:46:38-08:00</updated>
+  <updated>2013-11-10T09:35:53-08:00</updated>
   <id>http://codeislike.com/</id>
   <author>
     <name><![CDATA[Nathan Allen]]></name>
@@ -20,9 +20,11 @@
     <id>http://codeislike.com/blog/2013/11/04/jquery-selector-game</id>
     <content type="html"><![CDATA[<p>I invite you to vandalize my site. <strong>Hit enter to play</strong>.</p>
 
-<p>Ever since learning about jquery selectors I thought it would be pretty cool to make a game out of it. Yesterday I gave it a shot and came up with a functional minimum viable product. No, really: scroll up, and hit enter to play. Instructions will appear in the address bar. (HINT: &lsquo;strong&rsquo;, &lsquo;code&rsquo;, &lsquo;p&rsquo;, &lsquo;*&rsquo;.)</p>
+<p>Next, type any jquery selector or html tag that you is on the page. (HINT: try &lsquo;strong&rsquo;, &lsquo;code&rsquo;, &lsquo;p&rsquo;, &lsquo;*&rsquo;)</p>
 
-<p>Now for the code. The first challenge I faced was determining if I could detect the removal of an element from the page. Sure enough, after a little bit of playing around in the console I had a working event listener.</p>
+<p>Ever since learning about jquery selectors I thought it would be pretty cool to make a game out of it. Yesterday I gave it a shot and came up with a fairly viable product.</p>
+
+<p>The first challenge I faced was determining if I could detect the removal of an element from the page. Sure enough, after a little bit of playing around in the console I had a working event listener.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -77,13 +79,9 @@
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">tagAllTheChildren</span><span class="p">(){</span>
-</span><span class='line'>  <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="nx">selector</span><span class="p">){</span>
-</span><span class='line'>      <span class="nx">listenIExist</span><span class="p">(</span> <span class="nx">$</span><span class="p">(</span><span class="nx">selector</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">tagName</span> <span class="p">)</span>
-</span><span class='line'>  <span class="p">})</span>
-</span><span class='line'><span class="p">}</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="nx">selector</span><span class="p">){</span>
+</span><span class='line'>  <span class="nx">listenIExist</span><span class="p">(</span> <span class="nx">$</span><span class="p">(</span><span class="nx">selector</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">tagName</span> <span class="p">)</span>
+</span><span class='line'><span class="p">})</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
