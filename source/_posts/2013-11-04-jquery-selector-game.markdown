@@ -7,9 +7,11 @@ categories:
 ---
 I invite you to vandalize my site. **Hit enter to play**.
 
-Ever since learning about jquery selectors I thought it would be pretty cool to make a game out of it. Yesterday I gave it a shot and came up with a functional minimum viable product. No, really: scroll up, and hit enter to play. Instructions will appear in the address bar. (HINT: 'strong', 'code', 'p', '*'.)
+Next, type any jquery selector or html tag that you is on the page. (HINT: try 'strong', 'code', 'p', '*')
 
-Now for the code. The first challenge I faced was determining if I could detect the removal of an element from the page. Sure enough, after a little bit of playing around in the console I had a working event listener. 
+Ever since learning about jquery selectors I thought it would be pretty cool to make a game out of it. Yesterday I gave it a shot and came up with a fairly viable product.
+
+The first challenge I faced was determining if I could detect the removal of an element from the page. Sure enough, after a little bit of playing around in the console I had a working event listener.
 
 ``` javascript
 function listenIExist(elem){
@@ -43,11 +45,9 @@ function howMuchFortheChildren(tag){
 But then I discovered a novel solution that simplified things considerably. jQuery supports a wildcard selector. Why not use that?
 
 ``` javascript
-function tagAllTheChildren(){
 	$('*').each(function(i,selector){
 		listenIExist( $(selector)[0].tagName )
 	})
-}
 ```
 
 Now we were talking. The core pieces were in place. Except, how was I going to get user input?
