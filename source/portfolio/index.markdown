@@ -20,7 +20,7 @@ A platform for connecting people looking for parking with people hoping to monet
 
 <h2>Side Projects</h2>
 <strong>codeislike.com</strong><span id="portfolio-links">[site](/) | [code](https://github.com/nathanallen/nathanallen.github.io)</span>  
-This site. No kidding. Built on Octopress, hosted on github, and tweaked extensively. It's baked not fried, so dynamic elements are done using javascript. Don't miss the easter egg, a [jQuery Selector Game](/blog/2013/11/04/jquery-selector-game/)!
+This site. No kidding. Built on Octopress, hosted on github, and tweaked extensively. It's baked not fried, so dynamic elements are done using javascript. Don't miss the easter egg, a jQuery selector [game](/blog/2013/11/04/jquery-selector-game/)! I also created my own [API](/blog/2013/11/13/making-a-personal-api/).
 
 <strong>brettallenmusic.com</strong><span id="portfolio-links">[site](http://app.brettallenmusic.com)</span>  
 Simple ecommerce site for a self-publish sheet music business. Built on Sinatra using Bootstrap and WePay's embeddable shopping buttons. I cut my developer teeth on this site in 2011, and it gave me my first taste of CSS, HTML, and search analytics.
