@@ -76,11 +76,18 @@
   </header>
 
 
-<div class="entry-content"><p>The other day I came across a job posting that challenged applicants to submit their resumes and cover letters through an API. This got me thinking about building my own API, so after googling around to see what other people had done along the same lines (<a href="http://readwrite.com/2013/08/23/building-personal-api">here</a> and <a href="http://x.naveen.com/post/51808692792/a-personal-api">here</a>), I set to work building a simple sinatra app that serves up my data. It is now live at <a href="http://api.codeislike.com">api.codeislike.com/</a>, hosted by heroku.</p>
-
-<p>It turns out that Quantified Self junkies are all over the idea of a personal API. Given all the data we&rsquo;re collectively churning out with fitbits and other internet-of-things-style embedded-electronics, the potential for a live feed of personal activity-levels (and feeding-patterns) isn&rsquo;t that far off.</p>
+<div class="entry-content"><p>The other day I came across a job posting that challenged applicants to submit their resumes and cover letters through an API. This got me thinking about building my own API, so after googling around to see what other people had done along the same lines (<a href="http://readwrite.com/2013/08/23/building-personal-api">here</a> and <a href="http://x.naveen.com/post/51808692792/a-personal-api">here</a>), I set to work building a simple sinatra app that serves up my data. It is now live at <a href="http://api.codeislike.com">api.codeislike.com</a>, hosted by heroku.</p>
 
 <p>For now, my API is largely static. I didn&rsquo;t use a database or any cacheing. But for kicks I did pull in my twitter activity.</p>
+
+<p>You can access it from the command line by running:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl http://api.codeislike.com
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
 
 <p>A few things that I learned along the way:</p>
 
@@ -138,11 +145,13 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h3>Conclusion</h3>
+<h3>Quantified Self</h3>
+
+<p>It turns out that Quantified Self junkies love the idea of a personal API. Given all the data we&rsquo;re collectively churning out with fitbits and other internet-of-things-style embedded-electronics, the potential for a live feed of fitness (and feeding-patterns) isn&rsquo;t that far off.</p>
 
 <p>I doubt I&rsquo;ll put any more time into this project, but perhaps we&rsquo;ll eventually see sites like IFTTT take this idea to the next level by providing access to aggregated, personal API data. Better yet, and of far more utility, would be a live feed of health-related data beamed straight to my doctor.</p>
 
-<p>Early Quantified Self guinea pigs like Larry Smarr (<a href="http://www.theatlantic.com/magazine/archive/2012/07/the-measured-man/309018/">The Measured Man: The Atlantic</a>) and Tim Ferriss (<a href="http://fora.tv/2012/10/16/4-Hour_Everything_How_Tim_Ferriss_Tracks_His_Lifes_Data">2012 Wired Health Conference Video Interview</a>) are blazing that trail for the rest of us.</p>
+<p>Early Quantified Self &ldquo;guinea pigs&rdquo; like Larry Smarr (<a href="http://www.theatlantic.com/magazine/archive/2012/07/the-measured-man/309018/">The Measured Man: The Atlantic</a>) and Tim Ferriss (<a href="http://fora.tv/2012/10/16/4-Hour_Everything_How_Tim_Ferriss_Tracks_His_Lifes_Data">2012 Wired Health Conference Video Interview</a>) are blazing that trail for the rest of us.</p>
 </div>
 
 
