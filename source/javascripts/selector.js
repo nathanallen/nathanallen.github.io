@@ -40,7 +40,7 @@ Game.prototype.kaput = function(){
   }
 }
 
-Game.prototype.onKeypress = function(e) {
+Game.prototype.onKeypress = function(e){
   var keyCode = e.keyCode || e.charCode
   if (keyCode === 13) {
     if (this.active) {
@@ -103,12 +103,18 @@ ViewController.prototype.clearUserInput = function(){
   this.$inputArea.text('')
 }
 
-
 function preventBackspace(e){
   var keyCode = e.keyCode || e.charCode
   if (keyCode == 46 || keyCode == 8){
     e.preventDefault()
+    backspace()
   }
+}
+
+function backspace(){
+  var text = $('#input-area').text()
+  var replacement = text.substr(0,text.length-1)
+  $('#input-area').text(replacement)
 }
 
 $(function() {
