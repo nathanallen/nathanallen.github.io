@@ -5,7 +5,9 @@ date: 2013-11-16 14:52
 comments: true
 categories: 
 ---
-Recently I was on a team that created an airbnb-inspired [parking app](http://eyepark.herokuapp.com). For our MVP, we chose to limit the scope of our project to San Francisco, and I volunteered to create the seed data. Looking back I should have simply made a list of a hundred or so real addresses and called it a day. Instead I set to work gathering data on the city: I scraped a wikipedia article for [Historical Street Names](http://en.wikipedia.org/wiki/Etymologies_of_place_names_in_San_Francisco), and for kicks I scraped a document that cross referenced zipcodes and neighborhood names and created a lookup table that later became part of our database.
+Recently I was on a team that created an airbnb-inspired [parking app](http://eyepark.herokuapp.com). For our MVP, we chose to limit the scope of our project to San Francisco, and I volunteered to create the seed data. Looking back I should have simply made a list of a hundred or so real addresses and called it a day.
+
+Instead I set to work gathering data on the city: I scraped a wikipedia article for [Historical Street Names](http://en.wikipedia.org/wiki/Etymologies_of_place_names_in_San_Francisco), and for kicks I scraped a document that cross referenced zipcodes and neighborhood names and created a lookup table that later became part of our database.
 
 Around the same time we started playing with the Google Maps API and I realized that I could feed the API radomly generated street addresses and get back *real* geographical coordinates and zipcodes. We now had a way to turn fake data into pins on a map.
 
