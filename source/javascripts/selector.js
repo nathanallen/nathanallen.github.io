@@ -104,9 +104,17 @@ ViewController.prototype.clearUserInput = function(){
 }
 
 
+function preventBackspace(e){
+  var keyCode = e.keyCode || e.charCode
+  if (keyCode == 46 || keyCode == 8){
+    e.preventDefault()
+  }
+}
 
 $(function() {
   var game = new Game()
 
-  $(window).on('keypress', game.onKeypress.bind(game))
+  $(window)
+    .on('keypress', game.onKeypress.bind(game))
+    .on('keydown', function(e){preventBackspace(e)})
 })
