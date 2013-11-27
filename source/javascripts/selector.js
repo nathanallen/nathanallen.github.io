@@ -1,8 +1,9 @@
 // Game Controller
 var Game = function() {
+  this.selectors = ['center','a','p','h1']
   this.active = false
   this.score = 0
-  this.goal = 0
+  this.goal = this.selectors.length
   this.viewController = new ViewController()
   this.viewController = new ViewController()
 }
@@ -11,14 +12,18 @@ Game.prototype.initialize = function(){
   this.active = true
   this.tagAllTheChildren()
   this.viewController.initialize()
+  this.nextMoleToWhack()
 }
 
 Game.prototype.tagAllTheChildren = function(){
   var that = this
   $('*').each(function(i,selector){
-    that.goal += 1
     that.listenForElementRemoval( $(selector)[0].tagName )
   })
+}
+
+Game.prototype.nextMoleToWhack = function(){
+  blinkingCursor(document.querySelector(this.selectors.shift()))
 }
 
 Game.prototype.listenForElementRemoval = function(tag){
@@ -43,6 +48,7 @@ Game.prototype.kaput = function($elem){
     this.viewController.youWin()
   } else {
     this.viewController.updateGameStatsInURL(this.score,this.goal)
+    this.nextMoleToWhack()
   }
 }
 
