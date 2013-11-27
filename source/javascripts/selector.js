@@ -62,12 +62,20 @@ var ViewController = function(){
 }
 
 ViewController.prototype.initialize = function(){
-  this.initializePromptArea()
+  this.switchToGameHeader()
   this.updateMessageInURL("Type Any jQuery Selector or HTML tag to play!")
 }
 
+ViewController.prototype.switchToGameHeader = function(){
+  this.initializePromptArea()
+  $('header').first().css({'position':'fixed','z-index':1, 'top':0, 'width':'540px'})
+  $('header hgroup h1').css('color','#f2f2f2').text("Selector Destructor")
+  $('header #subtitle').text('> Type any HTML tag to play!')
+  $('body').css('margin-top','180px')
+}
+
 ViewController.prototype.initializePromptArea = function(){
-  this.$prompt.wrap('</h2><h2>> ')
+  this.$prompt.wrap('<h2>>').prepend(' ')
 }
 
 ViewController.prototype.updateGameStatsInURL = function(score,goal){
