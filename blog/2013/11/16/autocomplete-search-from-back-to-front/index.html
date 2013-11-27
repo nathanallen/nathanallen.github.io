@@ -38,10 +38,10 @@
 </head>
 
 <body   >
-  <header role="banner"><hgroup>
+  <header role="banner"><hgroup class='game'>
   <h1><a href="/">Code is like</a></h1>
   
-    <h2>> begin braindump<span id="prompt"><span id="input-area"></span><span id="blinking-cursor">|</span></span></h2>
+    <h2 class='game'><span id='subtitle' class='game'>> begin braindump</span><span id="prompt" class='game'><span id="input-area" class='game'></span><span id="blinking-cursor" class='game'>|</span></span></h2>
   
 </hgroup>
 
@@ -76,7 +76,9 @@
   </header>
 
 
-<div class="entry-content"><p>Recently I was on a team that created an airbnb-inspired <a href="http://eyepark.herokuapp.com">parking app</a>. For our MVP, we chose to limit the scope of our project to San Francisco, and I volunteered to create the seed data. Looking back I should have simply made a list of a hundred or so real addresses and called it a day. Instead I set to work gathering data on the city: I scraped a wikipedia article for <a href="http://en.wikipedia.org/wiki/Etymologies_of_place_names_in_San_Francisco">Historical Street Names</a>, and for kicks I scraped a document that cross referenced zipcodes and neighborhood names and created a lookup table that later became part of our database.</p>
+<div class="entry-content"><p>Recently I was on a team that created an airbnb-inspired <a href="http://eyepark.herokuapp.com">parking app</a>. For our MVP, we chose to limit the scope of our project to San Francisco, and I volunteered to create the seed data. Looking back I should have simply made a list of a hundred or so real addresses and called it a day.</p>
+
+<p>Instead I set to work gathering data on the city: I scraped a wikipedia article for <a href="http://en.wikipedia.org/wiki/Etymologies_of_place_names_in_San_Francisco">Historical Street Names</a>, and for kicks I scraped a document that cross referenced zipcodes and neighborhood names and created a lookup table that later became part of our database.</p>
 
 <p>Around the same time we started playing with the Google Maps API and I realized that I could feed the API radomly generated street addresses and get back <em>real</em> geographical coordinates and zipcodes. We now had a way to turn fake data into pins on a map.</p>
 
