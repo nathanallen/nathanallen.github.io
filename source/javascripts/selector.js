@@ -24,15 +24,21 @@ Game.prototype.tagAllTheChildren = function(){
 Game.prototype.listenForElementRemoval = function(tag){
   var that = this
   var $elem = $(tag)
-  if ($elem.length){
-    setTimeout(function(){that.listenForElementRemoval(tag)},500)
-  } else {
-    this.kaput()
-  }
+  setInterval(function(){
+    if ($elem.hasClass('exterminate') && !$elem.hasClass('exterminated')){
+      $elem.removeClass('exterminate')
+      if ($elem.hasClass('game')){
+        $elem.css('display', '')
+      } else {
+        that.kaput($elem)
+      }
+    }
+  },500)
 }
 
-Game.prototype.kaput = function(){
+Game.prototype.kaput = function($elem){
   this.score += 1
+  $elem.addClass('exterminated')
   if (this.score === this.goal){
     this.viewController.youWin()
   } else {
@@ -99,7 +105,7 @@ ViewController.prototype.returnToOrigin = function(){
 ViewController.prototype.evaluateSelector = function(){
   var selector = this.$inputArea.text()
   this.clearUserInput()
-  $(selector).remove()
+  $(selector).css('display','none').addClass('exterminate')
 }
 
 ViewController.prototype.appendUserInput = function(keyCode){
