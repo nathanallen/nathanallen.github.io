@@ -103,7 +103,10 @@ ViewController.prototype.clearUserInput = function(){
   this.$inputArea.text('')
 }
 
-function preventBackspace(e){
+// Keypress Handler
+var KeypressHandler = function(){}
+
+KeypressHandler.prototype.preventBackspace = function(e){
   var keyCode = e.keyCode || e.charCode
   if (keyCode == 46 || keyCode == 8){
     e.preventDefault()
@@ -119,8 +122,9 @@ function backspace(){
 
 $(function() {
   var game = new Game()
+  var keypressHandler = new KeypressHandler()
 
   $(window)
     .on('keypress', game.onKeypress.bind(game))
-    .on('keydown', function(e){preventBackspace(e)})
+    .on('keydown', keypressHandler.preventBackspace.bind(keypressHandler))
 })
