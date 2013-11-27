@@ -1,6 +1,6 @@
 // Game Controller
 var Game = function() {
-  this.selectors = ['center','a','p','h1']
+  this.selectors = ['a','p','h1','center']
   this.active = false
   this.score = 0
   this.goal = this.selectors.length
@@ -101,7 +101,8 @@ ViewController.prototype.updateMessageInURL = function(msg){
 ViewController.prototype.youWin = function(){
   var that = this
   this.updateMessageInURL("You_Killed_It!")
-  setTimeout(function(){that.returnToOrigin()},3500)
+  setTimeout(function(){that.blinkySuccess()},500)
+  setTimeout(function(){that.returnToOrigin()},2000)
 }
 
 ViewController.prototype.returnToOrigin = function(){
@@ -121,6 +122,10 @@ ViewController.prototype.appendUserInput = function(keyCode){
 
 ViewController.prototype.clearUserInput = function(){
   this.$inputArea.text('')
+}
+
+ViewController.prototype.blinkySuccess = function(){
+  $('*').css('display','')
 }
 
 // Keypress Handler
