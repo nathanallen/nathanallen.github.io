@@ -112,6 +112,10 @@ ViewController.prototype.returnToOrigin = function(){
 ViewController.prototype.evaluateSelector = function(){
   var selector = this.$inputArea.text()
   this.clearUserInput()
+  this.hideSelector(selector)
+}
+
+ViewController.prototype.hideSelector = function(selector){
   $(selector).css('display','none').addClass('exterminate')
 }
 
