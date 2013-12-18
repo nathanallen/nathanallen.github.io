@@ -5,7 +5,12 @@ comments: false
 categories:
 --- 
 
+Currently Reading:  
+- The Art of UNIX Programming [Eric Raymond]  
+- Javascript the Good Parts [Douglas Crockford]
+
 ###2013
+* Apprenticeship Patterns: Guidance for the Aspiring Software Craftsman [Dave Hoover]
 * The Passionate Programmer [Chad Fowler]
 * The Defining Decade [Meg Jay]
 * Waiting for the Barbarians [J.M. Coetzee]

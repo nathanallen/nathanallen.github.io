@@ -119,6 +119,5 @@ As best as I can remember...
 * Harry Potter and the Goblet of Fire [J. K. Rowling]
 * Crime and Punishment [ ]
 * Lirael [Garth Nix]
-* I Gave Dating a Chance [ ]
 * Macbeth [ ]
 * Sabriel [Garth Nix]
