@@ -32,7 +32,7 @@ function recursiveBlinkingCursor(){
 }
 ```
 
-This was a total failure. Javascript is an asynchronous langauge, so both the hide, reveal, and the recursive call were effetively all happening at once. Never mind that I tacked on '.delay()', it wasn't going to change the sequence at runtime. I also got this lovely stack overflow message:
+This led to a lovely stack overflow message:
 
 ``` plain
 RangeError: Maximum call stack size exceeded
@@ -54,6 +54,26 @@ function recursiveBlinkingCursor(elem){
 ```
 
 Using setTimeout() in this way allows me to tell the function to wait, hide, reveal, hide, and then make the recursive call to start it all over again. Works like a charm.
+
+EDIT: A few weeks later I discovered that javascript has a setInterval() function. This allowed me to ditch the recursive call altogether. For simplicity's sake I also decided to ditch jQuery. The code as it stands today is:
+
+```
+function blinkingCursor(elem){
+  var elem = elem || document.querySelector('#blinking-cursor')
+  setInterval(function(){
+    elem.style.visibility = 'hidden'
+    setTimeout(function(){
+      elem.style.visibility = ''
+    }, 600)
+  }, 1200)
+}
+
+window.onload = function(){
+  blinkingCursor()
+}
+```
+
+You can view it on github [here](https://github.com/nathanallen/blinking-cursor).
 
 As an addendum, when I showed the effect to a friend he wondered if I could have used the html '\<blink\>' tag. Almost certain that I had over-engineered the problem I did a little googling and found these gems: "\<blink\> was once reviled as the most obnoxious tag in HTML. Now it's mostly forgotten." "HTML5 classifies it as a non-conforming feature." "No, really, don't use it. It's simply evil."
 
