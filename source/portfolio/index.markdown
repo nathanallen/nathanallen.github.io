@@ -10,8 +10,11 @@ footer: true
 <strong>iPark</strong><span id="portfolio-links">[site](http://eyepark.herokuapp.com) | [code](https://github.com/nathanallen/iPark)</span>  
 An airbnb inspired parking app. Built by a team of three for our final project at Dev Bootcamp. We used Rails, the Google Maps API, jQuery autocomplete, and Bootstrap. I implimented all aspects of search, from parsing search queries to autocomplete.
 
+<strong>Meet in the Middle</strong><span id="portfolio-links">[site](http://waneka.github.io/middle) | [code](https://github.com/waneka/middle)</span>  
+Won Best Overall App at DBC Alumni Hackathon 2013. An app that allows two people to find a convenient location halfway between them to meet up for coffee, drinks, or dinner. The app suggests venues, displays directions for both users, and can be used to send a link to directions. I integrated mapping based on two user locations.
+
 <strong>Queer Quote</strong><span id="portfolio-links">[site](http://queerquote.com/) | [code](https://github.com/SamSamskies/Queer-Quote)</span>  
-Second place winner of the non-profit benefit hackathon, Hack for Queer Youth. An interactive widget that syncs the audio from a podcast with text from a transcript. At any point during playback the current text or quote can be converted into an image and then shared to facebook. I redesigned our player to dynamically load and display stories and setup an an API to convert transcript files to JSON.
+Won Second Place at non-profit benefit hackathon, Hack for Queer Youth. An interactive widget that syncs the audio from a podcast with text from a transcript. At any point during playback the current text or quote can be converted into an image and then shared to facebook. I redesigned our player to dynamically load and display stories and setup an API to convert transcript files to JSON.
 
 <strong>Practice Projects:</strong>  
 * Created helpers and ajax requests for a real-time, multiplayer dice game.<span id="portfolio-links">[code](https://github.com/tiger-swallowtails-2013/liars-dice)</span>  
