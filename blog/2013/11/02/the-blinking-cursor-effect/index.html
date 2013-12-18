@@ -116,7 +116,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>This was a total failure. Javascript is an asynchronous langauge, so both the hide, reveal, and the recursive call were effetively all happening at once. Never mind that I tacked on &lsquo;.delay()&rsquo;, it wasn&rsquo;t going to change the sequence at runtime. I also got this lovely stack overflow message:</p>
+<p>This led to a lovely stack overflow message:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>RangeError: Maximum call stack size exceeded</span></code></pre></td></tr></table></div></figure>
@@ -148,6 +148,39 @@
 
 
 <p>Using setTimeout() in this way allows me to tell the function to wait, hide, reveal, hide, and then make the recursive call to start it all over again. Works like a charm.</p>
+
+<p>EDIT: A few weeks later I discovered that javascript has a setInterval() function. This allowed me to ditch the recursive call altogether. For simplicity&rsquo;s sake I also decided to ditch jQuery. The code as it stands today is:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">blinkingCursor</span><span class="p">(</span><span class="nx">elem</span><span class="p">){</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">elem</span> <span class="o">=</span> <span class="nx">elem</span> <span class="o">||</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#blinking-cursor&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="nx">elem</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">visibility</span> <span class="o">=</span> <span class="s1">&#39;hidden&#39;</span>
+</span><span class='line'>    <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>      <span class="nx">elem</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">visibility</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</span><span class='line'>    <span class="p">},</span> <span class="mi">600</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">},</span> <span class="mi">1200</span><span class="p">)</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>  <span class="nx">blinkingCursor</span><span class="p">()</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can view it on github <a href="https://github.com/nathanallen/blinking-cursor">here</a>.</p>
 
 <p>As an addendum, when I showed the effect to a friend he wondered if I could have used the html &lsquo;&lt;blink>&rsquo; tag. Almost certain that I had over-engineered the problem I did a little googling and found these gems: &ldquo;&lt;blink> was once reviled as the most obnoxious tag in HTML. Now it&rsquo;s mostly forgotten.&rdquo; &ldquo;HTML5 classifies it as a non-conforming feature.&rdquo; &ldquo;No, really, don&rsquo;t use it. It&rsquo;s simply evil.&rdquo;</p>
 

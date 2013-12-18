@@ -110,7 +110,7 @@ ViewController.prototype.returnToOrigin = function(){
 }
 
 ViewController.prototype.evaluateSelector = function(){
-  var selector = this.$inputArea.text()
+  var selector = this.$inputArea.text().replace(/[\<\>\$\(\)\"\']/g, '')
   this.clearUserInput()
   this.hideSelector(selector)
 }
