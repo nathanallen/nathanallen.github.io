@@ -9,7 +9,7 @@
   <meta name="author" content="Nathan Allen">
 
   
-  <meta name="description" content="Recently I was on a team that created an airbnb-inspired parking app. For our MVP, we chose to limit the scope of our project to San Francisco, and I &hellip;">
+  <meta name="description" content="You&rsquo;ve just created your first game using javascript, perhaps a TypeRacer clone, and you&rsquo;ve run into an annoying bug. Whenever you bump &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -50,6 +50,133 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/12/18/preventing-backspace/">Preventing Backspace</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-18T18:47:00-08:00" pubdate data-updated="true">Dec 18<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>You&rsquo;ve just created your first game using javascript, perhaps a TypeRacer clone, and you&rsquo;ve run into an annoying bug. Whenever you bump backspace the browser navigates back to the previous page, ending gameplay. It&rsquo;s cramping your style.</p>
+
+<p>By now you already understand how to capture keystrokes, using something along the lines of:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nb">window</span><span class="p">.</span><span class="nx">onkeypress</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">which</span><span class="p">)}</span>
+</span><span class='line'><span class="c1">// or if you prefer jQuery:</span>
+</span><span class='line'><span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;keypress&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">which</span><span class="p">)})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>For reference: e.which, e.keyCode and e.charCode all work just as well.</p>
+
+<p>But something weird is happening, not all the keys are being logged. When you hit arrow keys, or other control keys (Shift, Command, Tab, Escape, etc) you get nothing.</p>
+
+<p>Even worse, when you hit the backspace button&hellip; you go back! How are you supposed to capture the keycode of the backspace button if the browser navigates back!?</p>
+
+<h2>Keypress vs Keydown vs Keyup</h2>
+
+<p>It turns out the keypress event is one of three ways to log keystrokes, the other two are keydown and keyup. What&rsquo;s the difference?</p>
+
+<p>Well, let&rsquo;s see for ourselves! Let&rsquo;s setup three event listeners and when the event is triggered we&rsquo;ll print out the timestamp to try to gauge the order in which they&rsquo;re firing.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">)</span> <span class="c1">//this handy syntax is called a &#39;cascade&#39;</span>
+</span><span class='line'>  <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;keypress&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">timeStamp</span> <span class="o">+</span> <span class="s2">&quot; keypress!&quot;</span><span class="p">)})</span>
+</span><span class='line'>  <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;keyup&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">timeStamp</span> <span class="o">+</span> <span class="s2">&quot; up!&quot;</span><span class="p">)})</span>
+</span><span class='line'>  <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;keydown&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">timeStamp</span> <span class="o">+</span> <span class="s2">&quot; down!&quot;</span><span class="p">)})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now when we hit a &lsquo;control button&rsquo; like the spacebar we get output in this order:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="mi">1387421080919</span> <span class="nx">down</span><span class="o">!</span>
+</span><span class='line'><span class="mi">1387421080920</span> <span class="nx">keypress</span><span class="o">!</span>
+</span><span class='line'><span class="mi">1387421080998</span> <span class="nx">up</span><span class="o">!</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Keydown is the winner! The keydown event fires just a split second before keypress! No wonder we&rsquo;ve been missing it!</p>
+
+<h2>No looking back</h2>
+
+<p>Now that we know the order in which the events occur, how do we prevent the default behavior of the back button? Why, preventDefault() of course! But we have to make sure to bind our function to the earliest keyboard event: keydown. To do this we just add a line:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;keydown&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+</span><span class='line'>  <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">()</span>
+</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;halt!&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Mission Accomplished! We&rsquo;ve halted the back button!</p>
+
+<p>But wait a minute, our quick little hack works a little too well&hellip; it also prevent a lot of useful keyboard shortcuts from working too. What if I try to refresh the page using Cmd-R?</p>
+
+<p>To single out the backspace we&rsquo;ll need to use some conditional logic in combination with preventDefault(). Something along the lines of:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">preventBackspace</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">keyCode</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">||</span> <span class="nx">e</span><span class="p">.</span><span class="nx">charCode</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">keyCode</span> <span class="o">==</span> <span class="mi">46</span> <span class="o">||</span> <span class="nx">keyCode</span> <span class="o">==</span> <span class="mi">8</span><span class="p">){</span>
+</span><span class='line'>    <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">()</span>
+</span><span class='line'>    <span class="c1">//now do something cool instead</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;keydown&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span><span class="nx">preventBackspace</span><span class="p">(</span><span class="nx">e</span><span class="p">)})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So that&rsquo;s how to stop the back button from taking you back. I can only imagine google&rsquo;s SEO algorhithm frowns on the practice so I would use it sparingly. It certainly has its malicious uses!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
