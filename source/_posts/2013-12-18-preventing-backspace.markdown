@@ -16,7 +16,7 @@ window.onkeypress = function(e){console.log(e.which)}
 $(window).on('keypress', function(e){console.log(e.which)})
 ```
 
-For reference: e.which, e.keyCode and e.charCode all work just as well.
+For reference: `e.which`, `e.keyCode` and `e.charCode` all work just as well.
 
 But something weird is happening, not all the keys are being logged. When you hit arrow keys, or other control keys (Shift, Command, Tab, Escape, etc) you get nothing. 
 
@@ -48,7 +48,7 @@ Keydown is the winner! The keydown event fires just a split second before keypre
 
 ##No looking back
 
-Now that we know the order in which the events occur, how do we prevent the default behavior of the back button? Why, preventDefault() of course! But we have to make sure to bind our function to the earliest keyboard event: keydown. To do this we just add a line:
+Now that we know the order in which the events occur, how do we prevent the default behavior of the back button? Why, `preventDefault()` of course! But we have to make sure to bind our function to the earliest keyboard event: keydown. To do this we just add a line:
 
 ``` javascript
 $(window).on('keydown', function(event){
@@ -61,7 +61,7 @@ Mission Accomplished! We've halted the back button!
 
 But wait a minute, our quick little hack works a little too well... it also prevent a lot of useful keyboard shortcuts from working too. What if I try to refresh the page using Cmd-R?
 
-To single out the backspace we'll need to use some conditional logic in combination with preventDefault(). Something along the lines of:
+To single out the backspace we'll need to use some conditional logic in combination with `preventDefault()`. Something along the lines of:
 
 ``` javascript
 function preventBackspace(e){

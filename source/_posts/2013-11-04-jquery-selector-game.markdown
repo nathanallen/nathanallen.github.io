@@ -65,7 +65,7 @@ if (keyCode === 13){
 }
 ```
 
-Using jquery's .wrap() and .append() methods I was able to manipulate the html around the cursor. But I also needed the cursor to move down to a new line. Since it was already wrapped in the \<h2> tag what I needed to do was break it into its own heading.
+Using jquery's `.wrap()` and `.append()` methods I was able to manipulate the html around the cursor. But I also needed the cursor to move down to a new line. Since it was already wrapped in the \<h2> tag what I needed to do was break it into its own heading.
 ``` html
 <h2>> begin braindump<span id="blinking-cursor">|</span></h2>
 ```
