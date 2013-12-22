@@ -30,7 +30,7 @@
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   
   <script>(function(G,o,O,g,l){G.GoogleAnalyticsObject=O;G[O]||(G[O]=function(){(G[O].q=G[O].q||[]).push(arguments)});G[O].l=+new Date;g=o.createElement('script'),l=o.scripts[0];g.src='//www.google-analytics.com/analytics.js';l.parentNode.insertBefore(g,l)}(this,document,'ga'));ga('create','UA-45643743-1');ga('send','pageview')</script>
 
@@ -39,10 +39,31 @@
 
 <body   >
   <header role="banner"><hgroup class='game'>
+  <div class='left'>
   <h1><a href="/">Code is like</a></h1>
   
     <h2 class='game'><span id='subtitle' class='game'>> begin braindump</span><span id="prompt" class='game'><span id="input-area" class='game'></span><span id="blinking-cursor" class='game'>|</span></span></h2>
   
+</div>
+<div class='right'>
+<span class="fa-stack fa-lg">
+  <i class="fa fa-square fa-stack-2x"></i>
+  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+<span class="fa-stack fa-lg">
+  <i class="fa fa-square fa-stack-2x"></i>
+  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+</span>
+<br>
+<span class="fa-stack fa-lg">
+  <i class="fa fa-square fa-stack-2x"></i>
+  <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+</span>
+<span class="fa-stack fa-lg">
+  <i class="fa fa-square fa-stack-2x"></i>
+  <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+</span>
+</div>
 </hgroup>
 
 </header>
@@ -76,7 +97,7 @@
   </header>
 
 
-<div class="entry-content"><p>Today I had a bit of an adventure trying to create a realistic blinking cursor on my webpage. My first thought was to use jQuery&rsquo;s .toggle() method, and after playing around with the timing of the effect I settled on a 600ms interval. The code looked like this:</p>
+<div class="entry-content"><p>Today I had a bit of an adventure trying to create a realistic blinking cursor on my webpage. My first thought was to use jQuery&rsquo;s <code>.toggle()</code> method, and after playing around with the timing of the effect I settled on a 600ms interval. The code looked like this:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -95,11 +116,11 @@
 
 <p></p>
 
-<p>But using .toggle() had two unwanted side-effects. One was that .toggle() by default uses the &lsquo;swing&rsquo; animation which causes the cursor to expand and contract vertically as it fades in and out. The other was that the effect was effectively adding and removing the element from the page and therefore was bumping into the things around it. In my case the expansion/contraction was causing the line height to increase and decrease, thereby making the entire line bounce up and down. Not the effect I was aiming for.</p>
+<p>But using <code>.toggle()</code> had two unwanted side-effects. One was that <code>.toggle()</code> by default uses the &lsquo;swing&rsquo; animation which causes the cursor to expand and contract vertically as it fades in and out. The other was that the effect was effectively adding and removing the element from the page and therefore was bumping into the things around it. In my case the expansion/contraction was causing the line height to increase and decrease, thereby making the entire line bounce up and down. Not the effect I was aiming for.</p>
 
-<p>The reason for this side-effect is that .toggle() uses the css property &lsquo;display:none&rsquo;. What I needed was the css property &lsquo;visibility:hidden&rsquo;. You can think of it like asking someone to hold your place in line. You&rsquo;re not physically there, but someone is holding your spot.</p>
+<p>The reason for this side-effect is that <code>.toggle()</code> uses the css property &lsquo;display:none&rsquo;. What I needed was the css property <code>'visibility:hidden'</code>. You can think of it like asking someone to hold your place in line. You&rsquo;re not physically there, but someone is holding your spot.</p>
 
-<p>So I went back to the drawing board, pitched out the .toggle() method, and decided to do it oldschool.</p>
+<p>So I went back to the drawing board, pitched out the <code>.toggle()</code> method, and decided to do it oldschool.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -122,7 +143,7 @@
 </pre></td><td class='code'><pre><code class=''><span class='line'>RangeError: Maximum call stack size exceeded</span></code></pre></td></tr></table></div></figure>
 
 
-<p>In the end I scraped the jQuery .delay() and went with javascript&rsquo;s setTimeout(). This nested monstrosity is what I settled on:</p>
+<p>In the end I scraped the jQuery <code>.delay()</code> and went with javascript&rsquo;s <code>setTimeout()</code>. This nested monstrosity is what I settled on:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -147,9 +168,9 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Using setTimeout() in this way allows me to tell the function to wait, hide, reveal, hide, and then make the recursive call to start it all over again. Works like a charm.</p>
+<p>Using <code>setTimeout()</code> in this way allows me to tell the function to wait, hide, reveal, hide, and then make the recursive call to start it all over again. Works like a charm.</p>
 
-<p>EDIT: A few weeks later I discovered that javascript has a setInterval() function. This allowed me to ditch the recursive call altogether. For simplicity&rsquo;s sake I also decided to ditch jQuery. The code as it stands today is:</p>
+<p>EDIT: A few weeks later I discovered that javascript has a <code>setInterval()</code> function. This allowed me to ditch the recursive call altogether. For simplicity&rsquo;s sake I also decided to ditch jQuery. The code as it stands today is:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -182,7 +203,7 @@
 
 <p>You can view it on github <a href="https://github.com/nathanallen/blinking-cursor">here</a>.</p>
 
-<p>As an addendum, when I showed the effect to a friend he wondered if I could have used the html &lsquo;&lt;blink>&rsquo; tag. Almost certain that I had over-engineered the problem I did a little googling and found these gems: &ldquo;&lt;blink> was once reviled as the most obnoxious tag in HTML. Now it&rsquo;s mostly forgotten.&rdquo; &ldquo;HTML5 classifies it as a non-conforming feature.&rdquo; &ldquo;No, really, don&rsquo;t use it. It&rsquo;s simply evil.&rdquo;</p>
+<p>As an addendum, when I showed the effect to a friend he wondered if I could have used the html <code>&lt;blink\&gt;</code> tag. Almost certain that I had over-engineered the problem I did a little googling and found these gems: &ldquo;&lt;blink> was once reviled as the most obnoxious tag in HTML. Now it&rsquo;s mostly forgotten.&rdquo; &ldquo;HTML5 classifies it as a non-conforming feature.&rdquo; &ldquo;No, really, don&rsquo;t use it. It&rsquo;s simply evil.&rdquo;</p>
 
 <p>Blink and you missed it.</p>
 </div>

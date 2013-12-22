@@ -4,7 +4,7 @@
   <title><![CDATA[Code is like]]></title>
   <link href="http://codeislike.com/atom.xml" rel="self"/>
   <link href="http://codeislike.com/"/>
-  <updated>2013-12-20T11:21:55-08:00</updated>
+  <updated>2013-12-22T02:23:16-08:00</updated>
   <id>http://codeislike.com/</id>
   <author>
     <name><![CDATA[Nathan Allen]]></name>
@@ -82,7 +82,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>For reference: e.which, e.keyCode and e.charCode all work just as well.</p>
+<p>For reference: <code>e.which</code>, <code>e.keyCode</code> and <code>e.charCode</code> all work just as well.</p>
 
 <p>But something weird is happening, not all the keys are being logged. When you hit arrow keys, or other control keys (Shift, Command, Tab, Escape, etc) you get nothing.</p>
 
@@ -120,7 +120,7 @@
 
 <h2>No looking back</h2>
 
-<p>Now that we know the order in which the events occur, how do we prevent the default behavior of the back button? Why, preventDefault() of course! But we have to make sure to bind our function to the earliest keyboard event: keydown. To do this we just add a line:</p>
+<p>Now that we know the order in which the events occur, how do we prevent the default behavior of the back button? Why, <code>preventDefault()</code> of course! But we have to make sure to bind our function to the earliest keyboard event: keydown. To do this we just add a line:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -137,7 +137,7 @@
 
 <p>But wait a minute, our quick little hack works a little too well&hellip; it also prevent a lot of useful keyboard shortcuts from working too. What if I try to refresh the page using Cmd-R?</p>
 
-<p>To single out the backspace we&rsquo;ll need to use some conditional logic in combination with preventDefault(). Something along the lines of:</p>
+<p>To single out the backspace we&rsquo;ll need to use some conditional logic in combination with <code>preventDefault()</code>. Something along the lines of:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -261,7 +261,7 @@
 
 <p>If the search string contained a 5 or 9 digit zipcode, I needed to extract it and  query the database. If instead it looked like a neighborhood name, I needed to first reference the lookup table to see if I could find the zipcode. Finally, if it looked like a street address, I&rsquo;d let the Google Maps API sort out the zipcode for me. If all else failed, I returned the five most recent parking spots.</p>
 
-<p>The trickiest part of implimenting this was writing a regex that could find a zipcode at <em>any</em> point within a string. To do this I used the &lsquo;lookahead&rsquo; and &lsquo;lookbehind&rsquo; feature. For the lookahead I needed to check for either the beginning of the line, or a whitespace character: (?:^|\s). Similarly, The lookbehind checked for the end of the line, or a whitespace: (?:\s|$). In between I checked for either exactly 5 digits, or exactly 5 digits a dash and 4 digits. In this way I avoided getting a false positive &ldquo;partial match&rdquo; on longer sequences of numbers.</p>
+<p>The trickiest part of implimenting this was writing a regex that could find a zipcode at <em>any</em> point within a string. To do this I used the &lsquo;lookahead&rsquo; and &lsquo;lookbehind&rsquo; feature. For the lookahead I needed to check for either the beginning of the line, or a whitespace character: <code>(?:^|\s)</code>. Similarly, The lookbehind checked for the end of the line, or a whitespace: <code>(?:\s|$)</code>. In between I checked for either exactly 5 digits, or exactly 5 digits a dash and 4 digits. In this way I avoided getting a false positive &ldquo;partial match&rdquo; on longer sequences of numbers.</p>
 
 <h3>DIY Autocomplete</h3>
 
@@ -586,7 +586,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Using jquery&rsquo;s .wrap() and .append() methods I was able to manipulate the html around the cursor. But I also needed the cursor to move down to a new line. Since it was already wrapped in the &lt;h2> tag what I needed to do was break it into its own heading.</p>
+<p>Using jquery&rsquo;s <code>.wrap()</code> and <code>.append()</code> methods I was able to manipulate the html around the cursor. But I also needed the cursor to move down to a new line. Since it was already wrapped in the &lt;h2> tag what I needed to do was break it into its own heading.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;h2&gt;</span>&gt; begin braindump<span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">&quot;blinking-cursor&quot;</span><span class="nt">&gt;</span>|<span class="nt">&lt;/span&gt;&lt;/h2&gt;</span>
@@ -617,7 +617,7 @@
     <link href="http://codeislike.com/blog/2013/11/02/the-blinking-cursor-effect/"/>
     <updated>2013-11-02T15:55:00-07:00</updated>
     <id>http://codeislike.com/blog/2013/11/02/the-blinking-cursor-effect</id>
-    <content type="html"><![CDATA[<p>Today I had a bit of an adventure trying to create a realistic blinking cursor on my webpage. My first thought was to use jQuery&rsquo;s .toggle() method, and after playing around with the timing of the effect I settled on a 600ms interval. The code looked like this:</p>
+    <content type="html"><![CDATA[<p>Today I had a bit of an adventure trying to create a realistic blinking cursor on my webpage. My first thought was to use jQuery&rsquo;s <code>.toggle()</code> method, and after playing around with the timing of the effect I settled on a 600ms interval. The code looked like this:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -636,11 +636,11 @@
 
 <p></p>
 
-<p>But using .toggle() had two unwanted side-effects. One was that .toggle() by default uses the &lsquo;swing&rsquo; animation which causes the cursor to expand and contract vertically as it fades in and out. The other was that the effect was effectively adding and removing the element from the page and therefore was bumping into the things around it. In my case the expansion/contraction was causing the line height to increase and decrease, thereby making the entire line bounce up and down. Not the effect I was aiming for.</p>
+<p>But using <code>.toggle()</code> had two unwanted side-effects. One was that <code>.toggle()</code> by default uses the &lsquo;swing&rsquo; animation which causes the cursor to expand and contract vertically as it fades in and out. The other was that the effect was effectively adding and removing the element from the page and therefore was bumping into the things around it. In my case the expansion/contraction was causing the line height to increase and decrease, thereby making the entire line bounce up and down. Not the effect I was aiming for.</p>
 
-<p>The reason for this side-effect is that .toggle() uses the css property &lsquo;display:none&rsquo;. What I needed was the css property &lsquo;visibility:hidden&rsquo;. You can think of it like asking someone to hold your place in line. You&rsquo;re not physically there, but someone is holding your spot.</p>
+<p>The reason for this side-effect is that <code>.toggle()</code> uses the css property &lsquo;display:none&rsquo;. What I needed was the css property <code>'visibility:hidden'</code>. You can think of it like asking someone to hold your place in line. You&rsquo;re not physically there, but someone is holding your spot.</p>
 
-<p>So I went back to the drawing board, pitched out the .toggle() method, and decided to do it oldschool.</p>
+<p>So I went back to the drawing board, pitched out the <code>.toggle()</code> method, and decided to do it oldschool.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -663,7 +663,7 @@
 </pre></td><td class='code'><pre><code class=''><span class='line'>RangeError: Maximum call stack size exceeded</span></code></pre></td></tr></table></div></figure>
 
 
-<p>In the end I scraped the jQuery .delay() and went with javascript&rsquo;s setTimeout(). This nested monstrosity is what I settled on:</p>
+<p>In the end I scraped the jQuery <code>.delay()</code> and went with javascript&rsquo;s <code>setTimeout()</code>. This nested monstrosity is what I settled on:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -688,9 +688,9 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Using setTimeout() in this way allows me to tell the function to wait, hide, reveal, hide, and then make the recursive call to start it all over again. Works like a charm.</p>
+<p>Using <code>setTimeout()</code> in this way allows me to tell the function to wait, hide, reveal, hide, and then make the recursive call to start it all over again. Works like a charm.</p>
 
-<p>EDIT: A few weeks later I discovered that javascript has a setInterval() function. This allowed me to ditch the recursive call altogether. For simplicity&rsquo;s sake I also decided to ditch jQuery. The code as it stands today is:</p>
+<p>EDIT: A few weeks later I discovered that javascript has a <code>setInterval()</code> function. This allowed me to ditch the recursive call altogether. For simplicity&rsquo;s sake I also decided to ditch jQuery. The code as it stands today is:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -723,7 +723,7 @@
 
 <p>You can view it on github <a href="https://github.com/nathanallen/blinking-cursor">here</a>.</p>
 
-<p>As an addendum, when I showed the effect to a friend he wondered if I could have used the html &lsquo;&lt;blink>&rsquo; tag. Almost certain that I had over-engineered the problem I did a little googling and found these gems: &ldquo;&lt;blink> was once reviled as the most obnoxious tag in HTML. Now it&rsquo;s mostly forgotten.&rdquo; &ldquo;HTML5 classifies it as a non-conforming feature.&rdquo; &ldquo;No, really, don&rsquo;t use it. It&rsquo;s simply evil.&rdquo;</p>
+<p>As an addendum, when I showed the effect to a friend he wondered if I could have used the html <code>&lt;blink\&gt;</code> tag. Almost certain that I had over-engineered the problem I did a little googling and found these gems: &ldquo;&lt;blink> was once reviled as the most obnoxious tag in HTML. Now it&rsquo;s mostly forgotten.&rdquo; &ldquo;HTML5 classifies it as a non-conforming feature.&rdquo; &ldquo;No, really, don&rsquo;t use it. It&rsquo;s simply evil.&rdquo;</p>
 
 <p>Blink and you missed it.</p>
 ]]></content>

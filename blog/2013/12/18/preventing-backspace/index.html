@@ -30,7 +30,7 @@
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   
   <script>(function(G,o,O,g,l){G.GoogleAnalyticsObject=O;G[O]||(G[O]=function(){(G[O].q=G[O].q||[]).push(arguments)});G[O].l=+new Date;g=o.createElement('script'),l=o.scripts[0];g.src='//www.google-analytics.com/analytics.js';l.parentNode.insertBefore(g,l)}(this,document,'ga'));ga('create','UA-45643743-1');ga('send','pageview')</script>
 
@@ -39,10 +39,31 @@
 
 <body   >
   <header role="banner"><hgroup class='game'>
+  <div class='left'>
   <h1><a href="/">Code is like</a></h1>
   
     <h2 class='game'><span id='subtitle' class='game'>> begin braindump</span><span id="prompt" class='game'><span id="input-area" class='game'></span><span id="blinking-cursor" class='game'>|</span></span></h2>
   
+</div>
+<div class='right'>
+<span class="fa-stack fa-lg">
+  <i class="fa fa-square fa-stack-2x"></i>
+  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+<span class="fa-stack fa-lg">
+  <i class="fa fa-square fa-stack-2x"></i>
+  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+</span>
+<br>
+<span class="fa-stack fa-lg">
+  <i class="fa fa-square fa-stack-2x"></i>
+  <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+</span>
+<span class="fa-stack fa-lg">
+  <i class="fa fa-square fa-stack-2x"></i>
+  <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+</span>
+</div>
 </hgroup>
 
 </header>
@@ -89,7 +110,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>For reference: e.which, e.keyCode and e.charCode all work just as well.</p>
+<p>For reference: <code>e.which</code>, <code>e.keyCode</code> and <code>e.charCode</code> all work just as well.</p>
 
 <p>But something weird is happening, not all the keys are being logged. When you hit arrow keys, or other control keys (Shift, Command, Tab, Escape, etc) you get nothing.</p>
 
@@ -127,7 +148,7 @@
 
 <h2>No looking back</h2>
 
-<p>Now that we know the order in which the events occur, how do we prevent the default behavior of the back button? Why, preventDefault() of course! But we have to make sure to bind our function to the earliest keyboard event: keydown. To do this we just add a line:</p>
+<p>Now that we know the order in which the events occur, how do we prevent the default behavior of the back button? Why, <code>preventDefault()</code> of course! But we have to make sure to bind our function to the earliest keyboard event: keydown. To do this we just add a line:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -144,7 +165,7 @@
 
 <p>But wait a minute, our quick little hack works a little too well&hellip; it also prevent a lot of useful keyboard shortcuts from working too. What if I try to refresh the page using Cmd-R?</p>
 
-<p>To single out the backspace we&rsquo;ll need to use some conditional logic in combination with preventDefault(). Something along the lines of:</p>
+<p>To single out the backspace we&rsquo;ll need to use some conditional logic in combination with <code>preventDefault()</code>. Something along the lines of:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
