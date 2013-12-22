@@ -5,11 +5,11 @@ comments: false
 categories:
 --- 
 
-Currently Reading:  
+**Currently Reading:**  
 - The Art of UNIX Programming [Eric Raymond]  
 - Javascript the Good Parts [Douglas Crockford]
 
-###2013
+###<i class='fa fa-book'></i> 2013
 * Apprenticeship Patterns: Guidance for the Aspiring Software Craftsman [Dave Hoover]
 * The Passionate Programmer [Chad Fowler]
 * The Defining Decade [Meg Jay]
@@ -44,7 +44,7 @@ Currently Reading:
 * Les Miserables [Victor Hugo]
 * Getting to Yes [Roger Fisher]
 
-###2012
+###<i class='fa fa-book'></i> 2012
 * The Agony and the Ecstacy [Irving Stone]
 * The Elemental Particles [Michael Houellebecq]
 * The Map and the Territory [Michael Houellebecq]
@@ -69,7 +69,7 @@ Currently Reading:
 * The Shallows: What the Internet is doing to our brains [Nicholas Carr]
 * Freakonomics [Steven D. Levitt, et al.]
 
-###2011
+###<i class='fa fa-book'></i> 2011
 * The Handmaid's Tale [Margaret Attwood]
 * If on a Winter's night a Traveler [Italo Calvino]
 * Life and Times of Michael K [J. M. Coetzee]

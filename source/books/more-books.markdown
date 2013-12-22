@@ -7,7 +7,7 @@ categories:
 
 As best as I can remember...
 
-###2010
+###<i class='fa fa-book'></i> 2010
 * The Complete Poems of Emily Dickinson [Emily Dickinson]
 * The Interesting Narrative of the Life of Olaudah Equiano, Or Gustavus Vassa, The African [Olaudah  Equiano]
 * The Sound and the Fury [Faulkner]
@@ -28,7 +28,7 @@ As best as I can remember...
 * Wide Sargasso Sea [Jean Rhys]
 * The Tempest [Shakespeare]
 
-###2009
+###<i class='fa fa-book'></i> 2009
 * Evolution of Physics [Albert Einstein]
 * Dialogue Concerning the Two Chief World Systems [Galileo]
 * Discoveries and Opinions of Galileo [Galileo]
@@ -36,7 +36,7 @@ As best as I can remember...
 * The Making of a Poem: A Norton Anthology of Poetic Forms [ ]
 * Zen and the Art of Motorcycle Maintenance [Robert M. Pirsig]
 
-###2008
+###<i class='fa fa-book'></i> 2008
 * To the Lighthouse [Woolf]
 * Portrait of the Artrist as a Young Man [James Joyce]
 * Cratylus [Plato]
@@ -56,7 +56,7 @@ As best as I can remember...
 * The Tempest [Shakespeare]
 * Metaphors We Live By [Lakoff & Johnson]
 
-###2007
+###<i class='fa fa-book'></i> 2007
 * Waiting for Godot [Samuel Beckett]
 * Leviathan: Of Man [Thomas Hobbes]
 * The Consolation of Philosophy [Boethius]
@@ -65,7 +65,7 @@ As best as I can remember...
 * Greek Art and Archaeology (4th Edition)  [Pedley]
 * Romanticism an Anthology [Duncan Wu]
 
-###2006
+###<i class='fa fa-book'></i> 2006
 * Ishmael [ ]
 * Rats Saw God [ ]
 * Blue Estuaries [Bogan]
@@ -80,7 +80,7 @@ As best as I can remember...
 * Bourne Identity [ ]
 * The Mouse Trap [Agatha Christe]
 
-###2005
+###<i class='fa fa-book'></i> 2005
 * Meter in English [Wallace]
 * The Seven Principles of Poetry [Anne Hamilton]
 * Complete Poetry of Theodore Roethke [Theodore Roethke]
@@ -97,7 +97,7 @@ As best as I can remember...
 * Brave New World [Aldous Huxley]
 * A Midsummer's Night Dream [Shakespeare]
 
-###2004
+###<i class='fa fa-book'></i> 2004
 * A Tale of Two Cities [Charles Dickens]
 * A Mid Summer Night's Dream [Shakespeare]
 * Arsenic and Old Lace [ ]
@@ -110,7 +110,7 @@ As best as I can remember...
 * Julius Caesar [Shakespeare]
 * Things Fall Apart [Chinua Achebe]
 
-###2003
+###<i class='fa fa-book'></i> 2003
 * The Odyssey [Homer]
 * Siddhartha [Herman Hesse]
 * Inherit the Wind [Robert E. Lee]
