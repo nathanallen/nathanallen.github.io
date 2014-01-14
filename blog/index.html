@@ -9,7 +9,7 @@
   <meta name="author" content="Nathan Allen">
 
   
-  <meta name="description" content="You&rsquo;ve launched into your new rails side-project using postgresql and you&rsquo;ve hit a wall setting up your database. When you run rake db: &hellip;">
+  <meta name="description" content="It&rsquo;s tricky keeping program interfaces straight. I recently had an interesting experience switching from javascript to ruby. The trouble &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -56,6 +56,109 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2014/01/13/undefined-method-plus-at/">Undefined Method +@</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-13T22:50:00-08:00" pubdate data-updated="true">Jan 13<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>It&rsquo;s tricky keeping program interfaces straight. I recently had an interesting experience switching from javascript to ruby. The trouble started when I tried to use the increment operator: <code>++</code>.</p>
+
+<p>The errors were baffling. Try as I would to debug, I couldn&rsquo;t identify the source of the problem.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># undefined method \`+@&#39; for false:FalseClass (NoMethodError)  </span>
+</span><span class='line'><span class="c1"># undefined method \`+@&#39; for true:TrueClass (NoMethodError)  </span>
+</span><span class='line'><span class="c1"># undefined method \`+@&#39; for nil:NilClass (NoMethodError)  </span>
+</span><span class='line'><span class="c1"># undefined method \`+@&#39; for &quot;&quot;:String (NoMethodError)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p> But as I poked around, one thing was clear. I needed to figure out what was going wrong with the Numeric method <code>+@</code>!</p>
+
+<h2>Too Much of a Good Thing</h2>
+
+<p>The trouble is that ruby doesn&rsquo;t have any trouble chaining together as many plus-operators as you want. <code>2+2</code> and <code>2++2</code> and <code>2+++2</code> are all going to have a return value of 4.</p>
+
+<p>Javascript on the other hand would throw various syntax errors:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="mi">2</span><span class="o">++</span><span class="mi">2</span> <span class="c1">// SyntaxError: Unexpected number</span>
+</span><span class='line'>
+</span><span class='line'><span class="mi">2</span><span class="o">+++</span><span class="mi">2</span> <span class="c1">// ReferenceError: Invalid left-hand side expression in postfix operation</span>
+</span><span class='line'>
+</span><span class='line'><span class="mi">2</span><span class="o">++++</span><span class="mi">2</span> <span class="c1">// SyntaxError: Unexpected token ++</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>What makes this tricky to debug is that ruby will keep on evaluating across line breaks. But of course!</p>
+
+<h2>Sugar Free</h2>
+
+<p>The <code>+</code> method is just syntactic sugar for <code>.+</code>. This means that <code>1+1</code> is just a friendly way of writing <code>1.+(1)</code>. Leave a plus operator dangling, and it&rsquo;s just going to go ahead and try adding together the left side of the expression with the following line.</p>
+
+<p>So if somewhere in your code you have:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">i</span><span class="o">++</span>
+</span><span class='line'><span class="k">if</span> <span class="n">confused</span>
+</span><span class='line'>  <span class="n">be_more_so</span> <span class="o">=</span> <span class="mi">10</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Ruby will try to add the return value of the conditional to <code>i</code>. (In other words, <code>i+10</code>).</p>
+
+<p>But if, say, your conditional has a return value of nil or true or false or it&rsquo;s a string, or any other whatsit that can&rsquo;t be coerced into an integer, you&rsquo;re going to throw &ldquo;undefined method +@&rdquo; FOR ALL OF THE THINGS.<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></p>
+
+<p>Solution: Use the ruby plus-equals operator: <code>+=</code>, and forget all your javascript.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>If you use <code>++</code> before an if-else conditional you may get <code>syntax error, unexpected keyword_else</code>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2013/12/20/role-does-not-exist/">Role Does Not Exist</a></h1>
     
     
@@ -81,9 +184,9 @@
 
   <div class="entry-content"><p>You&rsquo;ve launched into your new rails side-project using postgresql and you&rsquo;ve hit a wall setting up your database. When you run <code>rake db:create</code> you get the following error message:</p>
 
-<p><strong>FATAL: role &ldquo;the-name-of-your-app&rdquo; does not exist</strong></p>
+<p><strong>FATAL: role &ldquo;the_name_of_your_app&rdquo; does not exist</strong></p>
 
-<p>Your first alarm bell should be the fact that it&rsquo;s using the name of your rails project. What it actually means is that the <em>user</em> &lsquo;the-name-of-your-app&rsquo; is not there.</p>
+<p>Your first alarm bell should be the fact that it&rsquo;s using the name of your rails project. What it actually means is that the <em>user</em> &lsquo;the_name_of_your_app&rsquo; is not there.</p>
 
 <p>Run <code>psql</code> on the command line and then execute the command <code>\du</code> (when you&rsquo;re done use <code>\q</code> to exit). Your output should look something like this:</p>
 
@@ -98,7 +201,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Note that &ldquo;the-name-of-your-app&rdquo; isn&rsquo;t listed under role name. Nor should it be: by default when postgres is first installed it uses your local system username.</p>
+<p>Note that &ldquo;the_name_of_your_app&rdquo; isn&rsquo;t listed under role name. Nor should it be: by default when postgres is first installed it uses your local system username.</p>
 
 <p>But we don&rsquo;t need to do anything fancy!</p>
 
@@ -114,9 +217,9 @@
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>development:
 </span><span class='line'>  adapter: postgresql
 </span><span class='line'>  encoding: unicode
-</span><span class='line'>  database: the-name-of-your-app_development
+</span><span class='line'>  database: the_name_of_your_app_development
 </span><span class='line'>  pool: 5
-</span><span class='line'>  username: the-name-of-your-app
+</span><span class='line'>  username: the_name_of_your_app
 </span><span class='line'>  password:
 </span></code></pre></td></tr></table></div></figure>
 
@@ -1011,7 +1114,9 @@
   </div>
 </div>
 
-    <center>
+    <hr>
+<br>
+<center>
 	<a href="https://github.com/nathanallen"><i class="fa fa-github fa-2x"></i></a>
 	<a href="http://twitter.com/punriddled"><i class="fa fa-twitter fa-2x"></i></a>
 	<a href="http://linkedin.com/in/thisisnathan"><i class="fa fa-linkedin fa-2x"></i></a>

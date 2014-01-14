@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>role does not exist - Code is like</title>
+  <title>Role does not exist - Code is like</title>
   <meta name="author" content="Nathan Allen">
 
   
@@ -78,9 +78,9 @@
 
 <div class="entry-content"><p>You&rsquo;ve launched into your new rails side-project using postgresql and you&rsquo;ve hit a wall setting up your database. When you run <code>rake db:create</code> you get the following error message:</p>
 
-<p><strong>FATAL: role &ldquo;the-name-of-your-app&rdquo; does not exist</strong></p>
+<p><strong>FATAL: role &ldquo;the_name_of_your_app&rdquo; does not exist</strong></p>
 
-<p>Your first alarm bell should be the fact that it&rsquo;s using the name of your rails project. What it actually means is that the <em>user</em> &lsquo;the-name-of-your-app&rsquo; is not there.</p>
+<p>Your first alarm bell should be the fact that it&rsquo;s using the name of your rails project. What it actually means is that the <em>user</em> &lsquo;the_name_of_your_app&rsquo; is not there.</p>
 
 <p>Run <code>psql</code> on the command line and then execute the command <code>\du</code> (when you&rsquo;re done use <code>\q</code> to exit). Your output should look something like this:</p>
 
@@ -95,7 +95,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Note that &ldquo;the-name-of-your-app&rdquo; isn&rsquo;t listed under role name. Nor should it be: by default when postgres is first installed it uses your local system username.</p>
+<p>Note that &ldquo;the_name_of_your_app&rdquo; isn&rsquo;t listed under role name. Nor should it be: by default when postgres is first installed it uses your local system username.</p>
 
 <p>But we don&rsquo;t need to do anything fancy!</p>
 
@@ -111,9 +111,9 @@
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>development:
 </span><span class='line'>  adapter: postgresql
 </span><span class='line'>  encoding: unicode
-</span><span class='line'>  database: the-name-of-your-app_development
+</span><span class='line'>  database: the_name_of_your_app_development
 </span><span class='line'>  pool: 5
-</span><span class='line'>  username: the-name-of-your-app
+</span><span class='line'>  username: the_name_of_your_app
 </span><span class='line'>  password:
 </span></code></pre></td></tr></table></div></figure>
 
@@ -127,41 +127,16 @@
   <footer>
     <p class="meta">
       
-  
-
-<span class="byline author vcard">Posted by <span class="fn">Nathan Allen</span></span>
-
-      
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-12-20T10:49:00-08:00" pubdate data-updated="true">Dec 20<span>th</span>, 2013</time>
-      
-
-
-    </p>
-    
-      <div class="sharing">
-  
-</div>
-
-    
-    <p class="meta">
-      
         <a class="basic-alignment left" href="/blog/2013/12/18/preventing-backspace/" title="Previous Post: Preventing Backspace">&laquo; Preventing Backspace</a>
       
+      
+        <a class="basic-alignment right" href="/blog/2014/01/13/undefined-method-plus-at/" title="Next Post: Undefined method +@">Undefined method +@ &raquo;</a>
       
     </p>
   </footer>
 </article>
+<hr>
+<br>
 <center>
 	<a href="https://github.com/nathanallen"><i class="fa fa-github fa-2x"></i></a>
 	<a href="http://twitter.com/punriddled"><i class="fa fa-twitter fa-2x"></i></a>
