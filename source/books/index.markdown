@@ -6,10 +6,14 @@ categories:
 --- 
 
 **Currently Reading:**  
-- The Art of UNIX Programming [Eric Raymond]  
+- Structure & Interpretation of Computer Programs [Abelson & Sussman]
 - Javascript the Good Parts [Douglas Crockford]
 
+###<i class='fa fa-book'></i> 2014
+* Whatever [Michael Houellebecq]
+
 ###<i class='fa fa-book'></i> 2013
+* The Art of UNIX Programming [Eric Raymond]
 * Apprenticeship Patterns: Guidance for the Aspiring Software Craftsman [Dave Hoover]
 * The Passionate Programmer [Chad Fowler]
 * The Defining Decade [Meg Jay]
