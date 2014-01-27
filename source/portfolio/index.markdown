@@ -6,21 +6,17 @@ sharing: true
 footer: true
 ---
 
-<h2>Team Projects</h2>
-<strong>iPark</strong><span id="portfolio-links">[<i class='fa fa-external-link'></i>](http://eyepark.herokuapp.com)</span>  
+<h2>iPark</h2>
+<a href="http://eyepark.herokuapp.com"><img src="images/portfolio/eyepark.png"></a>
 An airbnb inspired parking app. Built by a team of three for our final project at Dev Bootcamp. We used Rails, the Google Maps API, jQuery autocomplete, and Bootstrap. I implimented all aspects of search, from parsing search queries to autocomplete. [<i class='fa fa-code'></i>](https://github.com/nathanallen/iPark)
 
-<strong>Meet in the Middle</strong><span id="portfolio-links">[<i class='fa fa-external-link'></i>](http://waneka.github.io/middle)</span>  
+<h2>Meet in the Middle</h2> 
+<a href="http://waneka.github.io/middle"><img src="images/portfolio/middle.png"></a>
 Won Best Overall App at DBC Alumni Hackathon 2013. An app that allows two people to find a convenient location halfway between them to meet up for coffee, drinks, or dinner. The app suggests venues, displays directions for both users, and can be used to send a link to directions. I integrated mapping based on two user locations. [<i class='fa fa-code'></i>](https://github.com/waneka/middle)
 
-<strong>Queer Quote</strong><span id="portfolio-links">[<i class='fa fa-external-link'></i>](http://queerquote.com/)</span>  
+<h2>Queer Quote</h2> 
+<a href="http://queerquote.com/"><img src="images/portfolio/queerquote.png"></a>
 Won Second Place at non-profit benefit hackathon, Hack for Queer Youth. An interactive widget that syncs the audio from a podcast with text from a transcript. At any point during playback the current text or quote can be converted into an image and then shared to facebook. I redesigned our player to dynamically load and display stories and setup an API to convert transcript files to JSON. [<i class='fa fa-code'></i>](https://github.com/SamSamskies/Queer-Quote)
-
-<strong>Practice Projects:</strong>  
-* Created helpers and ajax requests for a real-time, multiplayer dice game.<span id="portfolio-links"> [<i class='fa fa-code'></i>](https://github.com/tiger-swallowtails-2013/liars-dice)</span>  
-* Designed a one-table database that stored both posts and nested comments.<span id="portfolio-links"> [<i class='fa fa-code'></i>](https://github.com/tiger-swallowtails-2013/gutoverflow)</span>   
-* Created the javascript controllers for a Scooby Doo themed typeracer clone.<span id="portfolio-links"> [<i class='fa fa-code'></i>](https://github.com/tiger-swallowtails-2013/speedracer/)</span>  
-* Bit.ly clone, craigslist clone, surveymonkey clone...<span id="portfolio-links"> [<i class='fa fa-code'></i>](https://github.com/nathanallen?tab=repositories)</span>  
 
 <h2>Side Projects</h2>
 <strong>codeislike.com</strong><span id="portfolio-links">[<i class='fa fa-external-link'></i>](/)</span>  
@@ -34,6 +30,12 @@ Simple ecommerce site for a self-publish sheet music business. Built on Sinatra 
 
 <strong>srt2json.herokuapp.com</strong><span id="portfolio-links">[<i class='fa fa-external-link'></i>](http://srt2json.herokuapp.com/)</span>  
 Convert srt transcript files to json via an api request. The api started as a simple workaround for a cross origin resource sharing conflict, allowing my team to access content by passing it through a proxy. I then realized I could combine both the request and the conversion all in one step. [<i class='fa fa-code'></i>](https://github.com/nathanallen/srt-to-json-api/)
+
+<strong>More Practice:</strong>  
+* Created helpers and ajax requests for a real-time, multiplayer dice game.<span id="portfolio-links"> [<i class='fa fa-code'></i>](https://github.com/tiger-swallowtails-2013/liars-dice)</span>  
+* Designed a one-table database that stored both posts and nested comments.<span id="portfolio-links"> [<i class='fa fa-code'></i>](https://github.com/tiger-swallowtails-2013/gutoverflow)</span>   
+* Created the javascript controllers for a Scooby Doo themed typeracer clone.<span id="portfolio-links"> [<i class='fa fa-code'></i>](https://github.com/tiger-swallowtails-2013/speedracer/)</span>  
+* Bit.ly clone, craigslist clone, surveymonkey clone...<span id="portfolio-links"> [<i class='fa fa-code'></i>](https://github.com/nathanallen?tab=repositories)</span>  
 
 <h2>Additional Experience</h2>
 <strong>Content Writer</strong>: As Communications Intern at the Columbus Idea Foundry I became thoroughly familiar with Wordpress, Google Analytics, and Mailchimp. My write-up of a wildly successful 3d-printing meetup was picked up by Makezine.com ([original article](http://columbusideafoundry.com/columbus-rocks-global-3d-printing-meetup-day/), [feature](http://makezine.com/2012/11/16/makes-first-international-maker-meetup-a-success/)). For more writing samples see my newsletters from [November](http://columbusideafoundry.com/nov-2012-newsletter/) and [December](http://columbusideafoundry.com/dec-2012-newsletter/) 2012.
