@@ -7,15 +7,15 @@ footer: true
 ---
 
 <h2>iPark</h2>
-<a href="http://eyepark.herokuapp.com"><img src="images/portfolio/eyepark.png"></a>
+<a href="http://eyepark.herokuapp.com"><img src="/images/portfolio/eyepark.png"></a>
 An airbnb inspired parking app. Built by a team of three for our final project at Dev Bootcamp. We used Rails, the Google Maps API, jQuery autocomplete, and Bootstrap. I implimented all aspects of search, from parsing search queries to autocomplete. [<i class='fa fa-code'></i>](https://github.com/nathanallen/iPark)
 
 <h2>Meet in the Middle</h2> 
-<a href="http://waneka.github.io/middle"><img src="images/portfolio/middle.png"></a>
+<a href="http://waneka.github.io/middle"><img src="/images/portfolio/middle.png"></a>
 Won Best Overall App at DBC Alumni Hackathon 2013. An app that allows two people to find a convenient location halfway between them to meet up for coffee, drinks, or dinner. The app suggests venues, displays directions for both users, and can be used to send a link to directions. I integrated mapping based on two user locations. [<i class='fa fa-code'></i>](https://github.com/waneka/middle)
 
 <h2>Queer Quote</h2> 
-<a href="http://queerquote.com/"><img src="images/portfolio/queerquote.png"></a>
+<a href="http://queerquote.com/"><img src="/images/portfolio/queerquote.png"></a>
 Won Second Place at non-profit benefit hackathon, Hack for Queer Youth. An interactive widget that syncs the audio from a podcast with text from a transcript. At any point during playback the current text or quote can be converted into an image and then shared to facebook. I redesigned our player to dynamically load and display stories and setup an API to convert transcript files to JSON. [<i class='fa fa-code'></i>](https://github.com/SamSamskies/Queer-Quote)
 
 <h2>Side Projects</h2>
