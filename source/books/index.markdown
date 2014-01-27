@@ -6,8 +6,10 @@ categories:
 --- 
 
 **Currently Reading:**  
-- Structure & Interpretation of Computer Programs [Abelson & Sussman]
-- Javascript the Good Parts [Douglas Crockford]
+\- Norton Anthology: Sixteenth Century, Early Seventeenth  
+\- The Well-Grounded Rubyist [David Black]  
+\- Structure & Interpretation of Computer Programs [Abelson & Sussman]  
+\- Javascript the Good Parts [Douglas Crockford]
 
 ###<i class='fa fa-book'></i> 2014
 * Whatever [Michael Houellebecq]
