@@ -5,6 +5,26 @@ comments: false
 categories:
 --- 
 
+**Jump to a Cateogry:**  
+[Bikes](#bikes), 
+[Circus Arts](#circus), 
+[Code](#tech), 
+[Computers](#tech), 
+[Food](#life), 
+[Language](#words), 
+[Life](#life), 
+[Linguistics](#words), 
+[Literature](#words), 
+[Longform](#longform), 
+[Math](#science), 
+[Nonfiction](#longform), 
+[Psychology](#psych), 
+[Science](#science), 
+[Sleep](#life), 
+[Tech](#tech), 
+[etc](#etc).
+
+<a name="words"/></a>
 ###<i class='fa fa-pencil'></i> Language/Literature/Linguistics
 * [Lost in the Meritocracy](http://www.theatlantic.com/magazine/archive/2005/01/lost-in-the-meritocracy/303672/) | Walter Kirn
 * [How Does Our Language Shape the Way We Think?](http://edge.org/conversation/how-does-our-language-shape-the-way-we-think) | Edge
@@ -23,6 +43,7 @@ categories:
 * [Next Big Thing in English: Knowing They Know That You Know ](http://www.nytimes.com/2010/04/01/books/01lit.html?pagewanted=all)  | NYTimes
 * [American English Dialects](http://aschmann.net/AmEng/)
 
+<a name="longform"/></a>
 ###<i class='fa fa-bookmark'></i> Longform/Nonfiction
 * [This is Water](http://youtu.be/M5THXa_H_N8) | David Foster Wallace
 * [Bill Watterson, 1990 Commencement Speech](http://www.serverunderground.com/archive/bill_watterson.html)
@@ -32,6 +53,7 @@ categories:
 * [The Professor, the Bikini Model and the Suitcase Full of Trouble](http://nytimes.com/2013/03/10/magazine/the-professor-the-bikini-model-and-the-suitcase-full-of-trouble.html?pagewanted%3Dall) | NYTimes
 * [The Atheist Who Strangled Me](http://www.theatlantic.com/magazine/archive/2013/05/the-atheist-who-strangled-me/309292/) | The Atlantic
 
+<a name="science"/></a>
 ###<i class='fa fa-flask'></i> Science/Math
 * [Cargo Cult Science](http://neurotheory.columbia.edu/~ken/cargo_cult.html) | Richard Feynman
 * [To Understand is to Perceive Patterns](http://www.youtube.com/watch?v=iWhO4cwriL0) | Youtube
@@ -42,6 +64,7 @@ categories:
 * [A tool that does suck dust](https://gist.github.com/stoutbeard/4158578 ) | Yasha Berchenko-Kogan
 * [Swarm Theory](http://ngm.nationalgeographic.com/2007/07/swarms/miller-text) | National Geographic
 
+<a name="tech"/></a>
 ###<i class='fa fa-code'></i> Code/Computers/Tech
 * [Innovation and the Bell Labs Miracle](http://nytimes.com/2012/02/26/opinion/sunday/innovation-and-the-bell-labs-miracle.html?pagewanted=all) | NYTimes
 * [Inventing on Principle](http://vimeo.com/36579366) | Bret Victor
@@ -57,6 +80,7 @@ categories:
 * [From Selling Scoops Of Ice Cream To Founding ZeroCater](http://techcrunch.com/2013/04/06/how-i-started-zerocater/) | TechCrunch
 * [Link Rot](http://www.gwern.net/Archiving%20URLs) | gwern.net
 
+<a name="life"/></a>
 ###<i class='fa fa-puzzle-piece'></i> Food/Sleep/Life
 * [Alt Text: The Science-y Search for Healthy Sugar Water](http://www.wired.com/underwire/2012/11/alt-text-healthy-sugar-water/) | Wired
 * [Breeding the Nutrition Out of Our Food](http://www.nytimes.com/2013/05/26/opinion/sunday/breeding-the-nutrition-out-of-our-food.html?pagewanted=all) | NYTimes
@@ -71,6 +95,7 @@ categories:
 * [Most Lives Are Lived by Default](http://www.raptitude.com/2012/07/most-lives-are-lived-by-default/) | Raptitude
 * [How To Be Happy Anywhere](http://www.martinlindstrom.com/fast-company-how-to-be-happy-anywhere/) | Fast Company
 
+<a name="psych"/></a>
 ###<i class='fa fa-users'></i> Psychology
 * [Academic turns city into a social experiment](http://www.news.harvard.edu/gazette/2004/03.11/01-mockus.html) | Harvard Gazette
 * [McDonald’s Theory](https://medium.com/what-i-learned-building/9216e1c9da7d) | Medium
@@ -80,6 +105,7 @@ categories:
 * [The Biology of Bubble and Crash](http://nytimes.com/2012/06/10/opinion/sunday/the-biology-of-bubble-and-crash.html?pagewanted=all) | NYTimes Op-Ed
 * [How Companies Learn Your Secrets](http://www.nytimes.com/2012/02/19/magazine/shopping-habits.html?pagewanted=1&_r=2&hp&&pagewanted=all) | NYTimes
 
+<a name="bikes"/></a>
 ###<i class='fa fa-truck'></i> Bikes
 * [The Invention of Jaywalking](http://www.theatlanticcities.com/commute/2012/04/invention-jaywalking/1837/) | The Atlantic Cities
 * [The Crisis in American Walking: How we got off the pedestrian path.](http://www.slate.com/articles/life/walking/2012/04/why_don_t_americans_walk_more_the_crisis_of_pedestrianism_.html) | Slate
@@ -91,6 +117,7 @@ categories:
 * [In 1897, a Bicycle Superhighway Was the Future of California Transit](http://motherboard.vice.com/blog/in-1897-a-bicycle-superhighway-was-the-future-of-california-transit) | Motherboard
 * [Bicycling Across the Country](http://www.travel.nytimes.com/2011/10/23/travel/bicycling-across-the-country-bruce-weber-reflects.html) | NYTimes
 
+<a name="circus"/></a>
 ###<i class='fa fa-umbrella'></i> Circus Arts
 * [Moving Beyond the Big Tent](http://www.nytimes.com/2013/03/17/opinion/sunday/moving-beyond-the-big-tent.html?pagewanted=all) | NYTimes Op-Ed
 * [Compagnie Ieto](http://youtu.be/vAEEjmI6cHY) | Youtube
@@ -101,6 +128,7 @@ categories:
 * [Pendulum Waves](http://www.youtube.com/watch?v=yVkdfJ9PkRQ) | Youtube
 * [Double Pendulum](http://youtu.be/U39RMUzCjiU) | Youtube
 
+<a name="etc"/></a>
 ###<i class='fa fa-question'></i> etc
 * [Transition](http://www.nytimes.com/video/opinion/100000001579773/transition.html) | NYTimes Op-Doc
 * [Leviathan](http://www.nytimes.com/movies/movie/470273/Leviathan/trailers) | Documentary Trailer
