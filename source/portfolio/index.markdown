@@ -20,16 +20,19 @@ Won Second Place at non-profit benefit hackathon, Hack for Queer Youth. An inter
 
 <h2>Side Projects</h2>
 <strong>codeislike.com</strong><span id="portfolio-links">[<i class='fa fa-external-link'></i>](/)</span>  
-This site. No kidding. Built on Octopress, hosted on github, and tweaked extensively. It's baked not fried, so dynamic elements are done using javascript. Don't miss the easter egg, a jQuery selector [game](/blog/2013/11/04/jquery-selector-game/)! I also created my own [API](/blog/2013/11/13/making-a-personal-api/). [<i class='fa fa-code'></i>](https://github.com/nathanallen/nathanallen.github.io)
+This site. No kidding. Built on Octopress, hosted on github pages, and tweaked extensively. It's baked not fried, so dynamic elements are done using javascript. Don't miss the easter egg, a jQuery selector [game](/blog/2013/11/04/jquery-selector-game/)! I also created my own [API](/blog/2013/11/13/making-a-personal-api/). [<i class='fa fa-code'></i>](https://github.com/nathanallen/nathanallen.github.io)
 
-<strong>wordplay</strong><span id="portfolio-links"> [<i class='fa fa-external-link'></i>](https://github.com/nathanallen/wordplay)</span>  
-I'm fascinated with natural language processing. Most recently I coded an n-gram frequency counter and have been tweaking it to make it faster.
+<strong>StarterList</strong><span id="portfolio-links">[<i class='fa fa-external-link'></i>](https://github.com/nathanallen/starterlist)</span>  
+Pet-project to TDD a thick rails client (and learn some new toys like Cucumber and SendGrid). The idea is to make it dead simple to gather and distribute email addresses within a group *without the need for a formal organizer*.
+
+<strong>Wordplay</strong><span id="portfolio-links"> [<i class='fa fa-external-link'></i>](https://github.com/nathanallen/wordplay)</span>  
+I'm fascinated with natural language processing. Most recently I created a tweet generator that uses Markov probababilities. I also made my own n-gram frequency counter.
 
 <strong>brettallenmusic.com</strong><span id="portfolio-links">[<i class='fa fa-external-link'></i>](http://app.brettallenmusic.com)</span>  
 Simple ecommerce site for a self-publish sheet music business. Built on Sinatra using Bootstrap's responsive grid. The site integrates WePay's embeddable shopping buttons, soundcloud, and scribd. This site sparked my interest in web development back in 2011 and gave me my first taste of CSS, HTML, and search analytics.
 
 <strong>srt2json.herokuapp.com</strong><span id="portfolio-links">[<i class='fa fa-external-link'></i>](http://srt2json.herokuapp.com/)</span>  
-Convert srt transcript files to json via an api request. The api started as a simple workaround for a cross origin resource sharing conflict, allowing my team to access content by passing it through a proxy. I then realized I could combine both the request and the conversion all in one step. [<i class='fa fa-code'></i>](https://github.com/nathanallen/srt-to-json-api/)
+An api for converting srt transcript files to json. The api started as a simple workaround for a cross origin resource sharing conflict, allowing my team to access content by passing it through a proxy. I then realized I could combine both the request and the conversion all in one step. [<i class='fa fa-code'></i>](https://github.com/nathanallen/srt-to-json-api/)
 
 <strong>More Practice:</strong>  
 * Created helpers and ajax requests for a real-time, multiplayer dice game.<span id="portfolio-links"> [<i class='fa fa-code'></i>](https://github.com/tiger-swallowtails-2013/liars-dice)</span>  
