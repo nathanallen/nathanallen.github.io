@@ -4,7 +4,7 @@
   <title><![CDATA[Code is like]]></title>
   <link href="http://codeislike.com/atom.xml" rel="self"/>
   <link href="http://codeislike.com/"/>
-  <updated>2014-02-10T22:06:57-08:00</updated>
+  <updated>2014-02-11T01:05:05-08:00</updated>
   <id>http://codeislike.com/</id>
   <author>
     <name><![CDATA[Nathan Allen]]></name>
@@ -12,6 +12,61 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Traffic Calming in the Kingdom of Javascript]]></title>
+    <link href="http://codeislike.com/blog/2014/02/11/traffic-calming-in-the-kingdom-of-javascript/"/>
+    <updated>2014-02-11T00:02:00-08:00</updated>
+    <id>http://codeislike.com/blog/2014/02/11/traffic-calming-in-the-kingdom-of-javascript</id>
+    <content type="html"><![CDATA[<p>Trouble is brewing in the Kingdom of Javascript. The API has said it is fed up with being inundated by AJAX requests. It has set new limits on requests.</p>
+
+<h3>The Decree</h3>
+
+<p>New rules have hastily been put in place. By decree, every Citizen Function wishing to make a call to the neighboring Kingdom of API must now wait for a period of 200 ms.</p>
+
+<blockquote><p> By decree, every Citizen Function wishing to make a call to the neighboring Kingdom of API must first wait for a period of 200 ms.</p></blockquote>
+
+<p>Prominient, 200ms stop signs have been erected around Javascript by the Office of the Set Timeout. Traffic once again begins to flow.</p>
+
+<h3>Traffic Report</h3>
+
+<p>At 1392104264925 three Citizen Functions are observed approaching a stop sign, each spaced 1 ms apart. The first waits 200 ms, the second waits 200 ms, the third waits 200 ms and they all proceeded through.</p>
+
+<p>Immediately following these events, three nearly simultaneous AJAX requests are sent off to the Kingdom of API, the first occurring at 1392104265128.</p>
+
+<p>The national paper, in its usual, self-congratulatory manner, praises  the orderly conduct of the Citizen Functions, their duitful observance of the new law, and the work being done by the Office of the Set Timeout.</p>
+
+<p>Nevertheless, the Kingdom of API is none too pleased. After 200ms of calm, requests are coming in at their usual, hectic rate. And every passing millisecond increases the likelihood of a blockade.</p>
+
+<h3>The Spirit of the Code</h3>
+
+<p>This is what the writers of The Code, in their infinite wisdom, set down:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">citizens</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">citizen</span><span class="p">){</span>
+</span><span class='line'>  <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="s2">&quot;http://keepcalm.com/api.json&quot;</span><span class="p">,</span> <span class="nx">andMoveAlong</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">},</span><span class="mi">200</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And this is what the writers meant:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">citizens</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">citizen</span><span class="p">,</span><span class="nx">i</span><span class="p">){</span>
+</span><span class='line'>  <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="s2">&quot;http://keepcalm.com/api.json&quot;</span><span class="p">,</span> <span class="nx">andMoveAlong</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">},</span><span class="nx">i</span><span class="o">*</span><span class="mi">200</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Hash Smells]]></title>
