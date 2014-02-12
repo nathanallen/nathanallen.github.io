@@ -9,7 +9,7 @@
   <meta name="author" content="Nathan Allen">
 
   
-  <meta name="description" content="Trouble is brewing in the Kingdom of Javascript. The API has said it is fed up with being inundated by AJAX requests. It has set new limits on &hellip;">
+  <meta name="description" content="Trouble is brewing in the Kingdom of Javascript: the API is fed up with being inundated by AJAX requests. It has set new limits on requests. Stops &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,25 +79,21 @@
   </header>
 
 
-  <div class="entry-content"><p>Trouble is brewing in the Kingdom of Javascript. The API has said it is fed up with being inundated by AJAX requests. It has set new limits on requests.</p>
+  <div class="entry-content"><p>Trouble is brewing in the Kingdom of Javascript: the API is fed up with being inundated by AJAX requests. It has set new limits on requests.</p>
 
-<h3>The Decree</h3>
+<p>Stops signs have hasily been erected around AJAX calls by the Office of the Set Timeout. By decree, every Citizen Function wishing to make a call to the neighboring Kingdom of API must now wait for a period of 200 ms.</p>
 
-<p>New rules have hastily been put in place. By decree, every Citizen Function wishing to make a call to the neighboring Kingdom of API must now wait for a period of 200 ms.</p>
-
-<blockquote><p> By decree, every Citizen Function wishing to make a call to the neighboring Kingdom of API must first wait for a period of 200 ms.</p></blockquote>
-
-<p>Prominient, 200ms stop signs have been erected around Javascript by the Office of the Set Timeout. Traffic once again begins to flow.</p>
+<p>With the new stop signs in place, traffic once again begins to flow.</p>
 
 <h3>Traffic Report</h3>
 
-<p>At 1392104264925 three Citizen Functions are observed approaching a stop sign, each spaced 1 ms apart. The first waits 200 ms, the second waits 200 ms, the third waits 200 ms and they all proceeded through.</p>
+<p>At 1392104264925 three Citizen Functions are observed approaching a stop sign in quick succession. The first waits 200 ms, the second waits 200 ms, the third waits 200 ms and they all proceeded through.</p>
 
-<p>Immediately following these events, three nearly simultaneous AJAX requests are sent off to the Kingdom of API, the first occurring at 1392104265128.</p>
+<p>Immediately following these events, three nearly simultaneous AJAX requests are sent off to the Kingdom of API, the first occurring at 1392104265126.</p>
 
-<p>The national paper, in its usual, self-congratulatory manner, praises  the orderly conduct of the Citizen Functions, their duitful observance of the new law, and the work being done by the Office of the Set Timeout.</p>
+<p>The national paper, in its usual, self-congratulatory manner, praises  the orderly, asynchronous conduct of the Citizen Functions, their duitful observance of the new law, and the work being done by the Office of the Set Timeout.</p>
 
-<p>Nevertheless, the Kingdom of API is none too pleased. After 200ms of calm, requests are coming in at their usual, hectic rate. And every passing millisecond increases the likelihood of a blockade.</p>
+<p>Nevertheless, the Kingdom of API is none too pleased. After a brief 200ms of calm, requests are coming in at their usual, hectic rate. And every passing millisecond increases the likelihood of a blockade.</p>
 
 <h3>The Spirit of the Code</h3>
 
@@ -120,10 +116,10 @@
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">citizens</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">citizen</span><span class="p">,</span><span class="nx">i</span><span class="p">){</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">citizens</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">citizen</span><span class="p">,</span><span class="nx">index</span><span class="p">){</span>
 </span><span class='line'>  <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
 </span><span class='line'>    <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="s2">&quot;http://keepcalm.com/api.json&quot;</span><span class="p">,</span> <span class="nx">andMoveAlong</span><span class="p">)</span>
-</span><span class='line'>  <span class="p">},</span><span class="nx">i</span><span class="o">*</span><span class="mi">200</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">},</span><span class="nx">index</span><span class="o">*</span><span class="mi">200</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
 </div>
