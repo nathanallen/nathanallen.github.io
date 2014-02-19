@@ -6,6 +6,10 @@ sharing: true
 footer: true
 ---
 
+<h2>Github Countdown</h2>
+<a href="http://gitcountdown.herokuapp.com"><img src="/images/portfolio/gitcountdown.png"></a><br>
+Don't break your streak! A github countdown clock with timezone support so you know how much time is left to make a commit. [<i class='fa fa-code'></i>](https://github.com/nathanallen/gitcountdown)
+
 <h2>Full Movie Meter</h2>
 <a href="http://fullmoviemeter.herokuapp.com"><img src="/images/portfolio/fullmovie.png"></a><br>
 A mashup of /r/fullmoviesonyoutube and movie ratings from Rotten Tomaotes, so you can find something good to watch online. [<i class='fa fa-code'></i>](https://github.com/nathanallen/fullmoviemeter)

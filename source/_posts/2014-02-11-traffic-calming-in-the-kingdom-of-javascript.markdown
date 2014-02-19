@@ -7,7 +7,7 @@ categories:
 ---
 Trouble is brewing in the Kingdom of Javascript: the API is fed up with being inundated by AJAX requests. It has set new limits on requests.
 
-Stops signs have hasily been erected around AJAX calls by the Office of the Set Timeout. By decree, every Citizen Function wishing to make a call to the neighboring Kingdom of API must now wait for a period of 200 ms.
+Stops signs have hastily been erected around AJAX calls by the Office of the Set Timeout. By decree, every Citizen Function wishing to make a call to the neighboring Kingdom of API must now wait for a period of 200 ms.
 
 With the new stop signs in place, traffic once again begins to flow.
 
