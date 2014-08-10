@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>jQuery Selector: The Game - Code is like</title>
+  <meta name="author" content="Nathan Allen">
+
+  
+  <meta name="description" content="jQuery Selector: The Game Nov 4th, 2013 I invite you to vandalize my site. Hit enter to play. Next, type any jquery selector or html tag that you &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://codeislike.com/blog/2013/11/04/jquery-selector-game">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Code is like" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <script src="/javascripts/selector.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  
+  <script>(function(G,o,O,g,l){G.GoogleAnalyticsObject=O;G[O]||(G[O]=function(){(G[O].q=G[O].q||[]).push(arguments)});G[O].l=+new Date;g=o.createElement('script'),l=o.scripts[0];g.src='//www.google-analytics.com/analytics.js';l.parentNode.insertBefore(g,l)}(this,document,'ga'));ga('create','UA-45643743-1');ga('send','pageview')</script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup class='game'>
+  <h1><a href="/">Code is like</a></h1>
+  
+    <h2 class='game'><span id='subtitle' class='game'>> begin braindump</span><span id="prompt" class='game'><span id="input-area" class='game'></span><span id="blinking-cursor" class='game'>|</span></span></h2>
+  
+</hgroup>
+
+</header>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">jQuery Selector: The Game</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-04T22:15:00-08:00" pubdate data-updated="true">Nov 4<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I invite you to vandalize my site. <strong>Hit enter to play</strong>. Next, type any jquery selector or html tag that you think is on the page. (HINT: try &lsquo;strong&rsquo;, &lsquo;code&rsquo;, &lsquo;p&rsquo;, &lsquo;*&rsquo;)</p>
+
+<p>Ever since learning about jquery selectors I thought it would be pretty cool to make a game out of it. Yesterday I gave it a shot and came up with a fairly viable product.</p>
+
+<p>The first challenge I faced was determining if I could detect the removal of an element from the page. Sure enough, after a little bit of playing around in the console I had a working event listener.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">listenIExist</span><span class="p">(</span><span class="nx">elem</span><span class="p">){</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">$elem</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">elem</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">$elem</span><span class="p">.</span><span class="nx">length</span><span class="p">){</span>
+</span><span class='line'>      <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span><span class="nx">listenIExist</span><span class="p">(</span><span class="nx">elem</span><span class="p">)},</span><span class="mi">600</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Vamooosh!&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Each time the element&rsquo;s selector is passed into the function it uses its length to determine if it still exists on the page.</p>
+
+<p>The next question was how I was going to collect all the tags in the first place. My initial thought was I&rsquo;d select the document as a whole and then iterate through all the children, and the children&rsquo;s children, and the children&rsquo;s children&rsquo;s children. Easy with a recursive loop. But not very pretty. It looked something like this, and worked terribly:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">howMuchFortheChildren</span><span class="p">(</span><span class="nx">tag</span><span class="p">){</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">child</span> <span class="o">=</span> <span class="nx">tag</span>
+</span><span class='line'>  <span class="nx">tagsArray</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nx">child</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">tagName</span><span class="p">)</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">$children</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">child</span><span class="p">).</span><span class="nx">children</span><span class="p">()</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">$children</span><span class="p">.</span><span class="nx">length</span><span class="p">){</span>
+</span><span class='line'>      <span class="nx">$children</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>          <span class="nx">howMuchFortheChildren</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">})</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>But then I discovered a novel solution that simplified things considerably. jQuery supports a wildcard selector. Why not use that?</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="nx">selector</span><span class="p">){</span>
+</span><span class='line'>  <span class="nx">listenIExist</span><span class="p">(</span> <span class="nx">$</span><span class="p">(</span><span class="nx">selector</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">tagName</span> <span class="p">)</span>
+</span><span class='line'><span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now we were talking. The core pieces were in place. Except, how was I going to get user input?</p>
+
+<p>I&rsquo;d made the blinking-cursor in the header only a few days prior. It seemed almost too perfect. Forget about text fields. <em>Here</em> was an interesting challenge.</p>
+
+<p>First I set up a listener for keystrokes, specifically the enter key:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">if</span> <span class="p">(</span><span class="nx">keyCode</span> <span class="o">===</span> <span class="mi">13</span><span class="p">){</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">the_game_has_started</span><span class="p">){</span>
+</span><span class='line'>      <span class="nx">evaluateSelector</span><span class="p">()</span>
+</span><span class='line'>  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">startTheGame</span><span class="p">()</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Using jquery&rsquo;s <code>.wrap()</code> and <code>.append()</code> methods I was able to manipulate the html around the cursor. But I also needed the cursor to move down to a new line. Since it was already wrapped in the &lt;h2> tag what I needed to do was break it into its own heading.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;h2&gt;</span>&gt; begin braindump<span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">&quot;blinking-cursor&quot;</span><span class="nt">&gt;</span>|<span class="nt">&lt;/span&gt;&lt;/h2&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So I used a trusty injection attack. I prepended a closing and opening &lt;h2> tag to the cursor. Now, instead of having one line I had two:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;h2&gt;</span>&gt; begin braindump<span class="nt">&lt;/h2&gt;</span>
+</span><span class='line'><span class="nt">&lt;h2&gt;</span>&gt; <span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">&quot;blinking-cursor&quot;</span><span class="nt">&gt;</span>|<span class="nt">&lt;/span&gt;&lt;/h2&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>From there, the cursor&rsquo;s movement is just a side-effect of it being bumped over by the text to the left of it. After the user hits enter the &lsquo;field&rsquo; is cleared and the process starts over again. However this is where I hit a major bug: the backspace.</p>
+
+<p>Hitting backspace triggers the browser to go back to the previous page in its  history. Everyone has at some infuriating moment done it. At the moment I&rsquo;ve only accidentely managed to sidestep the problem.</p>
+
+<p>The address bar, as understated as it is, is the only safe place I could think of to display game stats. As a side-effect of updating the hash, the browser thinks you&rsquo;ve  gone to a new page. So if you bump into the backspace, you may just go back to an earlier score without the page reloading.</p>
+
+<p>So that&rsquo;s jquery selector, the game. Or as I like to call it: jquery destructor. Now I&rsquo;m in the process of refactoring my javascript, seperating out my controllers, and using more of an object oriented approach.</p>
+</div>
+
+
+  > end braindump
+
+  <footer>
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/11/02/the-blinking-cursor-effect/" title="Previous Post: The blinking cursor effect">&laquo; The blinking cursor effect</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/11/13/making-a-personal-api/" title="Next Post: A Personal API?">A Personal API? &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+<hr>
+<br>
+<center>
+	<a href="https://github.com/nathanallen"><i class="fa fa-github fa-2x"></i></a>
+	<a href="http://twitter.com/punriddled"><i class="fa fa-twitter fa-2x"></i></a>
+	<a href="http://linkedin.com/in/thisisnathan"><i class="fa fa-linkedin fa-2x"></i></a>
+	<a href="mailto:the + my first name + ator@gmail.com"><i class="fa fa-envelope-o fa-2x"></i></a>
+</center>
+<center>
+  <a href="/">home</a> | 
+  <a href="/blog">blog</a> | 
+  <a href="/portfolio">portfolio</a>
+</center>
+
+
+</div>
+
+    </div>
+  </div>
+  <footer> </footer>
+  
+
+
+
+
+
+
+
+</body>
+</html>

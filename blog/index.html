@@ -1,0 +1,1394 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Code is like</title>
+  <meta name="author" content="Nathan Allen">
+
+  
+  <meta name="description" content="Trouble is brewing in the Kingdom of Javascript: the API is fed up with being inundated by AJAX requests. It has set new limits on requests. Stops &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://codeislike.com/blog">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Code is like" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <script src="/javascripts/selector.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  
+  <script>(function(G,o,O,g,l){G.GoogleAnalyticsObject=O;G[O]||(G[O]=function(){(G[O].q=G[O].q||[]).push(arguments)});G[O].l=+new Date;g=o.createElement('script'),l=o.scripts[0];g.src='//www.google-analytics.com/analytics.js';l.parentNode.insertBefore(g,l)}(this,document,'ga'));ga('create','UA-45643743-1');ga('send','pageview')</script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup class='game'>
+  <h1><a href="/">Code is like</a></h1>
+  
+    <h2 class='game'><span id='subtitle' class='game'>> begin braindump</span><span id="prompt" class='game'><span id="input-area" class='game'></span><span id="blinking-cursor" class='game'>|</span></span></h2>
+  
+</hgroup>
+
+</header>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/11/traffic-calming-in-the-kingdom-of-javascript/">Traffic Calming in the Kingdom of Javascript</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-11T00:02:00-08:00" pubdate data-updated="true">Feb 11<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Trouble is brewing in the Kingdom of Javascript: the API is fed up with being inundated by AJAX requests. It has set new limits on requests.</p>
+
+<p>Stops signs have hastily been erected around AJAX calls by the Office of the Set Timeout. By decree, every Citizen Function wishing to make a call to the neighboring Kingdom of API must now wait for a period of 200 ms.</p>
+
+<p>With the new stop signs in place, traffic once again begins to flow.</p>
+
+<h3>Traffic Report</h3>
+
+<p>At 1392104264925 three Citizen Functions are observed approaching a stop sign in quick succession. The first waits 200 ms, the second waits 200 ms, the third waits 200 ms and they all proceeded through.</p>
+
+<p>Immediately following these events, three nearly simultaneous AJAX requests are sent off to the Kingdom of API, the first occurring at 1392104265126.</p>
+
+<p>The national paper, in its usual, self-congratulatory manner, praises  the orderly, asynchronous conduct of the Citizen Functions, their duitful observance of the new law, and the work being done by the Office of the Set Timeout.</p>
+
+<p>Nevertheless, the Kingdom of API is none too pleased. After a brief 200ms of calm, requests are coming in at their usual, hectic rate. And every passing millisecond increases the likelihood of a blockade.</p>
+
+<h3>The Spirit of the Code</h3>
+
+<p>This is what the writers of The Code, in their infinite wisdom, set down:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">citizens</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">citizen</span><span class="p">){</span>
+</span><span class='line'>  <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="s2">&quot;http://keepcalm.com/api.json&quot;</span><span class="p">,</span> <span class="nx">andMoveAlong</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">},</span><span class="mi">200</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And this is what the writers meant:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">citizens</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">citizen</span><span class="p">,</span><span class="nx">index</span><span class="p">){</span>
+</span><span class='line'>  <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="s2">&quot;http://keepcalm.com/api.json&quot;</span><span class="p">,</span> <span class="nx">andMoveAlong</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">},</span><span class="nx">index</span><span class="o">*</span><span class="mi">200</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/26/hash-smells/">Hash Smells</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-26T12:04:00-08:00" pubdate data-updated="true">Jan 26<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Lately I&rsquo;ve been working a lot with hashes, specifically nested hashes, and I&rsquo;ve found myself doing this (smelly) pattern:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">if</span> <span class="n">word_freqs</span><span class="o">[</span><span class="n">current_word</span><span class="o">]</span>
+</span><span class='line'>  <span class="k">if</span> <span class="n">word_freqs</span><span class="o">[</span><span class="n">current_word</span><span class="o">][</span><span class="n">next_word</span><span class="o">]</span>
+</span><span class='line'>    <span class="n">word_freqs</span><span class="o">[</span><span class="n">current_word</span><span class="o">][</span><span class="n">next_word</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'>    <span class="n">word_freqs</span><span class="o">[</span><span class="n">current_word</span><span class="o">][</span><span class="n">next_word</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'>  <span class="n">word_freqs</span><span class="o">[</span><span class="n">current_word</span><span class="o">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">next_word</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">}</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>There must be a better way&hellip;</p>
+
+<h2>Seeing Double</h2>
+
+<p>Part of the smell comes from all the duplication. Can we tighten things up by using a variable? The answer is yes and no.</p>
+
+<p>The main problem with using a variable is that any change we make to the variable wont be reflected in the hash. In other words, the variable and the hash do not point to the same object.</p>
+
+<p>This does not work!</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">root_word</span> <span class="o">=</span> <span class="n">word_freqs</span><span class="o">[</span><span class="n">current_word</span><span class="o">]</span>
+</span><span class='line'><span class="k">if</span> <span class="n">root_word</span>
+</span><span class='line'>  <span class="k">if</span> <span class="n">root_word</span><span class="o">[</span><span class="n">next_word</span><span class="o">]</span>
+</span><span class='line'>    <span class="n">root_word</span><span class="o">[</span><span class="n">next_word</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'>    <span class="n">root_word</span><span class="o">[</span><span class="n">next_word</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'>  <span class="n">root_word</span> <span class="o">=</span> <span class="p">{</span><span class="n">next_word</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">}</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Changes made to <code>root_word</code> are <em>not</em> reflected in the <code>word_freqs</code> hash! <strong>They do not point to the same object!</strong></p>
+
+<p>And before you take it a step further, you definitely should not try to access the value of the nested hash directly:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">nested_value</span> <span class="o">=</span> <span class="n">word_freqs</span><span class="o">[</span><span class="n">current_word</span><span class="o">][</span><span class="n">next_word</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you do this, you&rsquo;re likely to throw <code>undefined method '[]' for nil:NilClass</code>. Although the first level of the nested hash may exist, there&rsquo;s no saying the second level will exist.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">word_freqs</span><span class="o">[</span><span class="n">current_word</span><span class="o">]</span>
+</span><span class='line'><span class="c1"># returns the value or nil</span>
+</span><span class='line'><span class="n">word_freqs</span><span class="o">[</span><span class="n">current_word</span><span class="o">][</span><span class="n">next_word</span><span class="o">]</span>
+</span><span class='line'><span class="c1"># returns the value or nil or throws error: undefined method &#39;[]&#39; for nil:NilClass</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Ampersand, Ampersand</h2>
+
+<p>A nice way to clean up this mess is to create a conditional check using <code>&amp;&amp;</code>. Since both sides of the arguement must return true for the conditional to return true, it will exit as soon as it gets a falsy value. In other words, if the first level of the hash exists, and if the nested level exists&hellip; we&rsquo;ve got ourselves a nested conditional check!</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">root_word</span> <span class="o">=</span> <span class="n">word_freqs</span><span class="o">[</span><span class="n">current_word</span><span class="o">]</span>
+</span><span class='line'><span class="k">if</span> <span class="n">root_word</span> <span class="o">&amp;&amp;</span> <span class="n">root_word</span><span class="o">[</span><span class="n">next_word</span><span class="o">]</span>
+</span><span class='line'>  <span class="n">word_freqs</span><span class="o">[</span><span class="n">current_word</span><span class="o">][</span><span class="n">next_word</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'>  <span class="n">word_freqs</span><span class="o">[</span><span class="n">current_word</span><span class="o">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">next_word</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">}</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As good as it gets, and much less smelly!</p>
+
+<h2>Playing with Default</h2>
+
+<p>The nice thing about changing the default behavior of Hash is that it allows us to eliminate the need to set the initial value of the hash. For instance, for my <a href="https://github.com/nathanallen/wordplay/blob/master/n_gram_counter.rb">n-gram counter</a>, I was able to clean up my code by using a hash with a default value of zero.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">ngram_freqs</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">words_array</span><span class="o">.</span><span class="n">each_index</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+</span><span class='line'>  <span class="k">unless</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">stop_index</span>
+</span><span class='line'>    <span class="n">ngram</span> <span class="o">=</span> <span class="n">words_array</span><span class="o">[</span><span class="n">i</span><span class="o">.</span><span class="n">.i</span><span class="o">+</span><span class="n">offset</span><span class="o">].</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">ngram_freqs</span><span class="o">[</span><span class="n">ngram</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># no need to set the intiial value!</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The only drawback is that the hash no longer returns nil if an item doesn&rsquo;t exist, but in this case, I don&rsquo;t need that behavior. Knowing that a word has a frequency of zero is fine by me! And there&rsquo;s zero risk of adding together nil and 1. There&rsquo;s just zero.</p>
+
+<h2>Willy Nilly</h2>
+
+<p>As a sidenote, I discovered you can (kind of) have your cake and eat it too. You can set the default value AND have it return nil by passing Hash a block:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">my_hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">{</span><span class="o">|</span><span class="n">h</span><span class="p">,</span><span class="n">k</span><span class="o">|</span> <span class="n">h</span><span class="o">[</span><span class="n">k</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="kp">nil</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This has the odd effect of &lsquo;setting&rsquo; a key to the default value of zero when you try to &lsquo;get&rsquo; that key. The first time you access it you&rsquo;ll get nil. But look it up a second time, and you&rsquo;ll get 0. In other words, if the item didn&rsquo;t exist before, woops, now you&rsquo;ve added it!</p>
+
+<p>Do we really want a &ldquo;getter&rdquo; method to act as a &ldquo;setter&rdquo;?</p>
+
+<p>I think not. Best to follow the law of Least Surprise. Let defaults be defaults! (And try not to smell, will you?).</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/13/undefined-method-plus-at/">Undefined Method +@</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-13T22:50:00-08:00" pubdate data-updated="true">Jan 13<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>It&rsquo;s tricky keeping program interfaces straight. I recently had an interesting experience switching from javascript to ruby. The trouble started when I tried to use the increment operator: <code>++</code>.</p>
+
+<p>The errors were baffling. Try as I would to debug, I couldn&rsquo;t identify the source of the problem.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># undefined method \`+@&#39; for false:FalseClass (NoMethodError)  </span>
+</span><span class='line'><span class="c1"># undefined method \`+@&#39; for true:TrueClass (NoMethodError)  </span>
+</span><span class='line'><span class="c1"># undefined method \`+@&#39; for nil:NilClass (NoMethodError)  </span>
+</span><span class='line'><span class="c1"># undefined method \`+@&#39; for &quot;&quot;:String (NoMethodError)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p> But as I poked around, one thing was clear. I needed to figure out what was going wrong with the Numeric method <code>+@</code>!</p>
+
+<h2>Too Much of a Good Thing</h2>
+
+<p>The trouble is that ruby doesn&rsquo;t have any trouble chaining together as many plus-operators as you want. <code>2+2</code> and <code>2++2</code> and <code>2+++2</code> are all going to have a return value of 4.</p>
+
+<p>Javascript on the other hand would throw various syntax errors:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="mi">2</span><span class="o">++</span><span class="mi">2</span> <span class="c1">// SyntaxError: Unexpected number</span>
+</span><span class='line'>
+</span><span class='line'><span class="mi">2</span><span class="o">+++</span><span class="mi">2</span> <span class="c1">// ReferenceError: Invalid left-hand side expression in postfix operation</span>
+</span><span class='line'>
+</span><span class='line'><span class="mi">2</span><span class="o">++++</span><span class="mi">2</span> <span class="c1">// SyntaxError: Unexpected token ++</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>What makes this tricky to debug is that ruby will keep on evaluating across line breaks. But of course!</p>
+
+<h2>Sugar Free</h2>
+
+<p>The <code>+</code> method is just syntactic sugar for <code>.+</code>. This means that <code>1+1</code> is just a friendly way of writing <code>1.+(1)</code>. Leave a plus operator dangling, and it&rsquo;s just going to go ahead and try adding together the left side of the expression with the following line.</p>
+
+<p>So if somewhere in your code you have:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">i</span><span class="o">++</span>
+</span><span class='line'><span class="k">if</span> <span class="n">confused</span>
+</span><span class='line'>  <span class="n">be_more_so</span> <span class="o">=</span> <span class="mi">10</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Ruby will try to add the return value of the conditional to <code>i</code>. (In other words, <code>i+10</code>).</p>
+
+<p>But if, say, your conditional has a return value of nil or true or false or it&rsquo;s a string, or any other whatsit that can&rsquo;t be coerced into an integer, you&rsquo;re going to throw &ldquo;undefined method +@&rdquo; FOR ALL OF THE THINGS.<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></p>
+
+<p>Solution: Use the ruby plus-equals operator: <code>+=</code>, and forget all your javascript.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>If you use <code>++</code> before an if-else conditional you may get <code>syntax error, unexpected keyword_else</code>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/12/20/role-does-not-exist/">Role Does Not Exist</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-20T10:49:00-08:00" pubdate data-updated="true">Dec 20<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>You&rsquo;ve launched into your new rails side-project using postgresql and you&rsquo;ve hit a wall setting up your database. When you run <code>rake db:create</code> you get the following error message:</p>
+
+<p><strong>FATAL: role &ldquo;the_name_of_your_app&rdquo; does not exist</strong></p>
+
+<p>Your first alarm bell should be the fact that it&rsquo;s using the name of your rails project. What it actually means is that the <em>user</em> &lsquo;the_name_of_your_app&rsquo; is not there.</p>
+
+<p>Run <code>psql</code> on the command line and then execute the command <code>\du</code> (when you&rsquo;re done use <code>\q</code> to exit). Your output should look something like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>                            List of roles
+</span><span class='line'>   Role name   |                   Attributes                   | Member of
+</span><span class='line'>---------------+------------------------------------------------+-----------
+</span><span class='line'>  nathanallen  | Superuser, Create role, Create DB, Replication | <span class="o">{}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Note that &ldquo;the_name_of_your_app&rdquo; isn&rsquo;t listed under role name. Nor should it be: by default when postgres is first installed it uses your local system username.</p>
+
+<p>But we don&rsquo;t need to do anything fancy!</p>
+
+<p>Solution: pull up your <code>config/database.yml</code> file and note the (default) username and password fields:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>development:
+</span><span class='line'>  adapter: postgresql
+</span><span class='line'>  encoding: unicode
+</span><span class='line'>  database: the_name_of_your_app_development
+</span><span class='line'>  pool: 5
+</span><span class='line'>  username: the_name_of_your_app
+</span><span class='line'>  password:
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Delete all occurrences of username and password (or set them appropriately).</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/12/18/preventing-backspace/">Preventing Backspace</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-18T18:47:00-08:00" pubdate data-updated="true">Dec 18<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>You&rsquo;ve just created your first game using javascript, perhaps a TypeRacer clone, and you&rsquo;ve run into an annoying bug. Whenever you bump backspace the browser navigates back to the previous page, ending gameplay. It&rsquo;s cramping your style.</p>
+
+<p>By now you already understand how to capture keystrokes, using something along the lines of:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nb">window</span><span class="p">.</span><span class="nx">onkeypress</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">which</span><span class="p">)}</span>
+</span><span class='line'><span class="c1">// or if you prefer jQuery:</span>
+</span><span class='line'><span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;keypress&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">which</span><span class="p">)})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>For reference: <code>e.which</code>, <code>e.keyCode</code> and <code>e.charCode</code> all work just as well.</p>
+
+<p>But something weird is happening, not all the keys are being logged. When you hit arrow keys, or other control keys (Shift, Command, Tab, Escape, etc) you get nothing.</p>
+
+<p>Even worse, when you hit the backspace button&hellip; you go back! How are you supposed to capture the keycode of the backspace button if the browser navigates back!?</p>
+
+<h2>Keypress vs Keydown vs Keyup</h2>
+
+<p>It turns out the keypress event is one of three ways to log keystrokes, the other two are keydown and keyup. What&rsquo;s the difference?</p>
+
+<p>Well, let&rsquo;s see for ourselves! Let&rsquo;s setup three event listeners and when the event is triggered we&rsquo;ll print out the timestamp to try to gauge the order in which they&rsquo;re firing.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">)</span> <span class="c1">//this handy syntax is called a &#39;cascade&#39;</span>
+</span><span class='line'>  <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;keypress&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">timeStamp</span> <span class="o">+</span> <span class="s2">&quot; keypress!&quot;</span><span class="p">)})</span>
+</span><span class='line'>  <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;keyup&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">timeStamp</span> <span class="o">+</span> <span class="s2">&quot; up!&quot;</span><span class="p">)})</span>
+</span><span class='line'>  <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;keydown&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">timeStamp</span> <span class="o">+</span> <span class="s2">&quot; down!&quot;</span><span class="p">)})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now when we hit a &lsquo;control button&rsquo; like the spacebar we get output in this order:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="mi">1387421080919</span> <span class="nx">down</span><span class="o">!</span>
+</span><span class='line'><span class="mi">1387421080920</span> <span class="nx">keypress</span><span class="o">!</span>
+</span><span class='line'><span class="mi">1387421080998</span> <span class="nx">up</span><span class="o">!</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Keydown is the winner! The keydown event fires just a split second before keypress! No wonder we&rsquo;ve been missing it!</p>
+
+<h2>No looking back</h2>
+
+<p>Now that we know the order in which the events occur, how do we prevent the default behavior of the back button? Why, <code>preventDefault()</code> of course! But we have to make sure to bind our function to the earliest keyboard event: keydown. To do this we just add a line:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;keydown&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+</span><span class='line'>  <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">()</span>
+</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;halt!&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Mission Accomplished! We&rsquo;ve halted the back button!</p>
+
+<p>But wait a minute, our quick little hack works a little too well&hellip; it also prevent a lot of useful keyboard shortcuts from working too. What if I try to refresh the page using Cmd-R?</p>
+
+<p>To single out the backspace we&rsquo;ll need to use some conditional logic in combination with <code>preventDefault()</code>. Something along the lines of:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">preventBackspace</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">keyCode</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">||</span> <span class="nx">e</span><span class="p">.</span><span class="nx">charCode</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">keyCode</span> <span class="o">==</span> <span class="mi">46</span> <span class="o">||</span> <span class="nx">keyCode</span> <span class="o">==</span> <span class="mi">8</span><span class="p">){</span>
+</span><span class='line'>    <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">()</span>
+</span><span class='line'>    <span class="c1">//now do something cool instead</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;keydown&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span><span class="nx">preventBackspace</span><span class="p">(</span><span class="nx">e</span><span class="p">)})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So that&rsquo;s how to stop the back button from taking you back. I can only imagine google&rsquo;s SEO algorhithm frowns on the practice so I would use it sparingly. It certainly has its malicious uses!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/11/16/autocomplete-search-from-back-to-front/">Autocomplete Search</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-16T14:52:00-08:00" pubdate data-updated="true">Nov 16<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Recently I was on a team that created an airbnb-inspired <a href="http://eyepark.herokuapp.com">parking app</a>. For our MVP, we chose to limit the scope of our project to San Francisco, and I volunteered to create the seed data. Looking back I should have simply made a list of a hundred or so real addresses and called it a day.</p>
+
+<p>Instead I set to work gathering data on the city: I scraped a wikipedia article for <a href="http://en.wikipedia.org/wiki/Etymologies_of_place_names_in_San_Francisco">Historical Street Names</a>, and for kicks I scraped a document that cross referenced zipcodes and neighborhood names and created a lookup table that later became part of our database.</p>
+
+<p>Around the same time we started playing with the Google Maps API and I realized that I could feed the API radomly generated street addresses and get back <em>real</em> geographical coordinates and zipcodes. We now had a way to turn fake data into pins on a map.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="s2">&quot;94102&quot;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;Hayes Valley&quot;</span><span class="p">,</span> <span class="s2">&quot;Tenderloin&quot;</span><span class="p">,</span> <span class="s2">&quot;North of Market&quot;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;94103&quot;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;SoMa&quot;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;94104&quot;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;Financial District&quot;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;94105&quot;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;Embarcadero&quot;</span><span class="p">,</span> <span class="s2">&quot;SoMa&quot;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;94107&quot;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;Potrero Hill&quot;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;94108&quot;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;Chinatown&quot;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;94109&quot;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;Nob Hill&quot;</span><span class="p">,</span> <span class="s2">&quot;Russian Hill&quot;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;94110&quot;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;Mission&quot;</span><span class="p">,</span> <span class="s2">&quot;Bernal Heights&quot;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;94111&quot;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;Embarcadero&quot;</span><span class="p">,</span> <span class="s2">&quot;Barbary Coast&quot;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;94112&quot;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;Ingelside-Excelsior&quot;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;94114&quot;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;Castro&quot;</span><span class="p">,</span> <span class="s2">&quot;Noe Valley&quot;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;94115&quot;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;Pacific Heights&quot;</span><span class="p">,</span> <span class="s2">&quot;Western Addition&quot;</span><span class="p">,</span> <span class="s2">&quot;Japantown&quot;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;94116&quot;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;Outer Sunset&quot;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;94117&quot;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;Haight Ashbury&quot;</span><span class="p">,</span> <span class="s2">&quot;Cole Valley&quot;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;94118&quot;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;Inner Richmond&quot;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;94121&quot;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;Outer Richmond&quot;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;94122&quot;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;Inner Sunset&quot;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;94123&quot;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;Marina&quot;</span><span class="p">,</span> <span class="s2">&quot;Cow Hollow&quot;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;94124&quot;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;Bayview&quot;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;94127&quot;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;St. Francis Wood&quot;</span><span class="p">,</span> <span class="s2">&quot;West Portal&quot;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;94129&quot;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;Presidio&quot;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;94131&quot;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;Twin Peaks&quot;</span><span class="p">,</span> <span class="s2">&quot;Glen Park&quot;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;94132&quot;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;Lake Merced&quot;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;94133&quot;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;North Beach&quot;</span><span class="p">,</span> <span class="s2">&quot;Fisherman&#39;s Wharf&quot;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;94134&quot;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;Visitacion Valley&quot;</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>But as I looked at all the data I had collected, I realized that the zipcode/neighborhood lookup table was key to making our search more robust.</p>
+
+<h3>Handling Search Queries</h3>
+
+<p>Incoming search request can be in any number of forms: neighborhood names, street addresses, zipcodes. Since our goal was for a user to be able to find and reserve parking spaces, I needed a way to (naively) parse incoming searches and redirect them. My solution was to create a search controller with a series of conditional regex filters:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">parse_search</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">if</span> <span class="n">user_input</span> <span class="o">=~</span> <span class="sr">/(?:^|\s)(\d{5}|\d{5}-\d{4})(?:\s|$)/</span>
+</span><span class='line'>    <span class="n">find_by_zip</span><span class="p">(</span><span class="n">user_input</span><span class="o">[</span><span class="sr">/\d{5}/</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">elsif</span> <span class="n">user_input</span> <span class="o">=~</span> <span class="sr">/^([a-zA-Z]+\s?)+/</span>
+</span><span class='line'>    <span class="n">find_by_hood</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">elsif</span> <span class="n">user_input</span> <span class="o">=~</span> <span class="sr">/\d+\w?\s\D*/</span>
+</span><span class='line'>    <span class="n">find_by_address</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'>    <span class="n">last_five_newest_available_spots</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If the search string contained a 5 or 9 digit zipcode, I needed to extract it and  query the database. If instead it looked like a neighborhood name, I needed to first reference the lookup table to see if I could find the zipcode. Finally, if it looked like a street address, I&rsquo;d let the Google Maps API sort out the zipcode for me. If all else failed, I returned the five most recent parking spots.</p>
+
+<p>The trickiest part of implimenting this was writing a regex that could find a zipcode at <em>any</em> point within a string. To do this I used the &lsquo;lookahead&rsquo; and &lsquo;lookbehind&rsquo; feature. For the lookahead I needed to check for either the beginning of the line, or a whitespace character: <code>(?:^|\s)</code>. Similarly, The lookbehind checked for the end of the line, or a whitespace: <code>(?:\s|$)</code>. In between I checked for either exactly 5 digits, or exactly 5 digits a dash and 4 digits. In this way I avoided getting a false positive &ldquo;partial match&rdquo; on longer sequences of numbers.</p>
+
+<h3>DIY Autocomplete</h3>
+
+<p>Now that we had seed data and a search controller, the question turned to how we could make that data accessible to users. Although we could list neighborhoods and zipcodes, it would make for a terrible user experience. Instead I thought we could use the data I&rsquo;d collected to impliment &lsquo;instant search.&rsquo;</p>
+
+<p>I prototyped it for my team, using jQuery and ajax. First, I setup a function to log keystrokes:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">logKeystrokes</span><span class="p">(){</span>
+</span><span class='line'>  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#search-field&quot;</span><span class="p">).</span><span class="nx">keyup</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">query</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#search-field&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">()</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nx">query</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">){</span>
+</span><span class='line'>      <span class="nx">autocomplete</span><span class="p">(</span><span class="nx">query</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">})</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then I added a function that fires off the ajax call and handles the response:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">autocomplete</span><span class="p">(</span><span class="nx">query</span><span class="p">){</span>
+</span><span class='line'>  <span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;search/autocomplete&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">q</span><span class="o">:</span> <span class="nx">query</span> <span class="p">}</span> <span class="p">)</span>
+</span><span class='line'>  <span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+</span><span class='line'>    <span class="nx">displayAutocompleteGuessInDOM</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">})</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>On the backend, the autocomplete search controller checks the database for partial matches, and returns a json object:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">autocomplete</span>
+</span><span class='line'>  <span class="n">query</span> <span class="o">=</span> <span class="n">params</span><span class="o">[</span><span class="ss">:q</span><span class="o">].</span><span class="n">downcase</span>
+</span><span class='line'>  <span class="n">suggestions</span> <span class="o">=</span> <span class="no">CityData</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;neighborhood LIKE ?&#39;</span><span class="p">,</span> <span class="s2">&quot;%</span><span class="si">#{</span><span class="n">query</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="ss">:neighborhood</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">suggestions</span><span class="o">.</span><span class="n">map!</span><span class="p">{</span><span class="o">|</span><span class="n">obj</span><span class="o">|</span> <span class="n">obj</span><span class="o">.</span><span class="n">neighborhood</span><span class="o">.</span><span class="n">titleize</span><span class="p">}</span>
+</span><span class='line'>  <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="n">suggestions</span><span class="o">.</span><span class="n">to_json</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>From there it&rsquo;s simply a matter of displaying the results on the page.</p>
+
+<p>With that, I had a functioning prototype to show to my team, and we were in unanimous agreement that this was the unifying feature that our app needed. So instead of reinventing the wheel, I rolled up my sleeves, dumped my original code, and dove into jQuery UI&rsquo;s Autocomplete library.</p>
+
+<h3>jQuery Autocomplete</h3>
+
+<p>jQuery&rsquo;s implimentation of autocomplete has some nice features. In addition to being able to set minimum length, by default it also takes into account typing rate. But what I really couldn&rsquo;t beat was their implimentation of the drop-down search menu.</p>
+
+<p>Setting up jQuery autocomplete was fairly easy once I wrapped my head around their interface:<br/>
+&ndash; <strong>source</strong>: where to find the data to populate the search menu.<br/>
+&ndash; <strong>select</strong>: what to do when the user makes their final selection.<br/>
+&ndash; <strong>request</strong>: the query being typed.<br/>
+&ndash; <strong>response</strong>: the data used to populate the seach menu.</p>
+
+<p>I ended up refactoring the code into my search controller along these lines:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">setupAutocomplete</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#search-field&quot;</span><span class="p">).</span><span class="nx">autocomplete</span><span class="p">({</span>
+</span><span class='line'>    <span class="nx">source</span><span class="o">:</span> <span class="nx">SearchController</span><span class="p">.</span><span class="nx">onUserKeystroke</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">minLength</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">select</span><span class="o">:</span> <span class="nx">SearchController</span><span class="p">.</span><span class="nx">onUserSelection</span>
+</span><span class='line'>  <span class="p">});</span>
+</span><span class='line'><span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">onUserKeystroke</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
+</span><span class='line'>  <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+</span><span class='line'>    <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;search/autocomplete&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">data</span><span class="o">:</span> <span class="p">{</span><span class="nx">q</span><span class="o">:</span> <span class="nx">request</span><span class="p">.</span><span class="nx">term</span><span class="p">}</span>
+</span><span class='line'>  <span class="p">}).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+</span><span class='line'>    <span class="nx">response</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">});</span>
+</span><span class='line'><span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">onUserSelection</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="nx">ui</span><span class="p">,</span> <span class="nx">searchterm</span><span class="p">){</span>
+</span><span class='line'>  <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+</span><span class='line'>  <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+</span><span class='line'>    <span class="nx">url</span><span class="o">:</span><span class="s2">&quot;search/parking-spots&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">data</span><span class="o">:</span> <span class="p">{</span><span class="nx">q</span><span class="o">:</span> <span class="nx">searchterm</span><span class="p">}</span>
+</span><span class='line'>  <span class="p">}).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">listings</span><span class="p">){</span>
+</span><span class='line'>    <span class="nx">SearchController</span><span class="p">.</span><span class="nx">buildAndAssociateMarkersAndList</span><span class="p">(</span><span class="nx">searchterm</span><span class="p">,</span> <span class="nx">listings</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">});</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And with that we had a really nice way for our users to find what they were looking for: by street address, neighborhood name, or zip code.</p>
+
+<h3>Lessons learned</h3>
+
+<p>Users can interact with autocomplete menus in unexpected ways:<br/>
+&ndash; They may select an item and hit enter, but don&rsquo;t foget they can click too.<br/>
+&ndash; If I type really fast, I may not bother to make a selection from the drop down menu, so don&rsquo;t forget to close the menu when I hit submit!<br/>
+&ndash; Autocomplete can catch some errors (like spelling), but make sure you have a way to handle them on the backend as well.<br/>
+&ndash; Don&rsquo;t leave your user empty handed: if the search returns nothing, at least have a way of indicating that there are no results.</p>
+
+<p>Finally, the biggest takeaway was understanding the power of data. To quote Rob Pike:</p>
+
+<blockquote><p>&ldquo;Data dominates. If you&rsquo;ve chosen the right data structures and organized things well, the algorithms will almost always be self-evient. Data structures, not algorithms, are central to programming.&rdquo;</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/11/13/making-a-personal-api/">A Personal API?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-13T10:35:00-08:00" pubdate data-updated="true">Nov 13<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The other day I came across a job posting that challenged applicants to submit their resumes and cover letters through an API. This got me thinking about building my own API, so after googling around to see what other people had done along the same lines (<a href="http://readwrite.com/2013/08/23/building-personal-api">here</a> and <a href="http://x.naveen.com/post/51808692792/a-personal-api">here</a>), I set to work building a simple sinatra app that serves up my data. It is now live at <a href="http://api.codeislike.com">api.codeislike.com</a>, hosted by heroku.</p>
+
+<p>For now, my API is largely static. I didn&rsquo;t use a database or any cacheing. But for kicks I did pull in my twitter activity.</p>
+
+<p>You can access it from the command line by running:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl http://api.codeislike.com
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>A few things that I learned along the way:</p>
+
+<h3>Regexes &amp; Routes</h3>
+
+<p>I thought it would be an interesting challenge to allow the consumer of my API to drill down to the exact data they wanted instead of just returning the entire json object. So, for instance, instead of returning all of my status updates, they could request only my twitter status by going to <a href="http://api.codeislike.com/status/twitter.">http://api.codeislike.com/status/twitter.</a></p>
+
+<p>To impliment this I used a simple regex with a wildcard that captures the optional second arguement:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">get</span> <span class="s1">&#39;/:category/?*&#39;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">category</span> <span class="o">=</span> <span class="n">params</span><span class="o">[</span><span class="ss">:captures</span><span class="o">][</span><span class="mi">0</span><span class="o">].</span><span class="n">to_sym</span>
+</span><span class='line'>  <span class="n">item</span> <span class="o">=</span> <span class="n">params</span><span class="o">[</span><span class="ss">:captures</span><span class="o">][</span><span class="mi">1</span><span class="o">].</span><span class="n">to_sym</span> <span class="k">unless</span> <span class="n">params</span><span class="o">[</span><span class="ss">:captures</span><span class="o">][</span><span class="mi">1</span><span class="o">].</span><span class="n">empty?</span>
+</span><span class='line'>  <span class="n">item</span> <span class="p">?</span> <span class="n">json</span><span class="p">(</span><span class="no">API_DATA</span><span class="o">[</span><span class="n">category</span><span class="o">][</span><span class="n">item</span><span class="o">]</span><span class="p">)</span> <span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="no">API_DATA</span><span class="o">[</span><span class="n">category</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Cross-Origin Resource Sharing</h3>
+
+<p>It turns out web-browsers don&rsquo;t like it very much if you try to pull data from one domain to another. In my case I was trying to see if I could access my API (hosted on Heroku) from this website (hosted on github).</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span><span class="s2">&quot;http://api.codeislike.com/status/twitter&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">tweet</span><span class="p">){</span>
+</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">tweet</span><span class="p">)</span>
+</span><span class='line'><span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Chrome&rsquo;s error message spelled out the problem:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">XMLHttpRequest</span> <span class="nx">cannot</span> <span class="nx">load</span> <span class="nx">http</span><span class="o">:</span><span class="c1">//api.codeislike.com/.</span>
+</span><span class='line'><span class="nx">No</span> <span class="s1">&#39;Access-Control-Allow-Origin&#39;</span> <span class="nx">header</span> <span class="nx">is</span> <span class="nx">present</span> <span class="nx">on</span> <span class="nx">the</span> <span class="nx">requested</span> <span class="nx">resource</span><span class="p">.</span>
+</span><span class='line'><span class="nx">Origin</span> <span class="s1">&#39;http://codeislike.com&#39;</span> <span class="nx">is</span> <span class="nx">therefore</span> <span class="nx">not</span> <span class="nx">allowed</span> <span class="nx">access</span><span class="p">.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>One way people are working around this is to use jsonp which wraps the json in html, thereby fooling the browser. Since I had access to the server, the simplest solution was to add the required header to all of my controllers using a wildcard to make it accessible to anyone:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">before</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">response</span><span class="o">.</span><span class="n">header</span><span class="o">[</span><span class="s1">&#39;Access-Control-Allow-Origin&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;*&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Quantified Self</h3>
+
+<p>It turns out that Quantified Self junkies love the idea of a personal API. Given all the data we&rsquo;re collectively churning out with fitbits and other internet-of-things-style embedded-electronics, the potential for a live feed of fitness (and feeding-patterns) isn&rsquo;t that far off.</p>
+
+<p>I doubt I&rsquo;ll put any more time into this project, but perhaps we&rsquo;ll eventually see sites like IFTTT take this idea to the next level by providing access to aggregated, personal API data. Better yet, and of far more utility, would be a live feed of health-related data beamed straight to my doctor.</p>
+
+<p>Early Quantified Self &ldquo;guinea pigs&rdquo; like Larry Smarr (<a href="http://www.theatlantic.com/magazine/archive/2012/07/the-measured-man/309018/">The Measured Man: The Atlantic</a>) and Tim Ferriss (<a href="http://fora.tv/2012/10/16/4-Hour_Everything_How_Tim_Ferriss_Tracks_His_Lifes_Data">2012 Wired Health Conference Video Interview</a>) are blazing that trail for the rest of us.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/11/04/jquery-selector-game/">jQuery Selector: The Game</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-04T22:15:00-08:00" pubdate data-updated="true">Nov 4<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I invite you to vandalize my site. <strong>Hit enter to play</strong>. Next, type any jquery selector or html tag that you think is on the page. (HINT: try &lsquo;strong&rsquo;, &lsquo;code&rsquo;, &lsquo;p&rsquo;, &lsquo;*&rsquo;)</p>
+
+<p>Ever since learning about jquery selectors I thought it would be pretty cool to make a game out of it. Yesterday I gave it a shot and came up with a fairly viable product.</p>
+
+<p>The first challenge I faced was determining if I could detect the removal of an element from the page. Sure enough, after a little bit of playing around in the console I had a working event listener.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">listenIExist</span><span class="p">(</span><span class="nx">elem</span><span class="p">){</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">$elem</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">elem</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">$elem</span><span class="p">.</span><span class="nx">length</span><span class="p">){</span>
+</span><span class='line'>      <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span><span class="nx">listenIExist</span><span class="p">(</span><span class="nx">elem</span><span class="p">)},</span><span class="mi">600</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Vamooosh!&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Each time the element&rsquo;s selector is passed into the function it uses its length to determine if it still exists on the page.</p>
+
+<p>The next question was how I was going to collect all the tags in the first place. My initial thought was I&rsquo;d select the document as a whole and then iterate through all the children, and the children&rsquo;s children, and the children&rsquo;s children&rsquo;s children. Easy with a recursive loop. But not very pretty. It looked something like this, and worked terribly:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">howMuchFortheChildren</span><span class="p">(</span><span class="nx">tag</span><span class="p">){</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">child</span> <span class="o">=</span> <span class="nx">tag</span>
+</span><span class='line'>  <span class="nx">tagsArray</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nx">child</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">tagName</span><span class="p">)</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">$children</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">child</span><span class="p">).</span><span class="nx">children</span><span class="p">()</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">$children</span><span class="p">.</span><span class="nx">length</span><span class="p">){</span>
+</span><span class='line'>      <span class="nx">$children</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>          <span class="nx">howMuchFortheChildren</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">})</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>But then I discovered a novel solution that simplified things considerably. jQuery supports a wildcard selector. Why not use that?</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="nx">selector</span><span class="p">){</span>
+</span><span class='line'>  <span class="nx">listenIExist</span><span class="p">(</span> <span class="nx">$</span><span class="p">(</span><span class="nx">selector</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">tagName</span> <span class="p">)</span>
+</span><span class='line'><span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now we were talking. The core pieces were in place. Except, how was I going to get user input?</p>
+
+<p>I&rsquo;d made the blinking-cursor in the header only a few days prior. It seemed almost too perfect. Forget about text fields. <em>Here</em> was an interesting challenge.</p>
+
+<p>First I set up a listener for keystrokes, specifically the enter key:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">if</span> <span class="p">(</span><span class="nx">keyCode</span> <span class="o">===</span> <span class="mi">13</span><span class="p">){</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">the_game_has_started</span><span class="p">){</span>
+</span><span class='line'>      <span class="nx">evaluateSelector</span><span class="p">()</span>
+</span><span class='line'>  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">startTheGame</span><span class="p">()</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Using jquery&rsquo;s <code>.wrap()</code> and <code>.append()</code> methods I was able to manipulate the html around the cursor. But I also needed the cursor to move down to a new line. Since it was already wrapped in the &lt;h2> tag what I needed to do was break it into its own heading.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;h2&gt;</span>&gt; begin braindump<span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">&quot;blinking-cursor&quot;</span><span class="nt">&gt;</span>|<span class="nt">&lt;/span&gt;&lt;/h2&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So I used a trusty injection attack. I prepended a closing and opening &lt;h2> tag to the cursor. Now, instead of having one line I had two:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;h2&gt;</span>&gt; begin braindump<span class="nt">&lt;/h2&gt;</span>
+</span><span class='line'><span class="nt">&lt;h2&gt;</span>&gt; <span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">&quot;blinking-cursor&quot;</span><span class="nt">&gt;</span>|<span class="nt">&lt;/span&gt;&lt;/h2&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>From there, the cursor&rsquo;s movement is just a side-effect of it being bumped over by the text to the left of it. After the user hits enter the &lsquo;field&rsquo; is cleared and the process starts over again. However this is where I hit a major bug: the backspace.</p>
+
+<p>Hitting backspace triggers the browser to go back to the previous page in its  history. Everyone has at some infuriating moment done it. At the moment I&rsquo;ve only accidentely managed to sidestep the problem.</p>
+
+<p>The address bar, as understated as it is, is the only safe place I could think of to display game stats. As a side-effect of updating the hash, the browser thinks you&rsquo;ve  gone to a new page. So if you bump into the backspace, you may just go back to an earlier score without the page reloading.</p>
+
+<p>So that&rsquo;s jquery selector, the game. Or as I like to call it: jquery destructor. Now I&rsquo;m in the process of refactoring my javascript, seperating out my controllers, and using more of an object oriented approach.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/11/02/the-blinking-cursor-effect/">The Blinking Cursor Effect</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-02T15:55:00-07:00" pubdate data-updated="true">Nov 2<span>nd</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Today I had a bit of an adventure trying to create a realistic blinking cursor on my webpage. My first thought was to use jQuery&rsquo;s <code>.toggle()</code> method, and after playing around with the timing of the effect I settled on a 600ms interval. The code looked like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">recursiveBlinkingCursor</span><span class="p">(){</span>
+</span><span class='line'>  <span class="nx">$elem</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#blinking-cursor&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="nx">$elem</span><span class="p">.</span><span class="nx">toggle</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="nx">recursiveBlinkingCursor</span><span class="p">(</span><span class="nx">$elem</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">})</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>But using <code>.toggle()</code> had two unwanted side-effects. One was that <code>.toggle()</code> by default uses the &lsquo;swing&rsquo; animation which causes the cursor to expand and contract vertically as it fades in and out. The other was that the effect was effectively adding and removing the element from the page and therefore was bumping into the things around it. In my case the expansion/contraction was causing the line height to increase and decrease, thereby making the entire line bounce up and down. Not the effect I was aiming for.</p>
+
+<p>The reason for this side-effect is that <code>.toggle()</code> uses the css property &lsquo;display:none&rsquo;. What I needed was the css property <code>'visibility:hidden'</code>. You can think of it like asking someone to hold your place in line. You&rsquo;re not physically there, but someone is holding your spot.</p>
+
+<p>So I went back to the drawing board, pitched out the <code>.toggle()</code> method, and decided to do it oldschool.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">recursiveBlinkingCursor</span><span class="p">(){</span>
+</span><span class='line'>  <span class="nx">$elem</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#blinking-cursor&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="nx">$elem</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;style&#39;</span><span class="p">,</span> <span class="s1">&#39;visibility:hidden&#39;</span><span class="p">).</span><span class="nx">delay</span><span class="p">(</span><span class="mi">600</span><span class="p">)</span>
+</span><span class='line'>  <span class="nx">$elem</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;style&#39;</span><span class="p">,</span> <span class="s1">&#39;visibility:true&#39;</span><span class="p">).</span><span class="nx">delay</span><span class="p">(</span><span class="mi">600</span><span class="p">)</span>
+</span><span class='line'>  <span class="nx">recursiveBlinkingCursor</span><span class="p">()</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This led to a lovely stack overflow message:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>RangeError: Maximum call stack size exceeded</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In the end I scraped the jQuery <code>.delay()</code> and went with javascript&rsquo;s <code>setTimeout()</code>. This nested monstrosity is what I settled on:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">recursiveBlinkingCursor</span><span class="p">(</span><span class="nx">elem</span><span class="p">){</span>
+</span><span class='line'>  <span class="nx">$elem</span> <span class="o">=</span> <span class="nx">elem</span> <span class="o">||</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#blinking-cursor&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="nx">$elem</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;style&quot;</span><span class="p">,</span> <span class="s2">&quot;visibility:hidden&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>      <span class="nx">$elem</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;style&quot;</span><span class="p">,</span> <span class="s2">&quot;visibility:true&quot;</span><span class="p">);</span>
+</span><span class='line'>      <span class="nx">recursiveBlinkingCursor</span><span class="p">(</span><span class="nx">$elem</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">},</span> <span class="mi">600</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">},</span> <span class="mi">600</span><span class="p">)</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Using <code>setTimeout()</code> in this way allows me to tell the function to wait, hide, reveal, hide, and then make the recursive call to start it all over again. Works like a charm.</p>
+
+<p>EDIT: A few weeks later I discovered that javascript has a <code>setInterval()</code> function. This allowed me to ditch the recursive call altogether. For simplicity&rsquo;s sake I also decided to ditch jQuery. The code as it stands today is:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">blinkingCursor</span><span class="p">(</span><span class="nx">elem</span><span class="p">){</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">elem</span> <span class="o">=</span> <span class="nx">elem</span> <span class="o">||</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#blinking-cursor&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="nx">elem</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">visibility</span> <span class="o">=</span> <span class="s1">&#39;hidden&#39;</span>
+</span><span class='line'>    <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>      <span class="nx">elem</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">visibility</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</span><span class='line'>    <span class="p">},</span> <span class="mi">600</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">},</span> <span class="mi">1200</span><span class="p">)</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>  <span class="nx">blinkingCursor</span><span class="p">()</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can view it on github <a href="https://github.com/nathanallen/blinking-cursor">here</a>.</p>
+
+<p>As an addendum, when I showed the effect to a friend he wondered if I could have used the html <code>&lt;blink\&gt;</code> tag. Almost certain that I had over-engineered the problem I did a little googling and found these gems: &ldquo;&lt;blink> was once reviled as the most obnoxious tag in HTML. Now it&rsquo;s mostly forgotten.&rdquo; &ldquo;HTML5 classifies it as a non-conforming feature.&rdquo; &ldquo;No, really, don&rsquo;t use it. It&rsquo;s simply evil.&rdquo;</p>
+
+<p>Blink and you missed it.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/11/01/hello-world/">You Had Me at Hello World</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-01T00:00:00-07:00" pubdate data-updated="true">Nov 1<span>st</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Ruby:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">say_hello</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+</span><span class='line'>  <span class="nb">p</span> <span class="s2">&quot;hello </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">!&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">say_hello</span><span class="p">(</span><span class="s2">&quot;world&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>JavaScript:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">sayHello</span><span class="p">(</span><span class="nx">name</span><span class="p">){</span>
+</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;hello &quot;</span> <span class="o">+</span> <span class="nx">name</span><span class="p">)</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">sayHello</span><span class="p">(</span><span class="s2">&quot;world&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Unix:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sayhi<span class="o">(){</span><span class="nb">echo</span> <span class="s2">&quot;hello $1&quot;</span><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>sayhi world
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+  </div>
+</div>
+
+    <hr>
+<br>
+<center>
+	<a href="https://github.com/nathanallen"><i class="fa fa-github fa-2x"></i></a>
+	<a href="http://twitter.com/punriddled"><i class="fa fa-twitter fa-2x"></i></a>
+	<a href="http://linkedin.com/in/thisisnathan"><i class="fa fa-linkedin fa-2x"></i></a>
+	<a href="mailto:the + my first name + ator@gmail.com"><i class="fa fa-envelope-o fa-2x"></i></a>
+</center>
+<center>
+  <a href="/">home</a> | 
+  <a href="/blog">blog</a> | 
+  <a href="/portfolio">portfolio</a>
+</center>
+
+    </div>
+  </div>
+  <footer> </footer>
+  
+
+
+
+
+
+
+
+</body>
+</html>

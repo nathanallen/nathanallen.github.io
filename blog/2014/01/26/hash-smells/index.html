@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Hash Smells - Code is like</title>
+  <meta name="author" content="Nathan Allen">
+
+  
+  <meta name="description" content="Hash Smells Jan 26th, 2014 Lately I&rsquo;ve been working a lot with hashes, specifically nested hashes, and I&rsquo;ve found myself doing this ( &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://codeislike.com/blog/2014/01/26/hash-smells">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Code is like" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <script src="/javascripts/selector.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  
+  <script>(function(G,o,O,g,l){G.GoogleAnalyticsObject=O;G[O]||(G[O]=function(){(G[O].q=G[O].q||[]).push(arguments)});G[O].l=+new Date;g=o.createElement('script'),l=o.scripts[0];g.src='//www.google-analytics.com/analytics.js';l.parentNode.insertBefore(g,l)}(this,document,'ga'));ga('create','UA-45643743-1');ga('send','pageview')</script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup class='game'>
+  <h1><a href="/">Code is like</a></h1>
+  
+    <h2 class='game'><span id='subtitle' class='game'>> begin braindump</span><span id="prompt" class='game'><span id="input-area" class='game'></span><span id="blinking-cursor" class='game'>|</span></span></h2>
+  
+</hgroup>
+
+</header>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Hash Smells</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-26T12:04:00-08:00" pubdate data-updated="true">Jan 26<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Lately I&rsquo;ve been working a lot with hashes, specifically nested hashes, and I&rsquo;ve found myself doing this (smelly) pattern:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">if</span> <span class="n">word_freqs</span><span class="o">[</span><span class="n">current_word</span><span class="o">]</span>
+</span><span class='line'>  <span class="k">if</span> <span class="n">word_freqs</span><span class="o">[</span><span class="n">current_word</span><span class="o">][</span><span class="n">next_word</span><span class="o">]</span>
+</span><span class='line'>    <span class="n">word_freqs</span><span class="o">[</span><span class="n">current_word</span><span class="o">][</span><span class="n">next_word</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'>    <span class="n">word_freqs</span><span class="o">[</span><span class="n">current_word</span><span class="o">][</span><span class="n">next_word</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'>  <span class="n">word_freqs</span><span class="o">[</span><span class="n">current_word</span><span class="o">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">next_word</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">}</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>There must be a better way&hellip;</p>
+
+<h2>Seeing Double</h2>
+
+<p>Part of the smell comes from all the duplication. Can we tighten things up by using a variable? The answer is yes and no.</p>
+
+<p>The main problem with using a variable is that any change we make to the variable wont be reflected in the hash. In other words, the variable and the hash do not point to the same object.</p>
+
+<p>This does not work!</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">root_word</span> <span class="o">=</span> <span class="n">word_freqs</span><span class="o">[</span><span class="n">current_word</span><span class="o">]</span>
+</span><span class='line'><span class="k">if</span> <span class="n">root_word</span>
+</span><span class='line'>  <span class="k">if</span> <span class="n">root_word</span><span class="o">[</span><span class="n">next_word</span><span class="o">]</span>
+</span><span class='line'>    <span class="n">root_word</span><span class="o">[</span><span class="n">next_word</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'>    <span class="n">root_word</span><span class="o">[</span><span class="n">next_word</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'>  <span class="n">root_word</span> <span class="o">=</span> <span class="p">{</span><span class="n">next_word</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">}</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Changes made to <code>root_word</code> are <em>not</em> reflected in the <code>word_freqs</code> hash! <strong>They do not point to the same object!</strong></p>
+
+<p>And before you take it a step further, you definitely should not try to access the value of the nested hash directly:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">nested_value</span> <span class="o">=</span> <span class="n">word_freqs</span><span class="o">[</span><span class="n">current_word</span><span class="o">][</span><span class="n">next_word</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you do this, you&rsquo;re likely to throw <code>undefined method '[]' for nil:NilClass</code>. Although the first level of the nested hash may exist, there&rsquo;s no saying the second level will exist.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">word_freqs</span><span class="o">[</span><span class="n">current_word</span><span class="o">]</span>
+</span><span class='line'><span class="c1"># returns the value or nil</span>
+</span><span class='line'><span class="n">word_freqs</span><span class="o">[</span><span class="n">current_word</span><span class="o">][</span><span class="n">next_word</span><span class="o">]</span>
+</span><span class='line'><span class="c1"># returns the value or nil or throws error: undefined method &#39;[]&#39; for nil:NilClass</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Ampersand, Ampersand</h2>
+
+<p>A nice way to clean up this mess is to create a conditional check using <code>&amp;&amp;</code>. Since both sides of the arguement must return true for the conditional to return true, it will exit as soon as it gets a falsy value. In other words, if the first level of the hash exists, and if the nested level exists&hellip; we&rsquo;ve got ourselves a nested conditional check!</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">root_word</span> <span class="o">=</span> <span class="n">word_freqs</span><span class="o">[</span><span class="n">current_word</span><span class="o">]</span>
+</span><span class='line'><span class="k">if</span> <span class="n">root_word</span> <span class="o">&amp;&amp;</span> <span class="n">root_word</span><span class="o">[</span><span class="n">next_word</span><span class="o">]</span>
+</span><span class='line'>  <span class="n">word_freqs</span><span class="o">[</span><span class="n">current_word</span><span class="o">][</span><span class="n">next_word</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'>  <span class="n">word_freqs</span><span class="o">[</span><span class="n">current_word</span><span class="o">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">next_word</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">}</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As good as it gets, and much less smelly!</p>
+
+<h2>Playing with Default</h2>
+
+<p>The nice thing about changing the default behavior of Hash is that it allows us to eliminate the need to set the initial value of the hash. For instance, for my <a href="https://github.com/nathanallen/wordplay/blob/master/n_gram_counter.rb">n-gram counter</a>, I was able to clean up my code by using a hash with a default value of zero.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">ngram_freqs</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">words_array</span><span class="o">.</span><span class="n">each_index</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+</span><span class='line'>  <span class="k">unless</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">stop_index</span>
+</span><span class='line'>    <span class="n">ngram</span> <span class="o">=</span> <span class="n">words_array</span><span class="o">[</span><span class="n">i</span><span class="o">.</span><span class="n">.i</span><span class="o">+</span><span class="n">offset</span><span class="o">].</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">ngram_freqs</span><span class="o">[</span><span class="n">ngram</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># no need to set the intiial value!</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The only drawback is that the hash no longer returns nil if an item doesn&rsquo;t exist, but in this case, I don&rsquo;t need that behavior. Knowing that a word has a frequency of zero is fine by me! And there&rsquo;s zero risk of adding together nil and 1. There&rsquo;s just zero.</p>
+
+<h2>Willy Nilly</h2>
+
+<p>As a sidenote, I discovered you can (kind of) have your cake and eat it too. You can set the default value AND have it return nil by passing Hash a block:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">my_hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">{</span><span class="o">|</span><span class="n">h</span><span class="p">,</span><span class="n">k</span><span class="o">|</span> <span class="n">h</span><span class="o">[</span><span class="n">k</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="kp">nil</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This has the odd effect of &lsquo;setting&rsquo; a key to the default value of zero when you try to &lsquo;get&rsquo; that key. The first time you access it you&rsquo;ll get nil. But look it up a second time, and you&rsquo;ll get 0. In other words, if the item didn&rsquo;t exist before, woops, now you&rsquo;ve added it!</p>
+
+<p>Do we really want a &ldquo;getter&rdquo; method to act as a &ldquo;setter&rdquo;?</p>
+
+<p>I think not. Best to follow the law of Least Surprise. Let defaults be defaults! (And try not to smell, will you?).</p>
+</div>
+
+
+  > end braindump
+
+  <footer>
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/01/13/undefined-method-plus-at/" title="Previous Post: Undefined method +@">&laquo; Undefined method +@</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/02/11/traffic-calming-in-the-kingdom-of-javascript/" title="Next Post: Traffic Calming in the Kingdom of Javascript">Traffic Calming in the Kingdom of Javascript &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+<hr>
+<br>
+<center>
+	<a href="https://github.com/nathanallen"><i class="fa fa-github fa-2x"></i></a>
+	<a href="http://twitter.com/punriddled"><i class="fa fa-twitter fa-2x"></i></a>
+	<a href="http://linkedin.com/in/thisisnathan"><i class="fa fa-linkedin fa-2x"></i></a>
+	<a href="mailto:the + my first name + ator@gmail.com"><i class="fa fa-envelope-o fa-2x"></i></a>
+</center>
+<center>
+  <a href="/">home</a> | 
+  <a href="/blog">blog</a> | 
+  <a href="/portfolio">portfolio</a>
+</center>
+
+
+</div>
+
+    </div>
+  </div>
+  <footer> </footer>
+  
+
+
+
+
+
+
+
+</body>
+</html>

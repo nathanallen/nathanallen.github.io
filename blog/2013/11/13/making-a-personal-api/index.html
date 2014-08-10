@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>A Personal API? - Code is like</title>
+  <meta name="author" content="Nathan Allen">
+
+  
+  <meta name="description" content="A Personal API? Nov 13th, 2013 The other day I came across a job posting that challenged applicants to submit their resumes and cover letters &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://codeislike.com/blog/2013/11/13/making-a-personal-api">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Code is like" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <script src="/javascripts/selector.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  
+  <script>(function(G,o,O,g,l){G.GoogleAnalyticsObject=O;G[O]||(G[O]=function(){(G[O].q=G[O].q||[]).push(arguments)});G[O].l=+new Date;g=o.createElement('script'),l=o.scripts[0];g.src='//www.google-analytics.com/analytics.js';l.parentNode.insertBefore(g,l)}(this,document,'ga'));ga('create','UA-45643743-1');ga('send','pageview')</script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup class='game'>
+  <h1><a href="/">Code is like</a></h1>
+  
+    <h2 class='game'><span id='subtitle' class='game'>> begin braindump</span><span id="prompt" class='game'><span id="input-area" class='game'></span><span id="blinking-cursor" class='game'>|</span></span></h2>
+  
+</hgroup>
+
+</header>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">A Personal API?</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-13T10:35:00-08:00" pubdate data-updated="true">Nov 13<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>The other day I came across a job posting that challenged applicants to submit their resumes and cover letters through an API. This got me thinking about building my own API, so after googling around to see what other people had done along the same lines (<a href="http://readwrite.com/2013/08/23/building-personal-api">here</a> and <a href="http://x.naveen.com/post/51808692792/a-personal-api">here</a>), I set to work building a simple sinatra app that serves up my data. It is now live at <a href="http://api.codeislike.com">api.codeislike.com</a>, hosted by heroku.</p>
+
+<p>For now, my API is largely static. I didn&rsquo;t use a database or any cacheing. But for kicks I did pull in my twitter activity.</p>
+
+<p>You can access it from the command line by running:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl http://api.codeislike.com
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>A few things that I learned along the way:</p>
+
+<h3>Regexes &amp; Routes</h3>
+
+<p>I thought it would be an interesting challenge to allow the consumer of my API to drill down to the exact data they wanted instead of just returning the entire json object. So, for instance, instead of returning all of my status updates, they could request only my twitter status by going to <a href="http://api.codeislike.com/status/twitter.">http://api.codeislike.com/status/twitter.</a></p>
+
+<p>To impliment this I used a simple regex with a wildcard that captures the optional second arguement:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">get</span> <span class="s1">&#39;/:category/?*&#39;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">category</span> <span class="o">=</span> <span class="n">params</span><span class="o">[</span><span class="ss">:captures</span><span class="o">][</span><span class="mi">0</span><span class="o">].</span><span class="n">to_sym</span>
+</span><span class='line'>  <span class="n">item</span> <span class="o">=</span> <span class="n">params</span><span class="o">[</span><span class="ss">:captures</span><span class="o">][</span><span class="mi">1</span><span class="o">].</span><span class="n">to_sym</span> <span class="k">unless</span> <span class="n">params</span><span class="o">[</span><span class="ss">:captures</span><span class="o">][</span><span class="mi">1</span><span class="o">].</span><span class="n">empty?</span>
+</span><span class='line'>  <span class="n">item</span> <span class="p">?</span> <span class="n">json</span><span class="p">(</span><span class="no">API_DATA</span><span class="o">[</span><span class="n">category</span><span class="o">][</span><span class="n">item</span><span class="o">]</span><span class="p">)</span> <span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="no">API_DATA</span><span class="o">[</span><span class="n">category</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Cross-Origin Resource Sharing</h3>
+
+<p>It turns out web-browsers don&rsquo;t like it very much if you try to pull data from one domain to another. In my case I was trying to see if I could access my API (hosted on Heroku) from this website (hosted on github).</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span><span class="s2">&quot;http://api.codeislike.com/status/twitter&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">tweet</span><span class="p">){</span>
+</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">tweet</span><span class="p">)</span>
+</span><span class='line'><span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Chrome&rsquo;s error message spelled out the problem:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">XMLHttpRequest</span> <span class="nx">cannot</span> <span class="nx">load</span> <span class="nx">http</span><span class="o">:</span><span class="c1">//api.codeislike.com/.</span>
+</span><span class='line'><span class="nx">No</span> <span class="s1">&#39;Access-Control-Allow-Origin&#39;</span> <span class="nx">header</span> <span class="nx">is</span> <span class="nx">present</span> <span class="nx">on</span> <span class="nx">the</span> <span class="nx">requested</span> <span class="nx">resource</span><span class="p">.</span>
+</span><span class='line'><span class="nx">Origin</span> <span class="s1">&#39;http://codeislike.com&#39;</span> <span class="nx">is</span> <span class="nx">therefore</span> <span class="nx">not</span> <span class="nx">allowed</span> <span class="nx">access</span><span class="p">.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>One way people are working around this is to use jsonp which wraps the json in html, thereby fooling the browser. Since I had access to the server, the simplest solution was to add the required header to all of my controllers using a wildcard to make it accessible to anyone:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">before</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">response</span><span class="o">.</span><span class="n">header</span><span class="o">[</span><span class="s1">&#39;Access-Control-Allow-Origin&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;*&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Quantified Self</h3>
+
+<p>It turns out that Quantified Self junkies love the idea of a personal API. Given all the data we&rsquo;re collectively churning out with fitbits and other internet-of-things-style embedded-electronics, the potential for a live feed of fitness (and feeding-patterns) isn&rsquo;t that far off.</p>
+
+<p>I doubt I&rsquo;ll put any more time into this project, but perhaps we&rsquo;ll eventually see sites like IFTTT take this idea to the next level by providing access to aggregated, personal API data. Better yet, and of far more utility, would be a live feed of health-related data beamed straight to my doctor.</p>
+
+<p>Early Quantified Self &ldquo;guinea pigs&rdquo; like Larry Smarr (<a href="http://www.theatlantic.com/magazine/archive/2012/07/the-measured-man/309018/">The Measured Man: The Atlantic</a>) and Tim Ferriss (<a href="http://fora.tv/2012/10/16/4-Hour_Everything_How_Tim_Ferriss_Tracks_His_Lifes_Data">2012 Wired Health Conference Video Interview</a>) are blazing that trail for the rest of us.</p>
+</div>
+
+
+  > end braindump
+
+  <footer>
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/11/04/jquery-selector-game/" title="Previous Post: jQuery Selector: The Game">&laquo; jQuery Selector: The Game</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/11/16/autocomplete-search-from-back-to-front/" title="Next Post: Autocomplete Search">Autocomplete Search &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+<hr>
+<br>
+<center>
+	<a href="https://github.com/nathanallen"><i class="fa fa-github fa-2x"></i></a>
+	<a href="http://twitter.com/punriddled"><i class="fa fa-twitter fa-2x"></i></a>
+	<a href="http://linkedin.com/in/thisisnathan"><i class="fa fa-linkedin fa-2x"></i></a>
+	<a href="mailto:the + my first name + ator@gmail.com"><i class="fa fa-envelope-o fa-2x"></i></a>
+</center>
+<center>
+  <a href="/">home</a> | 
+  <a href="/blog">blog</a> | 
+  <a href="/portfolio">portfolio</a>
+</center>
+
+
+</div>
+
+    </div>
+  </div>
+  <footer> </footer>
+  
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Undefined method +@ - Code is like</title>
+  <meta name="author" content="Nathan Allen">
+
+  
+  <meta name="description" content="Undefined Method +@ Jan 13th, 2014 It&rsquo;s tricky keeping program interfaces straight. I recently had an interesting experience switching from &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://codeislike.com/blog/2014/01/13/undefined-method-plus-at">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Code is like" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <script src="/javascripts/selector.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  
+  <script>(function(G,o,O,g,l){G.GoogleAnalyticsObject=O;G[O]||(G[O]=function(){(G[O].q=G[O].q||[]).push(arguments)});G[O].l=+new Date;g=o.createElement('script'),l=o.scripts[0];g.src='//www.google-analytics.com/analytics.js';l.parentNode.insertBefore(g,l)}(this,document,'ga'));ga('create','UA-45643743-1');ga('send','pageview')</script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup class='game'>
+  <h1><a href="/">Code is like</a></h1>
+  
+    <h2 class='game'><span id='subtitle' class='game'>> begin braindump</span><span id="prompt" class='game'><span id="input-area" class='game'></span><span id="blinking-cursor" class='game'>|</span></span></h2>
+  
+</hgroup>
+
+</header>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Undefined Method +@</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-13T22:50:00-08:00" pubdate data-updated="true">Jan 13<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>It&rsquo;s tricky keeping program interfaces straight. I recently had an interesting experience switching from javascript to ruby. The trouble started when I tried to use the increment operator: <code>++</code>.</p>
+
+<p>The errors were baffling. Try as I would to debug, I couldn&rsquo;t identify the source of the problem.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># undefined method \`+@&#39; for false:FalseClass (NoMethodError)  </span>
+</span><span class='line'><span class="c1"># undefined method \`+@&#39; for true:TrueClass (NoMethodError)  </span>
+</span><span class='line'><span class="c1"># undefined method \`+@&#39; for nil:NilClass (NoMethodError)  </span>
+</span><span class='line'><span class="c1"># undefined method \`+@&#39; for &quot;&quot;:String (NoMethodError)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p> But as I poked around, one thing was clear. I needed to figure out what was going wrong with the Numeric method <code>+@</code>!</p>
+
+<h2>Too Much of a Good Thing</h2>
+
+<p>The trouble is that ruby doesn&rsquo;t have any trouble chaining together as many plus-operators as you want. <code>2+2</code> and <code>2++2</code> and <code>2+++2</code> are all going to have a return value of 4.</p>
+
+<p>Javascript on the other hand would throw various syntax errors:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="mi">2</span><span class="o">++</span><span class="mi">2</span> <span class="c1">// SyntaxError: Unexpected number</span>
+</span><span class='line'>
+</span><span class='line'><span class="mi">2</span><span class="o">+++</span><span class="mi">2</span> <span class="c1">// ReferenceError: Invalid left-hand side expression in postfix operation</span>
+</span><span class='line'>
+</span><span class='line'><span class="mi">2</span><span class="o">++++</span><span class="mi">2</span> <span class="c1">// SyntaxError: Unexpected token ++</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>What makes this tricky to debug is that ruby will keep on evaluating across line breaks. But of course!</p>
+
+<h2>Sugar Free</h2>
+
+<p>The <code>+</code> method is just syntactic sugar for <code>.+</code>. This means that <code>1+1</code> is just a friendly way of writing <code>1.+(1)</code>. Leave a plus operator dangling, and it&rsquo;s just going to go ahead and try adding together the left side of the expression with the following line.</p>
+
+<p>So if somewhere in your code you have:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">i</span><span class="o">++</span>
+</span><span class='line'><span class="k">if</span> <span class="n">confused</span>
+</span><span class='line'>  <span class="n">be_more_so</span> <span class="o">=</span> <span class="mi">10</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Ruby will try to add the return value of the conditional to <code>i</code>. (In other words, <code>i+10</code>).</p>
+
+<p>But if, say, your conditional has a return value of nil or true or false or it&rsquo;s a string, or any other whatsit that can&rsquo;t be coerced into an integer, you&rsquo;re going to throw &ldquo;undefined method +@&rdquo; FOR ALL OF THE THINGS.<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></p>
+
+<p>Solution: Use the ruby plus-equals operator: <code>+=</code>, and forget all your javascript.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>If you use <code>++</code> before an if-else conditional you may get <code>syntax error, unexpected keyword_else</code>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+</div>
+
+
+  > end braindump
+
+  <footer>
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/12/20/role-does-not-exist/" title="Previous Post: Role does not exist">&laquo; Role does not exist</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/01/26/hash-smells/" title="Next Post: Hash Smells">Hash Smells &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+<hr>
+<br>
+<center>
+	<a href="https://github.com/nathanallen"><i class="fa fa-github fa-2x"></i></a>
+	<a href="http://twitter.com/punriddled"><i class="fa fa-twitter fa-2x"></i></a>
+	<a href="http://linkedin.com/in/thisisnathan"><i class="fa fa-linkedin fa-2x"></i></a>
+	<a href="mailto:the + my first name + ator@gmail.com"><i class="fa fa-envelope-o fa-2x"></i></a>
+</center>
+<center>
+  <a href="/">home</a> | 
+  <a href="/blog">blog</a> | 
+  <a href="/portfolio">portfolio</a>
+</center>
+
+
+</div>
+
+    </div>
+  </div>
+  <footer> </footer>
+  
+
+
+
+
+
+
+
+</body>
+</html>
