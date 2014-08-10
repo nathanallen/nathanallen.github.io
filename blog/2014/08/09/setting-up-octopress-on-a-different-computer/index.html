@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Octopress all over again - Code is like</title>
+  <meta name="author" content="Nathan Allen">
+
+  
+  <meta name="description" content="Octopress All Over Again Aug 9th, 2014 Six months and a new laptop later, I decided it was time to pick things up where I left off with my blog. &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://codeislike.com/blog/2014/08/09/setting-up-octopress-on-a-different-computer">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Code is like" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <script src="/javascripts/selector.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  
+  <script>(function(G,o,O,g,l){G.GoogleAnalyticsObject=O;G[O]||(G[O]=function(){(G[O].q=G[O].q||[]).push(arguments)});G[O].l=+new Date;g=o.createElement('script'),l=o.scripts[0];g.src='//www.google-analytics.com/analytics.js';l.parentNode.insertBefore(g,l)}(this,document,'ga'));ga('create','UA-45643743-1');ga('send','pageview')</script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup class='game'>
+  <h1><a href="/">Code is like</a></h1>
+  
+    <h2 class='game'><span id='subtitle' class='game'>> begin braindump</span><span id="prompt" class='game'><span id="input-area" class='game'></span><span id="blinking-cursor" class='game'>|</span></span></h2>
+  
+</hgroup>
+
+</header>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Octopress All Over Again</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-09T22:19:00-07:00" pubdate data-updated="true">Aug 9<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Six months and a new laptop later, I decided it was time to pick things up where I left off with my blog.</p>
+
+<p>Normally it&rsquo;s a simple as cloning a repo and you&rsquo;re on your way, but Octopress requires some additional setup.</p>
+
+<p>If you&rsquo;re new to Octorpress you&rsquo;ll quickly discover it has a few quirks, among them: you work on one branch but deploy to another branch. Locally this means you actually have a project directory as one repo (your &lsquo;source&rsquo; branch) and a sub-directory as another repo (your &lsquo;master&rsquo; branch). Combine this with the fact that you&rsquo;ll be missing all the files in your .gitignore and you&rsquo;ve got yourself in a Bad Situation &trade;.</p>
+
+<p>It took me three steps to get it right (thanks to <a href="http://blog.zerosharp.com/clone-your-octopress-to-blog-from-two-places/">this post</a> for nudging me in the right direction).</p>
+
+<p><strong>Step 0</strong> &ndash; Don&rsquo;t forget to install ruby, ruby gems, rake, and make sure to bundle!</p>
+
+<p><strong>Step 1</strong> &ndash; Clone your &lsquo;source&rsquo; branch:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git clone -b <span class="nb">source </span>https://github.com/nathanallen/nathanallen.github.io
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>Step 2</strong> &ndash; Clone your &lsquo;master&rsquo; repo into a subdiretory called <code>_deploy/</code>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd </span>nathanallen.github.io
+</span><span class='line'>git clone https://github.com/nathanallen/nathanallen.github.io _deploy
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>Step 3</strong> &ndash; Finally, generate your <code>public/</code> folder again (it&rsquo;s git-ignored so we need to recreate it):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bundle <span class="nb">exec </span>rake generate
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Friendly reminder: <code>rake -T</code> is your friend! Run it to see all the tasks available to you.</p>
+
+<p><strong>Here&rsquo;s what you shouldn&rsquo;t do</strong>:<br/>
+Don&rsquo;t run <code>rake setup_github_pages</code>. This will overwrite your <code>_deploy/</code> directory and master branch. Should you have done this, here&rsquo;s what you can do to recover your git commit history:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd </span>_deploy
+</span><span class='line'>git fetch --all
+</span><span class='line'>git reset --hard origin/master
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You&rsquo;re all set to being using octopress!</p>
+</div>
+
+
+  > end braindump
+
+  <footer>
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/02/11/traffic-calming-in-the-kingdom-of-javascript/" title="Previous Post: Traffic Calming in the Kingdom of Javascript">&laquo; Traffic Calming in the Kingdom of Javascript</a>
+      
+      
+    </p>
+  </footer>
+</article>
+<hr>
+<br>
+<center>
+  <a href="https://github.com/nathanallen"><i class="fa fa-github fa-2x"></i></a>
+  <a href="http://twitter.com/punriddled"><i class="fa fa-twitter fa-2x"></i></a>
+  <a href="http://linkedin.com/in/thisisnathan"><i class="fa fa-linkedin fa-2x"></i></a>
+  <a href="mailto:nathan@codeislike.com"><i class="fa fa-envelope-o fa-2x"></i></a>
+</center>
+<center>
+  <a href="/">home</a> | 
+  <a href="/blog">blog</a> | 
+  <a href="/portfolio">portfolio</a>
+</center>
+
+
+</div>
+
+    </div>
+  </div>
+  <footer> </footer>
+  
+
+
+
+
+
+
+
+</body>
+</html>

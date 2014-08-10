@@ -4,7 +4,7 @@
   <title><![CDATA[Code is like]]></title>
   <link href="http://codeislike.com/atom.xml" rel="self"/>
   <link href="http://codeislike.com/"/>
-  <updated>2014-08-09T22:16:00-07:00</updated>
+  <updated>2014-08-10T00:15:03-07:00</updated>
   <id>http://codeislike.com/</id>
   <author>
     <name><![CDATA[Nathan Allen]]></name>
@@ -12,6 +12,62 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress all over again]]></title>
+    <link href="http://codeislike.com/blog/2014/08/09/setting-up-octopress-on-a-different-computer/"/>
+    <updated>2014-08-09T22:19:00-07:00</updated>
+    <id>http://codeislike.com/blog/2014/08/09/setting-up-octopress-on-a-different-computer</id>
+    <content type="html"><![CDATA[<p>Six months and a new laptop later, I decided it was time to pick things up where I left off with my blog.</p>
+
+<p>Normally it&rsquo;s a simple as cloning a repo and you&rsquo;re on your way, but Octopress requires some additional setup.</p>
+
+<p>If you&rsquo;re new to Octorpress you&rsquo;ll quickly discover it has a few quirks, among them: you work on one branch but deploy to another branch. Locally this means you actually have a project directory as one repo (your &lsquo;source&rsquo; branch) and a sub-directory as another repo (your &lsquo;master&rsquo; branch). Combine this with the fact that you&rsquo;ll be missing all the files in your .gitignore and you&rsquo;ve got yourself in a Bad Situation &trade;.</p>
+
+<p>It took me three steps to get it right (thanks to <a href="http://blog.zerosharp.com/clone-your-octopress-to-blog-from-two-places/">this post</a> for nudging me in the right direction).</p>
+
+<p><strong>Step 0</strong> &ndash; Don&rsquo;t forget to install ruby, ruby gems, rake, and make sure to bundle!</p>
+
+<p><strong>Step 1</strong> &ndash; Clone your &lsquo;source&rsquo; branch:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git clone -b <span class="nb">source </span>https://github.com/nathanallen/nathanallen.github.io
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>Step 2</strong> &ndash; Clone your &lsquo;master&rsquo; repo into a subdiretory called <code>_deploy/</code>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd </span>nathanallen.github.io
+</span><span class='line'>git clone https://github.com/nathanallen/nathanallen.github.io _deploy
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>Step 3</strong> &ndash; Finally, generate your <code>public/</code> folder again (it&rsquo;s git-ignored so we need to recreate it):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bundle <span class="nb">exec </span>rake generate
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Friendly reminder: <code>rake -T</code> is your friend! Run it to see all the tasks available to you.</p>
+
+<p><strong>Here&rsquo;s what you shouldn&rsquo;t do</strong>:<br/>
+Don&rsquo;t run <code>rake setup_github_pages</code>. This will overwrite your <code>_deploy/</code> directory and master branch. Should you have done this, here&rsquo;s what you can do to recover your git commit history:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd </span>_deploy
+</span><span class='line'>git fetch --all
+</span><span class='line'>git reset --hard origin/master
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You&rsquo;re all set to being using octopress!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Traffic Calming in the Kingdom of Javascript]]></title>
