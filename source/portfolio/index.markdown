@@ -10,17 +10,17 @@ footer: true
 <strong>codeislike.com</strong><span id="portfolio-links">[<i class='fa fa-external-link'></i>](/)</span>  
 This site. No kidding. Built on Octopress, hosted on github pages, and tweaked extensively. It's [baked, not fried](http://www.aaronsw.com/weblog/000406), so dynamic elements are done using javascript. Don't miss the wacky easter egg, an early attempt at a [css selector game](/blog/2013/11/04/jquery-selector-game/) with a terrible UI! I also created my own [API](/blog/2013/11/13/making-a-personal-api/). [<i class='fa fa-code'></i>](https://github.com/nathanallen/nathanallen.github.io)
 
-<strong>brettallenmusic.com</strong><span id="portfolio-links">[<i class='fa fa-external-link'></i>](http://brett-allen-music.appspot.com)</span>  
-Lightweight ecommerce site for a self-publish sheet music business. This site sparked my interest in web development back in 2011 (then hosted on blogger) and gave me my first taste of CSS, HTML, and google analytics. It will be relaunching shortly on google app engine using stripe, bootstrap, and python google spreadsheets as a oneway datastore.
+<strong>brettallenmusic.com</strong><span id="portfolio-links">[<i class='fa fa-external-link'></i>](http://brett-allen-music.com)</span>  
+Ecommerce site for a self-publish sheet music business. This site sparked my interest in web development back in 2011 (then hosted on blogger) and gave me my first taste of CSS, HTML, and google analytics. It has been rebuilt on google app engine (python) using stripe, bootstrap, and the google spreadsheets api.
 
 <h2>One-Offs & Hackathons:</h2>
 <h4>Github Countdown</h4>
 <a href="http://gitcountdown.herokuapp.com"><img src="/images/portfolio/gitcountdown.png"></a><br>
 Don't break your streak! An international github countdown clock so you know how much time you have left to make today's commit. [<i class='fa fa-code'></i>](https://github.com/nathanallen/gitcountdown)
 
-<h4>Full Movie Meter</h4>
-<a href="http://fullmoviemeter.herokuapp.com"><img src="/images/portfolio/fullmovie.png"></a><br>
-A mashup of /r/fullmoviesonyoutube and movie ratings Rotten Tomaotes, so you can find something good to watch online. 100% frontend javascript. [<i class='fa fa-code'></i>](https://github.com/nathanallen/fullmoviemeter)
+<h4>FullMovie4Me</h4>
+<a href="http://fullmovie4me.appspot.com"><img src="/images/portfolio/fullmovie.png"></a><br>
+A movie aggregator / mashup of Reddit and Rotten Tomatoes, so you can find good movies to watch online for free. Now relaunched on Google App Engine using the minimialist riot.js front end framework. [<i class='fa fa-code'></i>](https://github.com/nathanallen/fullmoviemeter)
 
 <h4>Queer Quote</h4> 
 <a href="http://queerquote.com/"><img src="/images/portfolio/queerquote.png"></a>

@@ -7,11 +7,14 @@ categories:
 
 **Currently Reading:**  
 \- Norton Anthology: Sixteenth Century, Early Seventeenth  
-\- The Well-Grounded Rubyist [David Black]  
 \- Structure & Interpretation of Computer Programs [Abelson & Sussman]  
-\- Javascript the Good Parts [Douglas Crockford]
 
 ###<i class='fa fa-book'></i> 2014
+* Getting Things Done [David Allen]
+* The Bug [Ellen Ullman]
+* Dreaming in Code [Scott Rosenberg]
+* A Confederacy of Dunces [John Kennedy Toole]
+* Javascript the Good Parts [Douglas Crockford]
 * Whatever [Michael Houellebecq]
 
 ###<i class='fa fa-book'></i> 2013
