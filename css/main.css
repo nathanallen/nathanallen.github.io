@@ -107,9 +107,37 @@ section > h1:before {
 }
 
 ul {
-  list-style: square;
+  list-style: circle;
   margin: 0;
   padding-left: 1em;
+  padding-right: 1em;
+}
+
+ul.code-links {
+  list-style: none;
+  padding-left: 0;
+}
+
+li > a:first {
+  display: block;
+}
+
+a.github {
+  height: 0;
+  display: block;
+}
+
+a.github:after {
+  display: block;
+  position: relative;
+  left: 100%;
+  top: -1.8em;
+  content: "</>";
+  font-family:Arial;
+  font-size: .8em;
+  line-height: 2em;
+  letter-spacing: .1em;
+  max-width: 10%;
 }
 
 p {
@@ -143,7 +171,8 @@ nav a + a {
 a {
   color: black;
   outline: none;
-  font-style: italic;
+  font-size: .8em;
+  letter-spacing: 2px;
   text-decoration: none;
 }
 
