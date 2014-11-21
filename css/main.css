@@ -262,25 +262,25 @@ td {
   width: 33%;
 }
 
-@media only screen and (max-width : 1100px) {
+@media only screen and (max-width: 1100px) {
   div#main {
     width: 70%;
   }
 }
 
-@media only screen and (max-width : 1000px) {
+@media only screen and (max-width: 1000px) {
   div#main {
     width: 80%;
   }
 }
 
-@media only screen and (max-width : 800px) {
+@media only screen and (max-width: 800px) {
   div#main {
     width: 90%;
   }
 }
 
-@media only screen and (max-width : 700px) {
+@media only screen and (max-width: 700px) {
   .column {
     float: none;
     width: 95%;
@@ -292,7 +292,7 @@ td {
   }
 }
 
-@media only screen and (max-width : 400px) {
+@media only screen and (max-width: 400px) {
   div#main {
     width: 98%;
   }
