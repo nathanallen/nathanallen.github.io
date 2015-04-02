@@ -1,0 +1,82 @@
+==================================================================
+https://keybase.io/na
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://nathan.codes
+  * I am na (https://keybase.io/na) on keybase.
+  * I have a public key with fingerprint 31E8 2191 8B3C 6725 049F  F0BD E639 18CF 917B 15B1
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "client": {
+            "name": "keybase.io node.js client",
+            "version": "0.7.7"
+        },
+        "key": {
+            "fingerprint": "31e821918b3c6725049ff0bde63918cf917b15b1",
+            "host": "keybase.io",
+            "key_id": "E63918CF917B15B1",
+            "uid": "3d9fc4bde7ceef058d65b00186e79c19",
+            "username": "na"
+        },
+        "merkle_root": {
+            "ctime": 1427957530,
+            "hash": "443543ba51277c1626acb054504b96bfb7c83a776c7bef744caed9eef16e9c6db39ecb56810c2033824bba9c59a2323e275b52afcc2f336c1f7a6014bf47ec53",
+            "seqno": 188368
+        },
+        "service": {
+            "hostname": "nathan.codes",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1427957652,
+    "expire_in": 157680000,
+    "prev": "bf6416e4a886a8182019cc9ab5c63748382e5630cca54c94b39bffae2962ce32",
+    "seqno": 4,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Comment: GPGTools - https://gpgtools.org
+
+owFVkn1MVWUcxy8oDiHAWgQrR3JMMsTLeX+B2U3Ml2RsprPhGruc57nPgeOFey7n
+XMUbsTR0FLCQl+kKARmGWIKGmAsMX4kWlgLNmigyQAUpcoqwCLLnkL14/nrO7/d5
+vs/3+3uevUFzLAE+t6XwyyU5oV/4dI4Ay+aFd8pzCKA5vERcDgEzVOTymCuXnImI
+OMKJvEA2kFXVFrk0B7JuNRY9ZmKI7Ug3VM2FKdIqWAUiN8bEzc2K6kpDultXTS2C
+oZBIUxIlAgbyAs2RrKQoJHAgnsFFqEiUACgOUFgyXTM8T5xKzGraVQeurp7lV63B
+fALFJZj8ttkG45AUyGJBASKkkJzo4DlAkpTII0GClGSCBtIfR3LJptNMpDszkF3X
+tNm40KOaTYqlBYkTOIbEXmQjHeMsy3AsA2SOogUBUjzNyxCQHItjAIkHChCgyMiC
+wEMBIEVgWSgjh4R9UDySIO8AjIQg4HiRIiFNMoxIswDIEuQkmWZoBtECBzhaViCk
+FYbhIaUIMk9SLFBYAUGOweYNlOXSsDlRZHgx1/zXt6sQmb7Ngf2by5Muu6wQX5OB
+N7l1zaNBLQN30j0ed5wZ2uN1m2Q2Ava/NQ4jO1BdDnxd/79PCqNPDoTn6BgC7XCr
+OrKrJoFLIok/8xy0HWsChWdxYlYWRV4WKZEmKQlCSQYc5BmBFXFuxPEMCaHMsVBi
+8ViAosiIlngaIob+LyaLfcppWNJQ03CmbToicj/0XTjX4hNgmefnaz5YS8D8Bf+8
+4lt5IY88386oIQezGtSGZ5vHrZP32vOiw+pnSqrmzef8lkV+utJ/YtPd6ZQlRTcj
+vJWXHghdXddK64O9p9+MGNs1nnyu8M5gb0pr9nKwzta9Yuee4qhDY5cu7BLH62rG
+8k94YVlZgX9B28OQ5mPvBb7/Q43fn+2NTa0fGav8VrDZncM7In/viCevnz0zkXE0
+bq3R1jNZUF2whCI7K27Xbl4xxTRq1Qt8Uu6Xr2+oGe2zvx6zsTL05dFriTP37SMX
+qm7c3HjiAOHbuiDxtbClSfktnqtJm2RyWHEbXZXO2of5jYnwlaUvpvpe6wwPzuFn
+ho4n9/Lt2VWbQm5NgXU1VwYjIpry9ZSykEdpvYfuhR6osEhb0ebJnuaNllH+ExC/
+7IXoNz7zdp8NjE2N/XXoUWxkXu26DeHFO7/bUv9Haaqzc3/wc8zMklPO469WfDnx
+Vu7NzMZvuL6tSQmXnUFHulquv82EKe9cWfmbo+X7xY1D/oItb2pw+UBvcHNH4tNl
+a7oOsyeHT+9L+Klk1Ve5MVnTVxvKrcdWq2Rd8dqL0Zf9JmoO7Bu3Dezpf1A0Mmd3
+KNFwO7n0x49zbpy3HZ2MOLi+ukP+PN5ReO6pEleUt86dGDw2t3W3PWD/9N2eIO6D
+ilP6ZJY/GdW35ZnwwqKvK/v7B34peqk7L/x5W3kgMmwbTiYdP7P457bAIy1N7573
+ufgX
+=UNW4
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/na
+
+==================================================================
