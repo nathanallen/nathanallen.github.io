@@ -164,6 +164,10 @@ a {
   text-decoration: none;
 }
 
+a[target=_blank]:hover {
+  cursor: no-drop;
+}
+
 a:hover {
   outline: none;
   color: #B4D455;
