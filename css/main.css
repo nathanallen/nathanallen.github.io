@@ -122,6 +122,13 @@ a.github:after {
   max-width: 10%;
 }
 
+a.github.locked:after {
+  content: "\1F512"
+}
+a.github.camera:after {
+  content: "\1F4F7"
+}
+
 h3 {
   margin-bottom: .4em;
 }
